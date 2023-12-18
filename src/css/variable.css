@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('../font/NeueMontreal-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('../font/NeueMontreal-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Quincy CF';
+  src: url(../font/Quincy\ CF\ Black\ Regular.woff) format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+:root {
+  --back-color: #E8E8E2;
+  --color-link: #6D8434;
+  --font-montreal: 'Neue Montreal', sans-serif;
+  --font-quincy: 'Quincy CF', sans-serif;
+  --icon-hovecolor: #586F1F;
+  --orange: #FDC152; 
+  --black: #010101; 
+  
+} 

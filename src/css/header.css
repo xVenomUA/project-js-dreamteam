@@ -1,21 +1,90 @@
-.header {
-  padding: 20px 0;
-}
+@import url('./variable.css');
+.header{ 
 
-.nav-list {
+  padding: 18px 0 72px 0;
+}
+.header-logo{ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  background-color: var(--color-link);
+  border-radius: 50%;
+  margin-right: 8px;
+
+}
+.header-div-link{ 
+  display: flex;
+  margin-right: auto;
+  transition: 250ms;
+}
+.header-container{ 
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 40px;
+  justify-content: center;
 }
-
-.nav-link {
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  line-height: 1.5;
+.header-nav{ 
+  display: flex;
 }
+.header-home{ 
+display: flex;
+padding: 10px 20px;
+justify-content: center;
+align-items: center;
+color: #E8E8E2;
+font-size: 14px;
+font-weight: 500;
+line-height: 18px; /* 128.571% */
+border-radius: 30px;
+background-color: var(--color-link);
+margin-right: 6px;
+}
+.header-name{ 
+color: #010101;
+font-size: 18px;
+font-weight: 900;
+line-height: 1.25rem;
+letter-spacing: -0.0225rem;
+display: flex;
+justify-content: center;
+align-items: center;
 
-.nav-link:hover,
-.nav-link:focus {
-  color: #747bff;
+}
+.header-goods{
+display: flex;
+padding: 12px;
+justify-content: center;
+align-items: center;
+background-color: var(--color-link);
+border-radius: 50%;
+}
+.header-icon-food{ 
+  fill: var(--back-color);
+}
+.header-icon-shop{ 
+  fill: var(--back-color);
+  transition: 250ms;
+}
+.header-div-link:hover{
+   background-color: var(--color-link);
+   border-radius: 9px;
+   color: white;
+   width: 180px;
+  height: 43px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   .header-icon-food{ 
+    fill: var(--color-link);
+   }
+   .header-logo{ 
+    background-color: var(--back-color);
+   }
+   .header-name{ 
+    color: var(--back-color);
+   }
+}
+.header-icon-shop:hover{ 
+  fill: var(--icon-hovecolor);
 }

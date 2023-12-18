@@ -1,0 +1,43 @@
+@import url('./variable.css');
+.hero {
+  padding-bottom: 74px;
+}
+.hero-fix{ 
+    position: relative;
+}
+.hero-back-org {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--orange);
+  position: absolute;
+  top: -8px;
+  right: 8px;
+}
+.hero-photo {
+  border-radius: 30px;
+}
+.hero-span-title {
+  color: var(--color-link);
+}
+.hero-title {
+  color: var(--black);
+  text-align: center;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 3rem; /* 109.091% */
+  letter-spacing: -0.055rem;
+  max-width: 335px;
+  margin-bottom: 16px;
+}
+.hero-text {
+  color: rgba(1, 1, 1, 0.8);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.125rem;
+  max-width: 292px;
+  margin: 0 auto 32px auto;
+}
