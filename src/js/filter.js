@@ -1,4 +1,3 @@
-import SlimSelect from "slim-select";
 import { APLCategories } from "./APIFoodBoutique";
 import { APLProduct } from "./APIFoodSearch";
 import { FilterMarkUp } from "./FilterMarkUp";
@@ -13,7 +12,8 @@ const refs = {
 };
 const markUpCategories = categResult.map(data => `<option value="${data}">${data}</option>`).join('');
 refs.categor.innerHTML += markUpCategories; 
-const seacrhresult = await APLProduct('', '', '', '', '', 1);
-console.log(seacrhresult);
-const results = seacrhresult.results;
-FilterMarkUp(results); 
+
+// const seacrhresult = await APLProduct('', '', '', '', '', 1);
+// console.log(seacrhresult);
+// const results = seacrhresult.results;
+// FilterMarkUp(results); 
