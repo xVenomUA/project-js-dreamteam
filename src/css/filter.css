@@ -1,0 +1,130 @@
+@import url('./variable.css');
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         MOBILE view       
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.filter {
+  padding-bottom: 180px;
+}
+.filter-selec {
+  width: 100%;
+  padding: 14px 20px;
+  background-color: transparent;
+  border-radius: 30px;
+  border: 1px solid rgba(1, 1, 1, 0.3);
+  color: #010101;
+  font-size: 14px;
+  line-height: 1.125rem; /* 128.571% */
+  margin-bottom: 12px;
+  display: inline-block;
+}
+.filter-div-label {
+  position: relative;
+}
+.filter-btn-search {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  padding: 0;
+  top: 14px;
+  right: 20px;
+}
+.filter-sort {
+  background-color: var(--white);
+  margin-bottom: 40px;
+}
+.filter-seach-label {
+  color: rgba(1, 1, 1, 0.3);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.125rem; /* 128.571% */
+  display: block;
+  margin-bottom: 8px;
+}
+.filter-selec:hover,
+.filter-selec:focus {
+  border: 1px solid green;
+  outline: none;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         CARD view       
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.filter-cards{ 
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+}
+.filt-div-card {
+ width: 100%;
+  height: 356px;
+  padding: 20px;
+  background-color: #fafafa;
+  border-radius: 20px;
+}
+.filt-div-img{ 
+  max-width: 295px;
+  height: 178px;
+  background-color: #e8e8e2;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.filt-h-name{ 
+  color: var(--black);
+font-size: 18px;
+font-weight: 500;
+line-height: 1.25rem;
+margin-bottom: 10px;
+}
+.filt-div-group{
+  display: flex;
+}
+.filt-div-text{ 
+  display: flex;
+  column-gap: 8px;
+  margin-bottom: 40px;
+}
+.filt-text{ 
+  color: rgba(1, 1, 1, 0.30);
+font-size: 12px;
+line-height: 0.875rem; 
+}
+.filt-span{
+  margin-left: 4px;
+   color: #010101;
+font-size: 12px;
+line-height:  0.875rem; 
+}
+.filt-div-price{ 
+  display: flex;
+}
+img .filt-div-img{ 
+  height: 140px;
+}
+.filt-h-price{
+  color: #010101;
+font-size: 18px;
+font-weight: 500;
+line-height: 1.25rem; /* 111.111% */
+margin-right: auto;
+}
+.filt-btn-card {
+  border-radius: 30px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: var(--color-link);
+}
+.filt-card-icon{
+   fill: var(--back-color); 
+}
