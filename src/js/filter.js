@@ -1,6 +1,6 @@
 import { APLCategories } from "./APIFoodBoutique";
-import { APLProduct } from "./APIFoodSearch";
-import { FilterMarkUp } from "./FilterMarkUp";
+// import { APLProduct } from "./APIFoodSearch";
+// import { FilterMarkUp } from "./FilterMarkUp";
 FilterMarkUp
 export const refsfilt = {
   filtercard: document.querySelector('.filter-cards'),
