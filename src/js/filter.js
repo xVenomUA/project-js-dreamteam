@@ -11,10 +11,10 @@ import { FilterMarkUp } from "./FilterMarkUp";
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 async function GetCategories(){
 try {
-  const seacrhresult = await APIProductSearch('', '', '', '', '', 1);
-  const results = seacrhresult.results;
-  console.log(results);
-  FilterMarkUp(results); 
+  const categResult = await APICategories(); 
+categResult.push('Show all');
+const markUpCategories = categResult.map(data => `<option value="${data}">${data}</option>`).join('');
+refs.categor.innerHTML += markUpCategories; 
 } catch (error) {
   console.log(error);
   }
@@ -25,16 +25,16 @@ try {
 // РЕНДЕР КАРТОК В СЕЛЕКТІ
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
-// async function GetCards() { 
-//   try {  
-//     const seacrhresult = await APIProductSearch('', '', '', '', '', 1);
-//     const results = seacrhresult.results;
-//     console.log(results);
-//     FilterMarkUp(results); 
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+async function GetCards() { 
+  try {
+    const seacrhresult = await APIProductSearch('', '', '', '', '', 1);
+    const results = seacrhresult.results;
+    console.log(results);
+    FilterMarkUp(results); 
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 GetCategories();
-// GetCards();
+GetCards();
