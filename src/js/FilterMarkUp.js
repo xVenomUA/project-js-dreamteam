@@ -1,4 +1,4 @@
-import { refs } from "../main";
+import { refs } from "../js/refs";
 import iconimg from '/img/icon.svg';
 export function FilterMarkUp(filterinfo) {
   const array = filterinfo
