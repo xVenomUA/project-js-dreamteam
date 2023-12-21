@@ -31,6 +31,7 @@ async function GetCards() {
   try {
     const seacrhresult = await APIProductSearch('', '', '', '', '', 1);
     const results = seacrhresult.results;
+    console.log(results);
     FilterMarkUp(results); 
   } catch (error) {
     console.log(error);
