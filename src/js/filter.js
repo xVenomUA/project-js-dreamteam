@@ -83,10 +83,14 @@ async function handleFiltersSubmit() {
 
 // функція запису ключового слова з локал сторидж  в INPUT при перезавантаженні сторінки.
 function changeForm() {
+  try {
   const filtersParce = JSON.parse(localStorage.getItem('keyword'));
   if (refs.filtersInput) {
     refs.filtersInput.value = filtersParce.keyword || '';
   }
 }
-
+catch (error) {
+  return
+}
+}
 changeForm();
