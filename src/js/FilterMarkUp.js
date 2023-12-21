@@ -1,5 +1,5 @@
 import { refs } from "../main";
-
+import iconimg from '/img/icon.svg';
 export function FilterMarkUp(filterinfo) {
   const array = filterinfo
     .map(({ category, img, name, size, popularity, price }) => {
@@ -17,7 +17,7 @@ export function FilterMarkUp(filterinfo) {
     <h2 class="filt-h-price">${price}</h2>
     <button class="filt-btn-card" type="submit">
       <svg class="filt-card-icon" height="18" width="18" >
-          <use href="./img/icon.svg#icon-shop"></use>
+          <use href="${iconimg}#icon-shop"></use>
         </svg>
     </button>
   </div>
