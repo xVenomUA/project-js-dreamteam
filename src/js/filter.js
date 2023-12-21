@@ -7,10 +7,8 @@ export const refsfilt = {
 const refs = {
   categor: document.querySelector('.filter-categories'),
 };
-// GetCategories()
-
-
-// async function GetCategories(){
+GetCategories()
+async function GetCategories(){
 try {
   const categResult = await APLCategories(); 
 categResult.push('Show all');
@@ -19,7 +17,7 @@ refs.categor.innerHTML += markUpCategories;
 } catch (error) {
   console.log(error);
   }
-// }
+}
 
 
 
