@@ -17,5 +17,5 @@ import{a}from"./assets/vendor-a61d8330.js";(function(){const r=document.createEl
     </button>
   </div>
 </div>
-`).join("");u.filtercard.innerHTML=r}g();y();async function g(){try{const t=await f();t.push("Show all");const r=t.map(o=>`<option value="${o}">${o}</option>`).join("");u.categor.innerHTML+=r}catch(t){console.log(t)}}async function y(){try{const r=(await d("","","","","",1)).results;p(r)}catch(t){console.log(t)}}const u={categor:document.querySelector(".filter-categories"),filtercard:document.querySelector(".filter-cards")};
+`).join("");u.filtercard.innerHTML=r}g();y();async function g(){try{const t=await f();t.push("Show all");const r=t.map(o=>`<option value="${o}">${o}</option>`).join("");u.categor.innerHTML+=r}catch(t){console.log(t)}}async function y(){try{const r=(await d("","","","","",1)).results;console.log(r),p(r)}catch(t){console.log(t)}}const u={categor:document.querySelector(".filter-categories"),filtercard:document.querySelector(".filter-cards")};
 //# sourceMappingURL=commonHelpers.js.map
