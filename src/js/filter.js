@@ -4,8 +4,6 @@ import { APIProductSearch, APICategories } from './APIFoodBoutique';
 import { FilterMarkUp } from "./FilterMarkUp";
 
 
-GetCategories();
-GetCards();
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 // РЕНДЕР КАТЕГОРІЙ В СЕЛЕКТІ
@@ -37,3 +35,6 @@ async function GetCards() {
     console.log(error);
   }
 }
+
+GetCategories();
+GetCards();
