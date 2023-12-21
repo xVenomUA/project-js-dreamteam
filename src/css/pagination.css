@@ -1,36 +1,14 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-
-@import url('./reset.css');
-@import url('./header.css');
+/* <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
+₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
+         Natalia
+₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
+₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
 @import url('./variable.css');
-@import url('./hero.css');
-@import url('./filter.css');
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~mobile~~~~~~~~~~~~~~~~ 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-body{ 
-  background-color: var(--back-color);
-  font-family: var(--font-montreal);
-}
-.container{ 
-  max-width: 375px;
-  padding: 0 20px;
-  margin: 0 auto;
-}
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -39,12 +17,8 @@ body{
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 768px) {
-  .container{ 
-    max-width: 768px;
-    padding: 0 32px;
-  }
-} 
 
+} 
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -54,8 +28,5 @@ body{
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 1440px) {
-    .container { 
-      max-width: 1440px;
-      padding: 0 100px;
-    } 
+    
 }
