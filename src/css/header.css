@@ -1,6 +1,5 @@
 @import url('./variable.css');
 .header{ 
-
   padding: 18px 0 72px 0;
 }
 .header-logo{ 
@@ -12,7 +11,15 @@
   background-color: var(--color-link);
   border-radius: 50%;
   margin-right: 8px;
-
+}
+.header-ul{
+  display: flex;
+}
+.header-li{
+  margin-right: 6px;
+}
+.header-cart{
+  display: none;
 }
 .header-div-link{ 
   display: flex;
@@ -38,7 +45,6 @@ font-weight: 500;
 line-height: 18px; /* 128.571% */
 border-radius: 30px;
 background-color: var(--color-link);
-margin-right: 6px;
 }
 .header-name{ 
 color: #010101;
@@ -87,4 +93,46 @@ border-radius: 50%;
 }
 .header-icon-shop:hover{ 
   fill: var(--icon-hovecolor);
+}
+@media screen and (min-width: 768px) {
+ .header{
+  padding-bottom: 116px;
+ }
+  .header-home{
+   padding: 12px 28px;
+font-size: 18px;
+line-height: 24px;
+  }
+  .header-buy{
+    display: flex;
+   align-items: center;
+  }
+  .header-li{
+    margin-right: 16px;
+
+  }
+  .header-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    margin-left: 10px;
+  }
+  .header-cart-link{
+    color: #010101;
+font-family: Neue Montreal;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 24px; /* 133.333% */
+text-transform: uppercase;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .header-li{
+    margin-right: 24px;
+  }
+  .header-cart{
+    margin-left: 14px;
+  }
 }

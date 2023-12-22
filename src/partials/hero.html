@@ -1,14 +1,21 @@
 <section class="hero">
   <div class="container">
     <h1 class="hero-title">
-      Welcome to the <span class="hero-span-title">Food </span> Boutique!
+      Welcome to the 
+      <span class="hero-span-title">Food </span> 
+      Boutique!
     </h1>
     <p class="hero-text">
       With Food Boutique, you're not just subscribing to food, you're signing up
       for a fresher, fitter, and happier you.
     </p>
     <div class="hero-fix">
-    <img src="./img/food_mobile1x-min.jpg" alt="oraganic_food" class="hero-photo">
+    <picture>
+      <source media="(min-width: 1440px)" srcset="./img/hero1400.png 1x, ./img/2xhero1400.png 2x" type="image/png">
+      <source media="(min-width: 768px)" srcset="./img/hero768.png 1x, ./img/2xhero768.png 2x" type="image/png">
+      <source media="(max-width: 767px)" srcset="./img/hero370.png 1x , ./img/2xhero370.png 2x" type="image/png">
+      <img class="hero-photo" src="./img/hero370.png" alt="food">
+    </picture>
     <div class="hero-back-org">
         <svg class="hero-icon" width="92" height="92">
             <use href="./img/icon.svg#icon-organic-food"></use>
