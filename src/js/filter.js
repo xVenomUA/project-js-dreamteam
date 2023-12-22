@@ -7,6 +7,10 @@
 import { refs } from '../js/refs';
 import { APIProductSearch, APICategories } from './APIFoodBoutique';
 import { FilterMarkUp } from './FilterMarkUp';
+
+// відслідковування зміни ширини вікна
+window.addEventListener('resize', GetCards);
+
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 // РЕНДЕР КАТЕГОРІЙ В СЕЛЕКТІ
@@ -31,8 +35,11 @@ async function GetCategories() {
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 async function GetCards() {
+  const limit = getLimit();
+
   try {
-    const seacrhresult = await APIProductSearch('', '', '', '', '', 1);
+    console.log('LIMIT', limit);
+    const seacrhresult = await APIProductSearch('', '', '', '', '', 1, limit);
     const results = seacrhresult.results;
     FilterMarkUp(results);
   } catch (error) {
@@ -94,3 +101,21 @@ catch (error) {
 }
 }
 changeForm();
+
+
+
+
+// Функція для визначення ліміту в залежності від розміру екрану
+function getLimit() {
+  const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+  if (screenWidth >= 1440) {
+    return 9;
+  } else if (screenWidth >= 768) {
+    return 8;
+  } else {
+    return 6; // значення за замовчуванням
+  }
+}
+
+

@@ -19,7 +19,8 @@ export async function APIProductSearch(
   byABC,
   byPrice,
   byPopularity,
-  page
+  page,
+  limit
 ) {
   try {
     const option = new URLSearchParams({
@@ -29,7 +30,7 @@ export async function APIProductSearch(
       byPrice: byPrice || false,
       byPopularity: byPopularity || false,
       page: page,
-      limit: 6,
+      limit: limit,
     });
     const response = await axios.get(
       `${BASE_URL}/products?${option.toString()}`
