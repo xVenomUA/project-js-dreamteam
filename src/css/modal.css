@@ -4,11 +4,101 @@
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
 @import url('./variable.css');
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-~~~~~~~~~~~~~~~~~mobile~~~~~~~~~~~~~~~~ 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.modal-backdrop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 998;
+    background: rgba(1, 1, 1, .4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.modal-subscription-container {
+    position: relative;
+    max-width: 375px;
+    background: #E8E8E2;
+    margin: auto;
+    border-radius: 20px;
+
+}
+
+.modal-unsubscription-container {
+    position: relative;
+    max-width: 375px;
+    background: #E8E8E2;
+    margin: auto;
+    border-radius: 20px;
+
+}
+
+
+.modal-subscribe-container-text {
+    padding: 100px 60px 0 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-subscribe-text-title {
+    color: #010101;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.modal-subscribe-text-discription {
+    color: rgba(1, 1, 1, 0.70);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.span-subscribe-text {
+    color: #6D8434;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.modal-subscribe-img {
+    border-radius: 19px;
+    max-height: 135px;
+}
+
+.is-hidden {
+    transition: all .3s ease-in-out;
+    display: none;
+}
+
+.svg-close {
+    fill: #010101;
+}
+
+.modal-close-btn {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    cursor: pointer;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: transparent;
+    background: #E8E8E2;
+}
+
+
+
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -16,9 +106,7 @@
            TABLET
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-@media screen and (min-width: 768px) {
-
-} 
+@media screen and (min-width: 768px) {}
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -27,6 +115,4 @@
            LAPTOP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-@media screen and (min-width: 1440px) {
-    
-}
+@media screen and (min-width: 1440px) {}
