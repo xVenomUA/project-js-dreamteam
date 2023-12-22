@@ -12,7 +12,130 @@
      3. Якщо щось потрібно пояснити чи додати фотографію чи іконку - пишіть постараюсь допомогти
 
      Успіхів!  -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/cart.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <title>DreamProject</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-container">
+        <div class="header-div-link">
+          <a href="" class="header-logo">
+            <svg class="header-icon-food" width="16" height="16">
+              <use href="./img/icon.svg#icon-food_boot"></use>
+            </svg>
+          </a>
+          <a class="header-name">Food Boutique</a>
+        </div>
+        <nav class="header-nav">
+          <a href="" class="header-home header-nav-link">Home</a>
+          <a href="" class="header-goods header-nav-link">
+            <svg class="header-icon-shop" width="14" height="14">
+              <use href="./img/icon.svg#icon-shop"></use>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </header>
 
+    <main>
+      <section class="cart-section">
+        <div class="container cart-container">
+          <div class="cart-count">
+            <a class="cart-link-icon" href="#">
+              <svg class="header-icon-shop" width="14" height="14">
+                <use href="./img/icon.svg#icon-shop"></use>
+              </svg>
+            </a>
+            <p class="cart-name">CART</p>
+            <p class="cart-cards-count-number"></p>
+          </div>
+          <div class="cart-empty-basket">
+            <picture>
+              <source
+                class="cart-basket-img"
+                media="(max-width: 375px)"
+                srcset="
+                  ../img/yellowBasket.png   1x,
+                  ../img/yellowBasket2x.png 2x
+                "
+                width="132"
+                height="114"
+              />
 
+              <source
+                class="cart-basket-img"
+                media="(max-width: 1440px)"
+                srcset="
+                  ../img/yellowBasket.png   1x,
+                  ../img/yellowBasket2x.png 2x
+                "
+                width="164"
+                height="140"
+              />
 
+              <img
+                class="cart-basket-img"
+                src="../img/yellowBasket.png"
+                alt="yellow basket"
+                loading="lazy"
+              />
+            </picture>
 
+            <div class="cart-empty-desc">
+              <ul class="cart-desc-ul">
+                <li>
+                  <p>
+                    Your basket is
+                    <a href="../index.html" class="cart-link">empty...</a>
+                  </p>
+                </li>
+                <li>
+                  <p class="cart-gray-text">
+                    Go to the main page to select your favorite products and add
+                    them to the cart.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- <div class="cart-card-list">
+            <div class="cart-del-btn">
+              <button type="button" class="cart-delete-btn">
+                <b>Delete all</b>
+              </button>
+            </div>
+            <ul class="cart-added-cards"></ul>
+
+            <div class="cart-order-form">
+              <p class="cart-your-order">YOUR ORDER</p>
+              <div class="cart-total-sum">
+                <ul class="cart-sum-ul">
+                  <li class="cart-total">Total</li>
+                  <li class="cart-sum">Sum:</li>
+                  <li class="cart-number">$</li>
+                </ul>
+              </div>
+              <form class="cart-form">
+                <input
+                  type="email"
+                  placeholder="Mail:  Enter your email"
+                  name="email"
+                  class="cart-email-input"
+                  pattern="[a-z0-9.]{3,}@[a-z0-9.]{3,}"
+                  id="enter-email"
+                  title="The mail cannot be less than 7 Latin characters and must contain @."
+                />
+                <button type="submit" class="cart-form-btn">Checkout</button>
+              </form>
+            </div>
+          </div> -->
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
