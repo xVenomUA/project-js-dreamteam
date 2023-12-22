@@ -1,19 +1,19 @@
-import { refs } from "../js/refs";
-
 /* <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
     Katherine
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
-import { refs } from '../main';
-import { getDiskountProduct } from "./APIFoodBoutique";
-import renderDiscountProductCard from "./discountMarkup";
+// import { refs } from '../main';
+
+import { refs } from '../js/refs';
+import { getDiskountProduct } from './APIFoodBoutique';
+import { createDiscountCards } from './discountMarkup';
 
 function getRandomProducts(products, count) {
   const shuffledProducts = products.sort(() => 0.5 - Math.random());
   return shuffledProducts.slice(0, count);
 }
-  
+
 async function renderDiscountProducts() {
   try {
     const products = await getDiskountProduct();
@@ -35,7 +35,7 @@ async function renderDiscountProducts() {
 
     const fragment = document.createDocumentFragment();
     randomProducts.forEach(product => {
-      fragment.appendChild(renderDiscountProductCard(product));
+      fragment.appendChild(createDiscountCards(product));
     });
 
     discountContainer.appendChild(fragment);
@@ -52,7 +52,7 @@ getDiskountProduct()
     const discountContainer = document.getElementById('discountContainer');
 
     randomProducts.forEach(product => {
-      discountContainer.innerHTML += renderDiscountProductCard(product);
+      discountContainer.innerHTML += createDiscountCards(product);
     });
   })
   .catch(error => {
