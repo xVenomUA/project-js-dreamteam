@@ -18,13 +18,11 @@ async function renderDiscountProducts() {
   try {
     const products = await getDiskountProduct();
 
-    // Перевірте, чи products - це масив
     if (!Array.isArray(products)) {
       console.error("Невірний формат даних: Очікувався масив.");
       return;
     }
 
-    // Перевірте, чи масив products не порожній
     if (products.length === 0) {
       console.warn("Немає доступних товарів зі знижкою.");
       return;
@@ -45,6 +43,7 @@ async function renderDiscountProducts() {
 }
 
 // Fetch discount products and render them
+
 getDiskountProduct()
   .then(response => response.data)
   .then(products => {
