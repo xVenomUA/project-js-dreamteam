@@ -18,7 +18,7 @@ export function FilterMarkUp(filterinfo) {
     </div>
   </div>
   <div class="filt-div-price"> 
-    <h2 class="filt-h-price">${price}</h2>
+    <h2 class="filt-h-price">$${price}</h2>
     <button class="filt-btn-card" type="submit">
       <svg class="filt-card-icon" height="18" width="18" >
           <use href="${iconimg}#icon-shop"></use>
