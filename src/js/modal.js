@@ -1,4 +1,3 @@
-    const product = await getProductById(id);
 // import { refs } from "./refs";
 
 // /* <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
