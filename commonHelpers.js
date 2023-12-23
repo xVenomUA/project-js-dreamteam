@@ -4,9 +4,13 @@ import{a as f}from"./assets/vendor-a61d8330.js";(function(){const t=document.cre
   </div>
   <h2 class="filt-h-name">${o}</h2>
   <div class="filt-div-text">
+  <div class="filt-div-text-new">
     <p class="filt-text">Category: <span class="filt-span">${n}</span></p>
     <p class="filt-text">Size: <span class="filt-span">${a}</span></p>
+    </div>
+    <div class="filt-div-text-second">
     <p class="filt-text">Popularity: <span class="filt-span">${l}</span></p>
+    </div>
   </div>
   <div class="filt-div-price"> 
     <h2 class="filt-h-price">${m}</h2>
