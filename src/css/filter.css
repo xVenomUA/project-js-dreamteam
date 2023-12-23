@@ -138,8 +138,30 @@ margin-right: auto;
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 768px) {
-
-} 
+.filt-div-position{
+   display: flex;
+   gap: 8px;
+   margin-bottom: 40px;
+   align-items: flex-end;
+}
+.filter-search-something{ 
+width: 269px;
+height: 52px;
+margin: 0;
+}
+.filter-strilka{ 
+  width: 182px;
+  height: 52px;
+  margin: 0;
+}
+.filt-div-card{
+  width: 336px;
+  height: 360px;
+}
+.filter-cards{ 
+  gap: 32px;
+}
+}
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -149,5 +171,18 @@ margin-right: auto;
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 1440px) {
-    
+.filt-div-card{
+  width: 295px;
+  height: 363px;
 }
+.filter-cards{ 
+  gap: 20px;
+  width: 925px;
+}
+.filter-strilka{ 
+  width: 189px;
+}
+.filt-div-position{
+   width: 925px;
+}
+  } 
