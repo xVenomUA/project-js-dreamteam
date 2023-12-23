@@ -10,9 +10,13 @@ export function FilterMarkUp(filterinfo) {
   </div>
   <h2 class="filt-h-name">${name}</h2>
   <div class="filt-div-text">
+  <div class="filt-div-text-new">
     <p class="filt-text">Category: <span class="filt-span">${category}</span></p>
     <p class="filt-text">Size: <span class="filt-span">${size}</span></p>
+    </div>
+    <div class="filt-div-text-second">
     <p class="filt-text">Popularity: <span class="filt-span">${popularity}</span></p>
+    </div>
   </div>
   <div class="filt-div-price"> 
     <h2 class="filt-h-price">${price}</h2>
