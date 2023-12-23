@@ -30,9 +30,8 @@ async function GetCategories() {
     console.log(error);
   }
 }
-
 // РЕНДЕР КАРТОК В СЕЛЕКТІ з врахуванням вибраних фільтрів
-async function GetCards() {
+async function GetCards() { 
   const limit = getLimit();
   localValue.limit = limit;
   const filtersParce = JSON.parse(localStorage.getItem('filters'));
@@ -59,10 +58,8 @@ async function GetCards() {
     console.log(error);
   }
 }
-
 GetCategories();
 GetCards();
-
 if (refs.form) {
   refs.form.addEventListener('input', handleFiltersInput);
   refs.form.addEventListener('submit', handleFiltersSubmit);
@@ -80,7 +77,9 @@ async function handleFiltersInput() {
 }
 
 // функція запису значень ключового слова і категорії в локалсторидж при нажатті на кнопку
-async function handleFiltersSubmit() {
+async function handleFiltersSubmit(evt) {
+  evt.preventDefault();
+  GetCategories();
   const filtersValue = refs.filtersInput.value;
   localValue.keyword = filtersValue;
   if (filtersValue === '') {
@@ -96,6 +95,7 @@ async function handleFiltersSubmit() {
   }
 
   localStorage.setItem('filters', JSON.stringify(localValue));
+  GetCards();
 }
 
 // функція запису ключового слова з локал сторидж  в INPUT при перезавантаженні сторінки.
