@@ -14,7 +14,7 @@ export async function APICategories() {
 
 //  запит для рендеру карток продуктів з фільтрацією
 export async function APIProductSearch(
-  word,
+  keyword,
   category,
   byABC,
   byPrice,
@@ -24,7 +24,7 @@ export async function APIProductSearch(
 ) {
   try {
     const option = new URLSearchParams({
-      word: word || false,
+      keyword: keyword || '',
       category: category || '',
       byABC: byABC || false,
       byPrice: byPrice || false,
