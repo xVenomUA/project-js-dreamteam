@@ -19,7 +19,8 @@
 
 }
 
-.modal-subscription-container {
+.modal-subscribe-container,
+.modal-container {
     position: relative;
     max-width: 375px;
     background: #E8E8E2;
@@ -39,7 +40,7 @@
 
 
 .modal-subscribe-container-text {
-    padding: 100px 60px 0 60px;
+    padding: 100px 60px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -71,8 +72,12 @@
 }
 
 .modal-subscribe-img {
+    position: absolute;
     border-radius: 19px;
-    max-height: 135px;
+    background-size: cover;
+    right: 0%;
+    bottom: 0%;
+    width: 490px;
 }
 
 .is-hidden {
@@ -96,6 +101,12 @@
     border-color: transparent;
     background: #E8E8E2;
 }
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+    background-color: #0101011a;
+}
+
 
 
 
