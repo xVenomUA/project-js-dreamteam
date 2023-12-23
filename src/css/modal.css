@@ -19,7 +19,8 @@
 
 }
 
-.modal-subscribe-container {
+.modal-subscribe-container,
+.modal-container {
     position: relative;
     max-width: 375px;
     background: #E8E8E2;
