@@ -10,7 +10,6 @@ import { FilterMarkUp } from './FilterMarkUp';
 
 const localValueChange = { keyword: null };
 const localValue = { keyword: null, category: null, page: 1, limit: 6 };
-
 // відслідковування зміни ширини вікна
 window.addEventListener('resize', GetCards);
 
@@ -37,13 +36,13 @@ async function GetCards() {
   const limit = getLimit();
   localValue.limit = limit;
   const filtersParce = JSON.parse(localStorage.getItem('filters'));
+  if(filtersParce){
   localValue.keyword = filtersParce.keyword;
   localValue.category = filtersParce.category;
   localValue.page = filtersParce.page;
   localStorage.setItem('filters', JSON.stringify(localValue));
-  console.log(localValue.keyword);
   changeForm();
-
+  }
   try {
     const seacrhresult = await APIProductSearch(
       localValue.keyword,
