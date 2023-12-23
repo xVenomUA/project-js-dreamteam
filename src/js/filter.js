@@ -1,9 +1,8 @@
 /* <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
-    Ондрій + Andrian Pohrebniak + Pasha
+    Ондрій + Andrian Pohrebniak + Pasha + Валентин
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
-
 import { refs } from '../js/refs';
 import { APIProductSearch, APICategories } from './APIFoodBoutique';
 import { FilterMarkUp } from './FilterMarkUp';
@@ -79,7 +78,6 @@ async function handleFiltersInput() {
 // функція запису значень ключового слова і категорії в локалсторидж при нажатті на кнопку
 async function handleFiltersSubmit(evt) {
   evt.preventDefault();
-  GetCategories();
   const filtersValue = refs.filtersInput.value;
   localValue.keyword = filtersValue;
   if (filtersValue === '') {
