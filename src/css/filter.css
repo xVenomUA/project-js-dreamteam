@@ -53,10 +53,7 @@
   border: 1px solid green;
   outline: none;
 }
-.filt-div-text {display: flex;
-  align-items: flex-start;
-  gap: 9px;
-margin-bottom: 20px;}
+
   
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -99,7 +96,7 @@ margin-bottom: 10px;
 .filt-div-text{ 
   display: flex;
   column-gap: 8px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 .filt-text{ 
   color: rgba(1, 1, 1, 0.30);
@@ -113,9 +110,7 @@ font-size: 12px;
 line-height:  0.875rem; 
 }
 .filt-div-price{ 
-  display: inline-flex;
-align-items: flex-end;
-gap: 215px;
+  display: flex;
 }
 img .filt-div-img{ 
   height: 140px;
@@ -183,9 +178,7 @@ gap: 14px;
   align-items: flex-start;
   gap: 4px;
 }
-.filt-div-price{
-  gap: 225px;
-}
+
 }
 
 
@@ -220,7 +213,5 @@ gap: 8px;
   align-items: flex-start;
   gap: 4px;
 }
-.filt-div-price{
-  gap: 185px;
-}
+
   } 
