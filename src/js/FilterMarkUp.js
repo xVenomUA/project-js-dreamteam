@@ -1,9 +1,10 @@
 import { refs } from "../js/refs";
 import iconimg from '/img/icon.svg';
 export function FilterMarkUp(filterinfo) {
+  console.log(filterinfo);
   const array = filterinfo
-    .map(({ category, img, name, size, popularity, price }) => {
-        return `<div class="filt-div-card">
+    .map(({ _id, category, img, name, size, popularity, price }) => {
+        return `<div class="filt-div-card" data-idcarts="${_id}">
       <div class="filt-div-img">
   <img class="filt-img" src="${img}" alt="${name}" width="140">
   </div>
