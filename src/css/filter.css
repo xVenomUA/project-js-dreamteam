@@ -54,6 +54,8 @@
   outline: none;
 }
 
+  
+
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
          CARD view       
@@ -94,7 +96,7 @@ margin-bottom: 10px;
 .filt-div-text{ 
   display: flex;
   column-gap: 8px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 .filt-text{ 
   color: rgba(1, 1, 1, 0.30);
@@ -138,8 +140,46 @@ margin-right: auto;
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 768px) {
+.filt-div-position{
+   display: flex;
+   gap: 8px;
+   margin-bottom: 40px;
+   align-items: flex-end;
+}
+.filter-search-something{ 
+width: 269px;
+height: 52px;
+margin: 0;
+}
+.filter-strilka{ 
+  width: 182px;
+  height: 52px;
+  margin: 0;
+}
+.filt-div-card{
+  width: 336px;
+  height: 360px;
+}
+.filter-cards{ 
+  gap: 32px;
+}
+.filt-div-text{display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+margin-bottom: 20px;}
+.filt-div-text-new{
+  display: flex;
+align-items: flex-start;
+gap: 14px;
+}
+.filt-div-text-second{
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
 
-} 
+}
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -149,5 +189,29 @@ margin-right: auto;
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 1440px) {
-    
+.filt-div-card{
+  width: 295px;
+  height: 363px;
 }
+.filter-cards{ 
+  gap: 20px;
+  width: 925px;
+}
+.filter-strilka{ 
+  width: 189px;
+}
+.filt-div-position{
+   width: 925px;
+}
+.filt-div-text-new{
+  display: flex;
+align-items: flex-start;
+gap: 8px;
+}
+.filt-div-text-second{
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+  } 

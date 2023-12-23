@@ -14,22 +14,23 @@ export async function APICategories() {
 
 //  запит для рендеру карток продуктів з фільтрацією
 export async function APIProductSearch(
-  word,
+  keyword,
   category,
   byABC,
   byPrice,
   byPopularity,
-  page
+  page,
+  limit
 ) {
   try {
     const option = new URLSearchParams({
-      word: word || false,
+      keyword: keyword || '',
       category: category || '',
       byABC: byABC || false,
       byPrice: byPrice || false,
       byPopularity: byPopularity || false,
       page: page,
-      limit: 6,
+      limit: limit,
     });
     const response = await axios.get(
       `${BASE_URL}/products?${option.toString()}`

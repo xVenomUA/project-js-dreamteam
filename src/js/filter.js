@@ -1,12 +1,17 @@
 /* <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
-    Ондрій + Andrian Pohrebniak + Pasha
+    Ондрій + Andrian Pohrebniak + Pasha + Валентин
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
-
 import { refs } from '../js/refs';
 import { APIProductSearch, APICategories } from './APIFoodBoutique';
 import { FilterMarkUp } from './FilterMarkUp';
+
+const localValueChange = { keyword: null };
+const localValue = { keyword: null, category: null, page: 1, limit: 6 };
+// відслідковування зміни ширини вікна
+window.addEventListener('resize', GetCards);
+
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 // РЕНДЕР КАТЕГОРІЙ В СЕЛЕКТІ
@@ -24,32 +29,40 @@ async function GetCategories() {
     console.log(error);
   }
 }
-
-// ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
-// ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
-// РЕНДЕР КАРТОК В СЕЛЕКТІ
-// ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
-// ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
-async function GetCards() {
+// РЕНДЕР КАРТОК В СЕЛЕКТІ з врахуванням вибраних фільтрів
+async function GetCards() { 
+  const limit = getLimit();
+  localValue.limit = limit;
+  const filtersParce = JSON.parse(localStorage.getItem('filters'));
+  if(filtersParce){
+  localValue.keyword = filtersParce.keyword;
+  localValue.category = filtersParce.category;
+  localValue.page = filtersParce.page;
+  localStorage.setItem('filters', JSON.stringify(localValue));
+  changeForm();
+  }
   try {
-    const seacrhresult = await APIProductSearch('', '', '', '', '', 1);
+    const seacrhresult = await APIProductSearch(
+      localValue.keyword,
+      localValue.category,
+      '',
+      '',
+      '',
+      localValue.page,
+      limit
+    );
     const results = seacrhresult.results;
     FilterMarkUp(results);
   } catch (error) {
     console.log(error);
   }
 }
-
 GetCategories();
 GetCards();
-
 if (refs.form) {
   refs.form.addEventListener('input', handleFiltersInput);
   refs.form.addEventListener('submit', handleFiltersSubmit);
 }
-
-const localValueChange = { keyword: null };
-const localValue = { keyword: null, category: null, page: 1, limit: 6 };
 
 // функція запису в локалсторидж при введенні тексту в INPUT
 async function handleFiltersInput() {
@@ -63,7 +76,8 @@ async function handleFiltersInput() {
 }
 
 // функція запису значень ключового слова і категорії в локалсторидж при нажатті на кнопку
-async function handleFiltersSubmit() {
+async function handleFiltersSubmit(evt) {
+  evt.preventDefault();
   const filtersValue = refs.filtersInput.value;
   localValue.keyword = filtersValue;
   if (filtersValue === '') {
@@ -79,18 +93,34 @@ async function handleFiltersSubmit() {
   }
 
   localStorage.setItem('filters', JSON.stringify(localValue));
+  GetCards();
 }
 
 // функція запису ключового слова з локал сторидж  в INPUT при перезавантаженні сторінки.
 function changeForm() {
   try {
-  const filtersParce = JSON.parse(localStorage.getItem('keyword'));
-  if (refs.filtersInput) {
-    refs.filtersInput.value = filtersParce.keyword || '';
+    const keywordParce = JSON.parse(localStorage.getItem('keyword'));
+    if (refs.filtersInput) {
+      refs.filtersInput.value = keywordParce.keyword || '';
+    }
+  } catch (error) {
+    return;
   }
 }
-catch (error) {
-  return
-}
-}
 changeForm();
+
+// Функція для визначення ліміту в залежності від розміру екрану
+function getLimit() {
+  const screenWidth =
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body.clientWidth;
+
+  if (screenWidth >= 1440) {
+    return 9;
+  } else if (screenWidth >= 768) {
+    return 8;
+  } else {
+    return 6; // значення за замовчуванням
+  }
+}
