@@ -3,10 +3,10 @@
     Ондрій + Andrian Pohrebniak + Pasha + Валентин
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
+
 import { refs } from '../js/refs';
 import { APIProductSearch, APICategories } from './APIFoodBoutique';
 import { FilterMarkUp } from './FilterMarkUp';
-
 const localValueChange = { keyword: null };
 const localValue = { keyword: null, category: null, page: 1, limit: 6 };
 // відслідковування зміни ширини вікна
