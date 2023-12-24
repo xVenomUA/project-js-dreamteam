@@ -27,7 +27,7 @@
         </svg>
       </a></li>
         <li class="header-cart">
-          <a href="./partials/cart.html" target="_blank" class="header-cart-link">CART
+          <a href="cart.html" target="_blank" class="header-cart-link">CART
             <span class="header-cart-count">(0)</span>
           </a>
         </li>
@@ -40,7 +40,7 @@
         <div class="container cart-container">
           <div class="cart-count">
             <a class="cart-link-icon" href="#">
-              <svg class="header-icon-shop" width="14" height="14">
+              <svg class="header-icon-shop" width="18" height="18">
                 <use href="./img/icon.svg#icon-shop"></use>
               </svg>
             </a>
@@ -51,7 +51,7 @@
             <picture class="cart-photo">
               <source
                 class="cart-basket-img"
-                media="(max-width: 375px)"
+                media="(max-width: 767px)"
                 srcset="
                   ../img/yellowBasket.png   1x,
                   ../img/yellowBasket2x.png 2x
@@ -62,7 +62,7 @@
 
               <source
                 class="cart-basket-img"
-                media="(max-width: 1440px)"
+                media="(min-width: 768px)"
                 srcset="
                   ../img/yellowBasket.png   1x,
                   ../img/yellowBasket2x.png 2x
@@ -82,7 +82,7 @@
             <div class="cart-empty-desc">
               <ul class="cart-desc-ul">
                 <li>
-                  <p>
+                  <p class="cart-empty-text">
                     Your basket is
                     <a href="../index.html" class="cart-link">empty...</a>
                   </p>
@@ -96,6 +96,37 @@
               </ul>
             </div>
           </div>    
+
+           <!-- <div class="cart-card-list">
+            <div class="cart-del-btn">
+              <button type="button" class="cart-delete-btn">
+                <b>Delete all</b>
+              </button>
+            </div>
+            <ul class="cart-added-cards"></ul>
+            <div class="cart-order-form">
+              <p class="cart-your-order">YOUR ORDER</p>
+              <div class="cart-total-sum">
+                <ul class="cart-sum-ul">
+                  <li class="cart-total">Total</li>
+                  <li class="cart-sum">Sum:</li>
+                  <li class="cart-number">$</li>
+                </ul>
+              </div>
+              <form class="cart-form">
+                <input
+                  type="email"
+                  placeholder="Mail:  Enter your email"
+                  name="email"
+                  class="cart-email-input"
+                  pattern="[a-z0-9.]{3,}@[a-z0-9.]{3,}"
+                  id="enter-email"
+                  title="The mail cannot be less than 7 Latin characters and must contain @."
+                />
+                <button type="submit" class="cart-form-btn">Checkout</button>
+              </form>
+            </div>
+          </div> -->
 </main>
   <footer>
   <div class="footer-container container">
