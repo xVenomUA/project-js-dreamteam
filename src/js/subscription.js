@@ -11,7 +11,6 @@ closeBtn.forEach(btn => {
 });
 function onSubmit(evt) {
     evt.preventDefault();
-
     const email = document.querySelector('.footer-form-email').value;
     const data = {
         email: email
