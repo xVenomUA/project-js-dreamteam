@@ -1,9 +1,36 @@
-import axios from "axios";
+import { postSubscription } from "./APIFoodBoutique";
+
 const form = document.querySelector('.footer-form');
 const modal = document.querySelector('.modal-backdrop');
 const modalSub = document.querySelector('.modal-subscribe-container');
 const modalUnsub= document.querySelector('.modal-unsubscription-container');
 const closeBtn = document.querySelectorAll('.modal-close-btn');
+const someModal = document.querySelector('.modal-container')
+const btnToTop = document.querySelector('.footer-btn-to-top');
+const containerFooter = document.querySelector('.footer-container');
+
+someModal.classList.add('is-hidden');
+  
+const onObserve = (entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            btnToTop.style.display = 'block';
+        } else {
+            btnToTop.style.display = 'none';
+        }
+    });
+};
+
+btnToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+const observer = new IntersectionObserver(onObserve, {
+    root: null,
+    threshold: 0.5
+});
+
+observer.observe(containerFooter);
+
 
 form.addEventListener('submit', onSubmit);
 closeBtn.forEach(btn => {
@@ -11,12 +38,13 @@ closeBtn.forEach(btn => {
 });
 function onSubmit(evt) {
     evt.preventDefault();
+
     const email = document.querySelector('.footer-form-email').value;
     const data = {
-        email: email
+        email
     };
 
-    axios.post('https://food-boutique.b.goit.study/api/subscription', data)
+    postSubscription(data)
         .then(response => {
             modal.classList.remove('is-hidden');
             modalUnsub.classList.add('is-hidden');
@@ -34,7 +62,7 @@ function onSubmit(evt) {
             }
             return error.message
         })
-    evt.targer.reset(); 
+    evt.target.reset(); 
 }
 
 function closeModal(evt) {
