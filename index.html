@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/project-js-dreamteam/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DreamProject</title>
+    
+    <script type="module" crossorigin src="/project-js-dreamteam/commonHelpers.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-js-dreamteam/assets/vendor-a61d8330.js">
+    <link rel="stylesheet" href="/project-js-dreamteam/assets/index-92a6febe.css">
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/project-js-dreamteam/favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DreamProject</title>
-  
-  <script type="module" crossorigin src="/project-js-dreamteam/commonHelpers.js"></script>
-  <link rel="modulepreload" crossorigin href="/project-js-dreamteam/assets/vendor-a61d8330.js">
-  <link rel="stylesheet" href="/project-js-dreamteam/assets/index-2a54bb4c.css">
-</head>
-
-<body>
-  <header class="header">
+  <body>
+    <header class="header">
   <div class="container header-container">
     <div class="header-div-link">
     <a href="" class="header-logo">
@@ -42,8 +41,8 @@
   </div>
 </header>
 
-  <main class="main">
-    <section class="hero">
+    <main class="main">
+      <section class="hero">
   <div class="container">
     <h1 class="hero-title">
       Welcome to the 
@@ -70,7 +69,9 @@
   </div>
 </section>
 
-    <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
+      <div class="div-position-global">
+        <div class="div-position-my-post">
+          <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
     Ондрій + Andrian Pohrebniak + Pasha
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
@@ -117,26 +118,8 @@
   </div>
 </section>
 
-    <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
-₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
-      Nataliia
-₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
-₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ 
-     1. Всі класи починаються з вашого розділу, тобто якщо у вас footer,
-клас обовязково має виглядати так class="footer-вашаназва" - це потрібно 
-для того, щоб ваші назви не збігались!!  
-     2. Обовязково у вашій секції всередині має бути дів з класом container!!!!!! (потрібно для різних розмірів екрану тобто для Mobile/tablet/dekstop verison) 
-     Приклад знизу або файл hero.html можете глянути
-     <section><div class="container"></div></section>
-     3. Якщо щось потрібно пояснити чи додати фотографію чи іконку - пишіть постараюсь допомогти
-
-     Успіхів!  -->
-
-
-
-
-
-    <section id="popularity" class=" popular-container">
+          <div class="div-popular-discount">
+            <section id="popularity" class=" popular-container">
   <div class="container"> 
      <h2 class="popular-title">Popular products</h2>
    
@@ -144,7 +127,7 @@
     </div>
    </section>
    
-    <section>
+            <section class="discount-section">
      <div class="container discount-container">
           <h2 class="discount-title">Discount products</h2>
 
@@ -153,8 +136,11 @@
           </div>
      </div>
 </section>
-  </main>
-  <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
       Sloboda Volodymyr
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
@@ -172,8 +158,9 @@
 
 <section><div class="container"></div></section>
 
- <!-- Sloboda Volodymyr -->
-  <div class="modal-backdrop is-hidden ">
+
+    <!-- Sloboda Volodymyr -->
+    <div class="modal-backdrop is-hidden ">
     <div class="modal-subscribe-container">
         <div class="modal-subscribe">
             <button class="modal-close-btn">
@@ -237,7 +224,6 @@
 
 
 </div>
-  
-</body>
-
+    
+  </body>
 </html>
