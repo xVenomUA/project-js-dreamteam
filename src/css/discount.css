@@ -4,7 +4,7 @@
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
 .discount-container {
-    padding: 40px 20px 0;
+    margin-top: 80px;
 }
 
 .discount {
@@ -24,22 +24,21 @@
 .product-card {
     background-color: #fafafa;
     border-radius: 15px;
-    width: 335px;
+    width: 100%;
     height: 232px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 16px;
-    margin-bottom: 20px;
 }
 
 .product-background {
     background-color: #E8E8E2;
-    width: 304px;
+    width: 250px;
     height: 150px;
     border-radius: 10px;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     display: flex;
     position: relative;
 }
@@ -48,35 +47,46 @@
     background-color: #E8E8E2;
     width: 114px;
     height: 114px;
+    margin: auto;
 }
 
 .product-details {
     margin-top: 16px;
-    display: inline-flex;
+    /* display: flex; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-}
-
-.details-text {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding-left: 16px;
     padding-right: 16px;
 }
 
-.name-price {
+.details-text {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    /* padding-left: 16px;
+    padding-right: 16px; */
+}
+
+/* .name-price {
     display: flex;
     justify-content: space-between;
     width: 262px;
     margin-right: 8px;
+} */
+
+.price-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
 }
 
 .product-name {
     font-size: 18px;
     font-weight: 500;
+    margin-right: auto;
 }
 
 .product-price {
@@ -84,9 +94,9 @@
     font-weight: 500;
 }
 
-.discount-label {
+/* .discount-label {
     display: flex;
-}
+} */
 
 .discount-icon-cont {
     width: 34px;
@@ -102,7 +112,7 @@
     width: 60px;
     height: 60px;
     position: absolute;
-    right: -10px;
+    right: -8px;
     top: -10px;
     background-color: #6D8434;
     flex-shrink: 0;
@@ -123,14 +133,24 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-
+@media screen and (min-width: 375px) {
+    .product-background {
+        width: 295px;
+    }
+}
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
            TABLET
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 768px) {
-
+    .discount {
+        flex-direction: row;
+        gap: 32px;
+    }
+    .discount-container {
+        margin-top: 64px;
+    }
 } 
 
 
@@ -141,5 +161,23 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 1440px) {
-    
+    .discount-container {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+    }
+    .product-card {
+        width: 275px;
+    }
+    .product-background {
+        width: 243px;
+    }
+    .discount {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .discount-container {
+        margin-top: 40px;
+    }
 }

@@ -3,6 +3,111 @@
    Katherine
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
+.popular-container {
+   /* width: 335px; */
+}
+ .popular-title {
+   font-weight: 500;
+   font-size: 24px;
+   line-height: 1.17em;
+   margin-bottom: 20px;
+ }
+ .popular-name {
+   font-weight: 500;
+   font-size: 18px;
+   line-height: 1.11em;
+   margin-bottom: 12px;
+ }
+ 
+ .popular-card {
+   background-color: #fafafa;
+   border-radius: 10px;
+   width: 100%;
+   height: auto;
+   display: flex;
+   cursor: pointer;
+   align-items: start;
+   position: relative;
+   gap: 10px;
+   padding: 12px;
+   justify-content: start;
+ }
+ .popular-img {
+   background-color: #e8e8e2;
+   width: 100%;
+   /* height: 56px; */
+ }
+ .popular-background {
+   background-color: #e8e8e2;
+   width: 74px;
+   height: 74px;
+   padding: 9px;
+   border-radius: 10px;
+   justify-content: center;
+   align-items: center;
+   display: flex;
+   position: relative;
+ }
+ .popular-text {
+   color: rgba(1, 1, 1, 0.3);
+   font-size: 12px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 1.17em;
+   margin-bottom: 9px;
+   display: flex;
+ }
+ .popular {
+   display: flex;
+   flex-direction: column;
+   gap: 14px;
+ }
+ .popular-icon {
+   background-color: #e8e8e2;
+   fill: #6d8434;
+   border: none;
+   border-radius: 30px;
+   justify-content: center;
+   align-items: center;
+   padding: 4px;
+   transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+   display: flex;
+   position: absolute;
+   top: 12px;
+   right: 12px;
+ }
+ 
+ .popular-icon:is(:hover, :focus) {
+   background-color: #6d8434;
+   fill: #e8e8e2;
+ }
+ .category-cont {
+   display: flex;
+   font-size: 12px;
+   /* gap: 9px; */
+   color: darkgray;
+   width: 154px;
+   flex-wrap: wrap;
+   align-items: flex-start;
+   align-content: flex-start;
+ }
+ 
+ .pop-text-two-cat{
+   display: flex;
+   gap: 4px;
+ }
+ 
+ .pop-text-size-pop{
+ /* margin-right:9px; */
+ width: 100%;
+ }
+ 
+ .popular-word{
+   margin-left: 4px;
+   color: black;
+ }
+
+
 @import url('./variable.css');
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -17,7 +122,36 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 768px) {
-
+   .popular-container {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      /* padding-right: 173px; */
+      width: 768px;
+   }
+    .popular {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+    .popular-card {
+      width: calc(50% - 16px); /* 50% minus padding */
+   }
+    .popular-title {
+      font-size: 28px;
+      line-height: 1.14em;
+      gap: 20px;
+      white-space: nowrap;
+      margin-bottom: 0px;
+    }
+    .popular-name {
+      font-size: 20px;
+      line-height: 1.2em;
+      margin-bottom: 12px;
+    }
 } 
 
 
@@ -28,5 +162,14 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 1440px) {
-    
+   .popular-container {
+      width: 475px;
+   }
+   .popular {
+      width: 100%;
+      flex-direction: column;
+   }
+   .popular-card {
+      width: 100%;
+   }
 }

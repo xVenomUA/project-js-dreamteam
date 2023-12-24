@@ -14,34 +14,6 @@ function getRandomProducts(products, count) {
   return shuffledProducts.slice(0, count);
 }
 
-async function renderDiscountProducts() {
-  try {
-    const products = await getDiskountProduct();
-
-    if (!Array.isArray(products)) {
-      console.error("Невірний формат даних: Очікувався масив.");
-      return;
-    }
-
-    if (products.length === 0) {
-      console.warn("Немає доступних товарів зі знижкою.");
-      return;
-    }
-
-    const randomProducts = getRandomProducts(products, 2);
-    const discountContainer = document.getElementById('discountContainer');
-
-    const fragment = document.createDocumentFragment();
-    randomProducts.forEach(product => {
-      fragment.appendChild(createDiscountCards(product));
-    });
-
-    discountContainer.appendChild(fragment);
-  } catch (error) {
-    console.error(error.message);
-  }
-}
-
 // Fetch discount products and render them
 
 getDiskountProduct()
