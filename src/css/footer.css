@@ -9,16 +9,243 @@
 ~~~~~~~~~~~~~~~~~mobile~~~~~~~~~~~~~~~~ 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+footer{
+    background-color: var(--color-link);
+}
+.footer-ref{
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    margin-bottom: 20px;
+}
+.footer-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    background-color: #E8E8E2;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+.footer-logo-icon{
+    fill: var(--color-link);
+}
+.footer-logo-text{
+    color: #E8E8E2;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1.25rem;
+    letter-spacing: -0.0225rem;
+}
+.footer-socials-list {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-socials-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-socials-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(232, 232, 226, 0.30);
+    border-radius: 10px;
+}
+.footer-info-title {
+    color: #E8E8E2;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.16;
+    letter-spacing: -0.02em;
+}
+
+.footer-info-text {
+    color: rgba(232, 232, 226, 0.70);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.28;
+}
+.footer-form-text {
+    margin-bottom: 20px;
+}
+.footer-form-email {
+    display: flex;
+    padding: 12px 0px 12px 18px;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+    border-radius: 30px;
+    border: 1px solid #E8E8E2;
+    background-color: transparent;
+    outline: none;
+    color: #E8E8E2;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+.footer-form-email::placeholder{
+    color: rgba(232, 232, 226, 0.60);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.28;
+}
+.footer-form-btn {
+    color: #010101;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+    padding: 12px 0px 12px ;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+    border-radius: 30px;
+    border: 1px solid #E8E8E2;
+    background-color: #E8E8E2;
+}
+
+.footer-terms {
+    display: flex;
+    gap: 8px;
+}
+
+.footer-common-text{
+    display: flex;
+    color: #E8E8E2;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.28;
+}
 
 
+@media screen and (max-width:767.98px){
+        .footer-ref {
+            margin-bottom: 20px;
+        }
+    
+        .footer-logo {
+            margin-right: 8px;
+        }
+    
+        .footer-socials-list {
+            margin-bottom: 40px;
+        }
+    
+        .footer-socials-item {
+            margin-right: 12px;
+        }
+    
+        .footer-info {
+            margin-bottom: 80px;
+        }
+    
+        .footer-info-title {
+            margin-bottom: 12px;
+        }
+
+
+    
+        .footer-form-email {
+            margin-bottom: 14px;
+        }
+
+        .footer-form-btn {
+            margin-bottom: 80px;
+        }
+    
+        .footer-rights {
+            margin-bottom: 8px;
+        }
+    
+        .footer-common-text {
+            display: flex;
+        }
+        .footer-terms{
+            padding-bottom: 20px;
+        }
+}
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
            TABLET
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px)  {
+    .footer-container{
+        display: flex;
+        position: relative;
+    }
+    .footer-logo{
+        width: 32px;
+        height: 32px;
+    }
+    .footer-logo-icon{
+        width: 20px;
+        height: 20px;
+    }
+    .footer-socials-item{
+        width: 44px;
+        height: 44px;
+    }
+    .footer-socials-icon{
+        width: 24px;
+        height: 24px;
+    }
+    .footer-info-title {
+        margin-bottom: 20px;
+    }
+    .footer-form-btn{
+        width: 336px;
+    }
+    .footer-form-email{
+        width: 336px;
+        margin-bottom: 20px;
+    }
+        .footer-rights {
+            position: absolute;
+            bottom: 20px;
+            left: 32px;
+        }
+    
+        .footer-terms {
+            position: absolute;
+            bottom: 20px;
+            right: 32px;
+        }
 
 } 
+@media screen and (min-width: 768px) and (max-width:1439.98px){
+            .footer-info {
+                margin: 40px 32px 0 78px;
+                max-width: 429px;
+            }
+        
+            .footer-form {
+                margin: 64px 125px 120px 78px;
+            }
+        
+            .footer-form-btn {
+                margin-bottom: 158px;
+            }
+
+            .footer-rights {
+                position: absolute;
+                bottom: 20px;
+                left: 32px;
+            }
+        
+            .footer-terms {
+                position: absolute;
+                bottom: 20px;
+                right: 32px;
+            }
+}
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -28,5 +255,27 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 1440px) {
-    
+    .footer-container {
+            display: flex;
+            padding: 20px;
+        }
+        .footer-logo-text{
+            width: 157px;
+        }
+        .footer-info-form {
+            display: flex;
+        }
+        .footer-info{
+            margin: 40px 148px 166px 149px;
+        }
+        .footer-form{
+            margin-top: 40px;
+        }
+        .footer-terms{
+            right: 100px;
+        }
+        .footer-rights{
+            left: 100px;
+        }
+
 }

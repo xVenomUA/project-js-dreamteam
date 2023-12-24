@@ -3,3 +3,4 @@ import './js/filter';
 import './js/modal';
 import './js/popular'
 import './js/discount';
+import './js/subscription'

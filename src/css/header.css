@@ -1,8 +1,8 @@
 @import url('./variable.css');
-.header{ 
+.header {
   padding: 18px 0 72px 0;
 }
-.header-logo{ 
+.header-logo {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,127 +12,130 @@
   border-radius: 50%;
   margin-right: 8px;
 }
-.header-ul{
+
+.header-li :hover,
+.header-li :focus {
+  background-color: #586f1f;
+}
+.header-ul {
   display: flex;
 }
-.header-li{
+.header-li {
   margin-right: 6px;
 }
-.header-cart{
+.header-cart {
   display: none;
 }
-.header-div-link{ 
+.header-div-link {
   display: flex;
   margin-right: auto;
   transition: 250ms;
 }
-.header-container{ 
+.header-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.header-nav{ 
+.header-nav {
   display: flex;
 }
-.header-home{ 
-display: flex;
-padding: 10px 20px;
-justify-content: center;
-align-items: center;
-color: #E8E8E2;
-font-size: 14px;
-font-weight: 500;
-line-height: 18px; /* 128.571% */
-border-radius: 30px;
-background-color: var(--color-link);
+.header-home {
+  display: flex;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  color: #e8e8e2;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px; /* 128.571% */
+  border-radius: 30px;
+  background-color: var(--color-link);
 }
-.header-name{ 
-color: #010101;
-font-size: 18px;
-font-weight: 900;
-line-height: 1.25rem;
-letter-spacing: -0.0225rem;
-display: flex;
-justify-content: center;
-align-items: center;
-
+.header-name {
+  color: #010101;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.25rem;
+  letter-spacing: -0.0225rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.header-goods{
-display: flex;
-padding: 12px;
-justify-content: center;
-align-items: center;
-background-color: var(--color-link);
-border-radius: 50%;
+.header-goods {
+  display: flex;
+  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-link);
+  border-radius: 50%;
 }
-.header-icon-food{ 
+.header-icon-food {
   fill: var(--back-color);
 }
-.header-icon-shop{ 
+.header-icon-shop {
   fill: var(--back-color);
   transition: 250ms;
 }
-.header-div-link:hover{
-   background-color: var(--color-link);
-   border-radius: 9px;
-   color: white;
-   width: 180px;
+.header-div-link:hover {
+  background-color: var(--color-link);
+  border-radius: 9px;
+  color: white;
+  width: 180px;
   height: 43px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   .header-icon-food{ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .header-icon-food {
     fill: var(--color-link);
-   }
-   .header-logo{ 
+  }
+  .header-logo {
     background-color: var(--back-color);
-   }
-   .header-name{ 
+  }
+  .header-name {
     color: var(--back-color);
-   }
+  }
 }
-.header-icon-shop:hover{ 
+.header-icon-shop:hover {
   fill: var(--icon-hovecolor);
 }
 @media screen and (min-width: 768px) {
- .header{
-  padding-bottom: 116px;
- }
-  .header-home{
-   padding: 12px 28px;
-font-size: 18px;
-line-height: 24px;
+  .header {
+    padding-bottom: 116px;
   }
-  .header-buy{
+  .header-home {
+    padding: 12px 28px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .header-buy {
     display: flex;
-   align-items: center;
+    align-items: center;
   }
-  .header-li{
+  .header-li {
     margin-right: 16px;
-
   }
-  .header-cart{
+  .header-cart {
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 30px;
     margin-left: 10px;
   }
-  .header-cart-link{
+  .header-cart-link {
     color: #010101;
-font-family: Neue Montreal;
-font-size: 18px;
-font-style: normal;
-font-weight: 500;
-line-height: 24px; /* 133.333% */
-text-transform: uppercase;
+    font-family: Neue Montreal;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 133.333% */
+    text-transform: uppercase;
   }
 }
 @media screen and (min-width: 1440px) {
-  .header-li{
+  .header-li {
     margin-right: 24px;
   }
-  .header-cart{
+  .header-cart {
     margin-left: 14px;
   }
 }
