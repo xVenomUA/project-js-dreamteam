@@ -119,6 +119,8 @@ img .filt-div-img {
   font-weight: 500;
   line-height: 1.25rem; /* 111.111% */
   margin-right: auto;
+  display: flex;
+  align-items: flex-end;
 }
 .filt-btn-card {
   border-radius: 30px;
