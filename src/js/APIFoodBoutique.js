@@ -57,7 +57,6 @@ export async function getPopularProduct() {
     const popularProducts = await axios.get(
       `${BASE_URL}/products/popular?limit=5`
     );
-    console.log(popularProducts);
     return popularProducts;
   } catch (error) {
     console.log(error.message);

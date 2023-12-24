@@ -3,9 +3,6 @@
    Katherine
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
-.popular-container {
-   /* width: 335px; */
-}
  .popular-title {
    font-weight: 500;
    font-size: 24px;
@@ -157,11 +154,35 @@
    .popular-container {
       width: 475px;
    }
+   .div-position-my-post{ 
+    display: flex;
+    margin: 0 auto;
+    padding: 0 100px ;
+    max-width: 1440px;
+   }
+   #popularity .container{ 
+    padding: 0;
+    width: 275px;
+    margin: 0 0 40px 0;
+   }
+   #popularity{ 
+    width: 275px;
+   }
    .popular {
       width: 100%;
       flex-direction: column;
    }
    .popular-card {
-      width: 100%;
+      width: 275px
    }
+   .div-position-global{ 
+    padding-bottom: 100px;
+   }
+   .popular-title{ 
+    width: 209px;
+    margin-bottom: 20px;
+   }
+.div-popular-discount{ 
+  padding-top: 118px;
+}
 }

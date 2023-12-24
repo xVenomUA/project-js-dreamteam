@@ -54,26 +54,24 @@
   outline: none;
 }
 
-  
-
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
          CARD view       
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-.filter-cards{ 
+.filter-cards {
   display: flex;
   flex-wrap: wrap;
   row-gap: 20px;
 }
 .filt-div-card {
- width: 100%;
+  width: 100%;
   height: 356px;
   padding: 20px;
   background-color: #fafafa;
   border-radius: 20px;
 }
-.filt-div-img{ 
+.filt-div-img {
   max-width: 295px;
   height: 178px;
   background-color: #e8e8e2;
@@ -83,44 +81,44 @@
   align-items: center;
   border-radius: 10px;
 }
-.filt-h-name{ 
+.filt-h-name {
   color: var(--black);
-font-size: 18px;
-font-weight: 500;
-line-height: 1.25rem;
-margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.25rem;
+  margin-bottom: 10px;
 }
-.filt-div-group{
+.filt-div-group {
   display: flex;
 }
-.filt-div-text{ 
+.filt-div-text {
   display: flex;
   column-gap: 8px;
   margin-bottom: 20px;
 }
-.filt-text{ 
-  color: rgba(1, 1, 1, 0.30);
-font-size: 12px;
-line-height: 0.875rem; 
+.filt-text {
+  color: rgba(1, 1, 1, 0.3);
+  font-size: 12px;
+  line-height: 0.875rem;
 }
-.filt-span{
+.filt-span {
   margin-left: 4px;
-   color: #010101;
-font-size: 12px;
-line-height:  0.875rem; 
+  color: #010101;
+  font-size: 12px;
+  line-height: 0.875rem;
 }
-.filt-div-price{ 
+.filt-div-price {
   display: flex;
 }
-img .filt-div-img{ 
+img .filt-div-img {
   height: 140px;
 }
-.filt-h-price{
+.filt-h-price {
   color: #010101;
-font-size: 18px;
-font-weight: 500;
-line-height: 1.25rem; /* 111.111% */
-margin-right: auto;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.25rem; /* 111.111% */
+  margin-right: auto;
 }
 .filt-btn-card {
   border-radius: 30px;
@@ -131,8 +129,8 @@ margin-right: auto;
   border: none;
   background-color: var(--color-link);
 }
-.filt-card-icon{
-   fill: var(--back-color); 
+.filt-card-icon {
+  fill: var(--back-color);
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -140,47 +138,48 @@ margin-right: auto;
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 768px) {
-.filt-div-position{
-   display: flex;
-   gap: 8px;
-   margin-bottom: 40px;
-   align-items: flex-end;
+  .filt-div-position {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 40px;
+    align-items: flex-end;
+  }
+  .filter-search-something {
+    width: 269px;
+    height: 52px;
+    margin: 0;
+  }
+  .filter-strilka {
+    width: 182px;
+    height: 52px;
+    margin: 0;
+  }
+  .filt-div-card {
+    width: 336px;
+    height: 360px;
+  }
+  .filter-cards {
+    gap: 32px;
+    justify-content: center;
+  }
+  .filt-div-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 9px;
+    margin-bottom: 20px;
+  }
+  .filt-div-text-new {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .filt-div-text-second {
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+  }
 }
-.filter-search-something{ 
-width: 269px;
-height: 52px;
-margin: 0;
-}
-.filter-strilka{ 
-  width: 182px;
-  height: 52px;
-  margin: 0;
-}
-.filt-div-card{
-  width: 336px;
-  height: 360px;
-}
-.filter-cards{ 
-  gap: 32px;
-}
-.filt-div-text{display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 9px;
-margin-bottom: 20px;}
-.filt-div-text-new{
-  display: flex;
-align-items: flex-start;
-gap: 14px;
-}
-.filt-div-text-second{
-  display: flex;
-  align-items: flex-start;
-  gap: 4px;
-}
-
-}
-
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -189,29 +188,35 @@ gap: 14px;
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 1440px) {
-.filt-div-card{
-  width: 295px;
-  height: 363px;
-}
-.filter-cards{ 
-  gap: 20px;
-  width: 925px;
-}
-.filter-strilka{ 
-  width: 189px;
-}
-.filt-div-position{
-   width: 925px;
-}
-.filt-div-text-new{
-  display: flex;
-align-items: flex-start;
-gap: 8px;
-}
-.filt-div-text-second{
-  display: flex;
-  align-items: flex-start;
-  gap: 4px;
-}
-
+  .filter{ 
+    padding-bottom: 0;
+  }
+  .filt-div-card {
+    width: 295px;
+    height: 363px;
+  }
+  .filter-cards {
+    gap: 40px 20px;
+    width: 925px;
+  }
+  .filter-strilka {
+    width: 189px;
+  }
+  .filt-div-position {
+    width: 925px;
+  }
+  .filt-div-text-new {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .filt-div-text-second {
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .filter .container {
+    padding: 0;
+    margin: 0 40px 0 0;
   } 
+}
