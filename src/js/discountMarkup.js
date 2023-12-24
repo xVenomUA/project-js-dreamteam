@@ -15,15 +15,15 @@ export function createDiscountCards(product) {
         <div class="product-details">
         <div class="details-text">
 
-        <div class="name-price">
           <h2 class="product-name">${product.name}</h2>
-          <p class="product-price">$${product.price.toFixed(2)}</p>
-        </div>
           
-        <div id="${product._id}" class="discount-icon-cont inBascet">
+          <div class="price-icon">
+          <p class="product-price">$${product.price.toFixed(2)}</p>
+        <div id="${product._id}" class="discount-icon-cont">
           <svg class="discount-icon" width="18" height="18">
             <use href="${iconimg}#icon-shop"></use>
           </svg>
+        </div>
         </div>
 
         </div>
