@@ -122,14 +122,6 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 768px) {
-   .popular-container {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 20px;
-      /* padding-right: 173px; */
-      width: 768px;
-   }
     .popular {
       width: 100%;
       display: flex;
