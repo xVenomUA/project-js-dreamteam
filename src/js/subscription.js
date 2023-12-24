@@ -34,6 +34,7 @@ function onSubmit(evt) {
             }
             return error.message
         })
+    evt.targer.reset(); 
 }
 
 function closeModal(evt) {
