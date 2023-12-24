@@ -1,11 +1,11 @@
-/* empty css                      */import{a as u}from"./assets/vendor-a61d8330.js";(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))a(r);new MutationObserver(r=>{for(const o of r)if(o.type==="childList")for(const n of o.addedNodes)n.tagName==="LINK"&&n.rel==="modulepreload"&&a(n)}).observe(document,{childList:!0,subtree:!0});function s(r){const o={};return r.integrity&&(o.integrity=r.integrity),r.referrerpolicy&&(o.referrerPolicy=r.referrerpolicy),r.crossorigin==="use-credentials"?o.credentials="include":r.crossorigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function a(r){if(r.ep)return;r.ep=!0;const o=s(r);fetch(r.href,o)}})();const c={categor:document.querySelector(".filter-categories"),filtercard:document.querySelector(".filter-cards"),form:document.querySelector(".filter-div-label"),filtersInput:document.getElementById("filter-search"),filtersCategories:document.querySelector(".filter-categories")},p="https://food-boutique.b.goit.study/api";async function y(){try{return(await u.get(`${p}/products/categories`)).data}catch(e){console.log(e)}}async function v(e,t,s,a,r,o,n){try{const l=new URLSearchParams({keyword:e||"",category:t||"",byABC:s||!1,byPrice:a||!1,byPopularity:r||!1,page:o,limit:n});return(await u.get(`${p}/products?${l.toString()}`)).data}catch(l){console.log(l.message)}}async function w(){try{return await u.get(`${p}/products/popular?limit=5`)}catch(e){console.log(e.message)}}async function $(){try{return await u.get(`${p}/products/discount`)}catch(e){console.log(e.message)}}const d="/project-js-dreamteam/assets/icon-de12504e.svg";function P(e){const t=e.map(({_id:s,category:a,img:r,name:o,size:n,popularity:l,price:m})=>`<div class="filt-div-card" data-idcarts="${s}">
+/* empty css                      */import{a as d}from"./assets/vendor-a61d8330.js";(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))o(r);new MutationObserver(r=>{for(const i of r)if(i.type==="childList")for(const n of i.addedNodes)n.tagName==="LINK"&&n.rel==="modulepreload"&&o(n)}).observe(document,{childList:!0,subtree:!0});function s(r){const i={};return r.integrity&&(i.integrity=r.integrity),r.referrerpolicy&&(i.referrerPolicy=r.referrerpolicy),r.crossorigin==="use-credentials"?i.credentials="include":r.crossorigin==="anonymous"?i.credentials="omit":i.credentials="same-origin",i}function o(r){if(r.ep)return;r.ep=!0;const i=s(r);fetch(r.href,i)}})();const c={categor:document.querySelector(".filter-categories"),filtercard:document.querySelector(".filter-cards"),form:document.querySelector(".filter-div-label"),filtersInput:document.getElementById("filter-search"),filtersCategories:document.querySelector(".filter-categories")},p="https://food-boutique.b.goit.study/api";async function $(){try{return(await d.get(`${p}/products/categories`)).data}catch(e){console.log(e)}}async function b(e,t,s,o,r,i,n){try{const l=new URLSearchParams({keyword:e||"",category:t||"",byABC:s||!1,byPrice:o||!1,byPopularity:r||!1,page:i,limit:n});return(await d.get(`${p}/products?${l.toString()}`)).data}catch(l){console.log(l.message)}}async function S(){try{return await d.get(`${p}/products/popular?limit=5`)}catch(e){console.log(e.message)}}async function P(){try{return await d.get(`${p}/products/discount`)}catch(e){console.log(e.message)}}const u="/project-js-dreamteam/assets/icon-de12504e.svg";function L(e){const t=e.map(({_id:s,category:o,img:r,name:i,size:n,popularity:l,price:h})=>`<div class="filt-div-card" data-idcarts="${s}">
       <div class="filt-div-img">
-  <img class="filt-img" src="${r}" alt="${o}" width="140">
+  <img class="filt-img" src="${r}" alt="${i}" width="140">
   </div>
-  <h2 class="filt-h-name">${o}</h2>
+  <h2 class="filt-h-name">${i}</h2>
   <div class="filt-div-text">
   <div class="filt-div-text-new">
-    <p class="filt-text">Category: <span class="filt-span">${a}</span></p>
+    <p class="filt-text">Category: <span class="filt-span">${o}</span></p>
     <p class="filt-text">Size: <span class="filt-span">${n}</span></p>
     </div>
     <div class="filt-div-text-second">
@@ -13,15 +13,15 @@
     </div>
   </div>
   <div class="filt-div-price"> 
-    <h2 class="filt-h-price">$${m}</h2>
+    <h2 class="filt-h-price">$${h}</h2>
     <button class="filt-btn-card" type="submit">
       <svg class="filt-card-icon" height="18" width="18" >
-          <use href="${d}#icon-shop"></use>
+          <use href="${u}#icon-shop"></use>
         </svg>
     </button>
   </div>
 </div>
-`).join("");c.filtercard.innerHTML=t}const f={keyword:null},i={keyword:null,category:null,page:1,limit:6};window.addEventListener("resize",g);async function S(){try{const e=await y();e.push("Show all");const t=e.map(s=>`<option value="${s}">${s}</option>`).join("");c.categor.innerHTML+=t}catch(e){console.log(e)}}async function g(){const e=C();i.limit=e;const t=JSON.parse(localStorage.getItem("filters"));t&&(i.keyword=t.keyword,i.category=t.category,i.page=t.page,localStorage.setItem("filters",JSON.stringify(i)),h());try{const a=(await v(i.keyword,i.category,"","","",i.page,e)).results;P(a)}catch(s){console.log(s)}}S();g();c.form&&(c.form.addEventListener("input",k),c.form.addEventListener("submit",b));async function k(){const e=c.filtersInput.value;f.keyword=e,e===""&&(f.keyword=null),localStorage.setItem("keyword",JSON.stringify(f))}async function b(e){e.preventDefault();const t=c.filtersInput.value;i.keyword=t,t===""&&(i.keyword=null);const s=c.filtersCategories.value;i.category=s,s===""&&(i.category=null),s==="Show all"&&(i.category=null),localStorage.setItem("filters",JSON.stringify(i)),g()}function h(){try{const e=JSON.parse(localStorage.getItem("keyword"));c.filtersInput&&(c.filtersInput.value=e.keyword||"")}catch{return}}h();function C(){const e=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;return e>=1440?9:e>=768?8:6}function I(e){return`
+`).join("");c.filtercard.innerHTML=t}const f={keyword:null},a={keyword:null,category:null,page:1,limit:6};window.addEventListener("resize",g);async function k(){try{const e=await $();e.push("Show all");const t=e.map(s=>`<option value="${s}">${s}</option>`).join("");c.categor.innerHTML+=t}catch(e){console.log(e)}}async function g(){const e=x();a.limit=e;const t=JSON.parse(localStorage.getItem("filters"));t&&(a.keyword=t.keyword,a.category=t.category,a.page=t.page,localStorage.setItem("filters",JSON.stringify(a)),w());try{const o=(await b(a.keyword,a.category,"","","",a.page,e)).results;L(o)}catch(s){console.log(s)}}k();g();c.form&&(c.form.addEventListener("input",C),c.form.addEventListener("submit",I));async function C(){const e=c.filtersInput.value;f.keyword=e,e===""&&(f.keyword=null),localStorage.setItem("keyword",JSON.stringify(f))}async function I(e){e.preventDefault();const t=c.filtersInput.value;a.keyword=t,t===""&&(a.keyword=null);const s=c.filtersCategories.value;a.category=s,s===""&&(a.category=null),s==="Show all"&&(a.category=null),localStorage.setItem("filters",JSON.stringify(a)),g()}function w(){try{const e=JSON.parse(localStorage.getItem("keyword"));c.filtersInput&&(c.filtersInput.value=e.keyword||"")}catch{return}}w();function x(){const e=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;return e>=1440?9:e>=768?8:6}function E(e){return`
         <div class="popular-card" data-productlist-id="${e._id}">
           <div class="popular-background">
             <img src="${e.img}" alt="${e.name}" class="popular-img">
@@ -50,20 +50,20 @@
           </div>
             <div id="${e._id}" class="popular-icon-cont">
               <svg class="popular-icon" width="20" height="20">
-                <use href="${d}#icon-shop"></use>
+                <use href="${u}#icon-shop"></use>
               </svg>
             </div>
           </div>
         </div>
       </div>
       </div>
-    `}function x(e,t){return e.sort(()=>.5-Math.random()).slice(0,t)}w().then(e=>e.data).then(e=>{const t=x(e,5),s=document.getElementById("popularContainer");t.forEach(a=>{s.innerHTML+=I(a)})}).catch(e=>{console.error(e.message)});function L(e){return`
+    `}function q(e,t){return e.sort(()=>.5-Math.random()).slice(0,t)}S().then(e=>e.data).then(e=>{const t=q(e,5),s=document.getElementById("popularContainer");t.forEach(o=>{s.innerHTML+=E(o)})}).catch(e=>{console.error(e.message)});function M(e){return`
       <div class="product-card">
         <div class="product-background">
         
         <div class="discount-label">
         <svg class="discount-label-icon" width="60" height="60">
-          <use href="${d}#icon-discount"></use>
+          <use href="${u}#icon-discount"></use>
         </svg>
         </div>
           <img src="${e.img}" alt="${e.name}" class="product-image">
@@ -77,12 +77,12 @@
           <p class="product-price">$${e.price.toFixed(2)}</p>
         <div id="${e._id}" class="discount-icon-cont">
           <svg class="discount-icon" width="18" height="18">
-            <use href="${d}#icon-shop"></use>
+            <use href="${u}#icon-shop"></use>
           </svg>
         </div>
         </div>
 
         </div>
       </div>
-    `}function E(e,t){return e.sort(()=>.5-Math.random()).slice(0,t)}$().then(e=>e.data).then(e=>{const t=E(e,2),s=document.getElementById("discountContainer");t.forEach(a=>{s.innerHTML+=L(a)})}).catch(e=>{console.error(e.message)});
+    `}function O(e,t){return e.sort(()=>.5-Math.random()).slice(0,t)}P().then(e=>e.data).then(e=>{const t=O(e,2),s=document.getElementById("discountContainer");t.forEach(o=>{s.innerHTML+=M(o)})}).catch(e=>{console.error(e.message)});const N=document.querySelector(".footer-form"),m=document.querySelector(".modal-backdrop"),y=document.querySelector(".modal-subscribe-container"),v=document.querySelector(".modal-unsubscription-container"),A=document.querySelectorAll(".modal-close-btn");N.addEventListener("submit",B);A.forEach(e=>{e.addEventListener("click",F)});function B(e){e.preventDefault();const s={email:document.querySelector(".footer-form-email").value};d.post("https://food-boutique.b.goit.study/api/subscription",s).then(o=>(m.classList.remove("is-hidden"),v.classList.add("is-hidden"),y.classList.remove("is-hidden"),console.log(o.data),o.json())).catch(o=>(o.response&&o.response.status===409?(m.classList.remove("is-hidden"),v.classList.remove("is-hidden"),y.classList.add("is-hidden")):console.log(o),o.message))}function F(e){e.preventDefault(),m.classList.add("is-hidden")}
 //# sourceMappingURL=commonHelpers2.js.map
