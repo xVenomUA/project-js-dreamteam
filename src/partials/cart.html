@@ -12,7 +12,7 @@
      3. Якщо щось потрібно пояснити чи додати фотографію чи іконку - пишіть постараюсь допомогти
 
      Успіхів!  -->
-<html lang="en">
+<!-- <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -102,8 +102,8 @@
                 </li>
               </ul>
             </div>
-          </div>
-          <!-- <div class="cart-card-list">
+          </div> -->
+<!-- <div class="cart-card-list">
             <div class="cart-del-btn">
               <button type="button" class="cart-delete-btn">
                 <b>Delete all</b>
@@ -134,8 +134,138 @@
               </form>
             </div>
           </div> -->
-        </div>
+<!-- </div>
       </section>
     </main>
+  </body>
+</html> -->
+<!-- *************************** -->
+<!-- <section class="cart-container container">
+  <div class="cart-box">
+    <div class="cart-block-icon">
+      <svg class="cart-icon" width="18" height="18">
+        <use href="../img/icon.svg#icon-shop"></use>
+      </svg>
+    </div>
+    <h2 class="cart-title">CART(<span class="cart-span-quantity">0</span>)</h2>
+  </div>
+  <div class="js-basket"></div>
+</section> -->
+<!-- *************************** -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/cart.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <title>DreamProject</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-container">
+        <div class="header-div-link">
+          <a href="" class="header-logo">
+            <svg class="header-icon-food" width="16" height="16">
+              <use href="./img/icon.svg#icon-food_boot"></use>
+            </svg>
+          </a>
+          <a class="header-name">Food Boutique</a>
+        </div>
+        <nav class="header-nav">
+          <a href="" class="header-home header-nav-link">Home</a>
+          <a href="" class="header-goods header-nav-link">
+            <svg class="header-icon-shop" width="14" height="14">
+              <use href="./img/icon.svg#icon-shop"></use>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+    <main>
+<section class="cart-section">
+  <div class="cart-title-box">
+    <div class="cart-title-icon">
+      <svg class="cart-icon-svg" width="18" height="18">
+        <use href="../img/icon.svg#icon-shop"></use>
+      </svg>
+    </div>
+    <div class="cart-title">
+      <h2 class="cart-title-text">cart(<span id="cart-counter">0</span>)</h2>
+    </div>
+  </div>
+<!-- delete all -->
+  <div class="js-cart-box">
+    <div class="cart-delete-list">
+      <div class="cart-delete-all-box">
+        <p class="cart-delete-all-text">Delete all</p>
+        <button type="button" class="cart-delete-btn">
+          <svg class="cart-delete-close-icon">
+            <use href="../img/icon.svg#"></use>
+          </svg>
+        </button>
+      </div>
+      <!-- список доданих товарів -->
+      <div class="cart-list-block"></div>
+    </div>
+
+    <!-- замовлення -->
+    <div class="cart-total-order-box">
+      <p class="cart-order-title">Your Order</p>
+      <div class="cart-order-block">
+        <div class="cart-total-price">
+          <p class="cart-total-title">Total</p>
+          <p class="cart-sum">
+            Sum:<span class="cart-span-sum" id="your-order-total-price"></span>
+          </p>
+        </div>
+      </div>
+<!-- form -->
+      <form class="cart-checkout-form">
+          <label for="cart-client-email" class="cart-label">
+            <span class="cart-placeholder">Mail:</span>
+            <input
+              class="cart-input"
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+            />
+          </label>
+
+          <button
+            type="submit"
+            class="cart-button-submit"
+            aria-label="Checkout cart"
+          >
+            Checkout
+          </button>
+        </form>
+      </div>
+
+      <!-- empty cart -->
+      <div class="cart-empty-cart">
+        <div class="cart-img-empty-cart">
+          <img
+            class="img-shopping-cart"
+            src=""
+            width="132"
+            height="114"
+          />
+        </div>
+        <div class="cart-text">
+          <p class="cart-text-empty">
+            Your basket is <span class="cart-text-span">empty...</span>
+          </p>
+          <p class="cart-text-full">
+            Go to the main page to select your favorite <br />
+            products and add them to the cart.
+          </p>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+</main>
   </body>
 </html>
