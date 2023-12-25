@@ -1,72 +1,28 @@
-import { refs } from "./refs";
+// import { refs } from "./refs";
 
 // /* <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
-//     Юлія Кривобоченко
+//     Юлія Кривобоченко 
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
 
-import axios from "axios";
-import SimpleLightbox from "simplelightbox";
-import 'simplelightbox/dist/simple-lightbox.min.css';
-import { getProductById } from './APIFoodBoutique';
-import { FilterMarkUp } from './FilterMarkUp';
+// export function addToCart(id) {
+//     try {
+//         console.log(id);
 
-const modal = document.querySelector('.modal');
+//         let myArray = JSON.parse(localStorage.getItem('cart')) || [];
+//         // Об'єкт, який потрібно додати до масиву
+//         const newCart = { id: id, pieces: '1' };
 
-const btnAddToCard = document.querySelector(".filt-btn-card");
-btnAddToCard.addEventListener('click', openModal);
+//         // Додавання нового об'єкта до масиву
+//         myArray.push(newCart);
 
-const lightbox = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt',
-    captionDelay: 250,
-});
-
-async function openModal(event) {
-    event.preventDefault();
-    try {
-        if (event.target.className !== "filt-btn-card") return;
-
-        const data = await getProductById(event.target.dataset.id);
-
-        const id = btnAddToCard.getAttribute("id");
-        data.push(id);
-
-        const createMarkup = FilterMarkUp(data);
-        const modalLightbox = lightbox.create(createMarkup);
-
-        localStorage.setItem("productId", id);
-
-        modalLightbox.show();
-    } catch (error) {
-        console.log(error.message);
-    }
-}
-
-
-
-
-
-
-// function addToCart() {
-//     const btnAddToCard = document.getElementById("filt-btn-card");
-//     const id = btnAddToCard.getAttribute("id");
-
-//     localStorage.setItem("productId", id);
-// }
-
-
-
-// window.addEventListener('keydown', closeModalKeyboard);
-
-
-// function closeModalKeyboard(event) {
-//     if (event.code === 'Escape') {
-//         closeModal();
-//         window.removeEventListener('keydown', closeModalKeyboard);
+//         // Оновлення масиву об'єктів у localStorage
+//         localStorage.setItem('cart', JSON.stringify(myArray));
+//     } catch (event) {
+//         console.log(event);
 //     }
 // }
-
 
 // async function getProduct(id, btn) {
 //     const modalContent = document.querySelector('.modal-content');
@@ -118,11 +74,12 @@ async function openModal(event) {
 //     }
 // }
 
+// closeButton.addEventListener('click', closeModal);
+// window.addEventListener('click', windowOnClick);
 
-
-
-
-
+// document.addEventListener('keydown', function (event) {
+//     if (event.keyCode === 27) closeModal();
+// });
 
 // document.addEventListener('click', function (event) {
 //     if (!event.target.classList.contains('modal-product-button')) {
