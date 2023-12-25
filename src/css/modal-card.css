@@ -21,7 +21,7 @@
   justify-content: center;
   align-items: center;
   border-color: transparent;
-  background: #e8e8e2;
+  background: transparent;
 }
 
 .modal-close-btn:hover,
@@ -31,7 +31,8 @@
 
 .shop-div-card {
   position: relative;
-  width: 100%;
+  max-width: 335px;
+  max-height: 100%;
   padding: 40px 20px;
   background-color: #fafafa;
   border-radius: 20px;
@@ -41,18 +42,18 @@
   max-width: 295px;
   height: 212px;
   background-color: #e8e8e2;
-  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
 }
 
+
 .shop-h-name {
   color: #010101;
   font-size: 18px;
   font-weight: 500;
-  line-height: 1.25rem;
+  line-height: 20px;
   margin-bottom: 10px;
 }
 
@@ -62,10 +63,17 @@
   margin-bottom: 20px;
 }
 
+.shop-div-text-new {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 9px;
+}
+
 .shop-text {
   color: rgba(1, 1, 1, 0.3);
   font-size: 12px;
   line-height: 0.875rem;
+
 }
 
 .shop-span {
@@ -79,8 +87,9 @@
   color: rgba(1, 1, 1, 0.7);
   font-size: 14px;
   font-weight: 400;
-  line-height: 0.045em;
+  line-height: 18px;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .shop-div-price {
@@ -115,4 +124,40 @@
 
 .shop-card-icon {
   fill: #e8e8e2;
+}
+
+.shop-div-info-text {
+  max-width: 246px;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           TABLET
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+@media screen and (min-width: 768px) {
+
+  .shop-div-card {
+    max-width: 600px;
+    padding: 40px;
+
+  }
+
+  .shop-div-img {
+    width: 240px;
+    height: 212px;
+  }
+
+  .shop-div-info {
+    display: flex;
+    gap: 24px;
+
+  }
+
+  .shop-div-info-text {
+    max-width: 246px;
+  }
+
 }

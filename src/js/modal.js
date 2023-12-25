@@ -4,7 +4,7 @@ import { ModalMarkUP } from './ModalMArkUp';
 import iconimg from '/img/icon.svg';
 const listCards = document.querySelector('.filter-cards');
 listCards.addEventListener('click', OnClick);
-const IDCards = []; 
+const IDCards = [];
 async function OnClick(evt) {
     evt.preventDefault();
     const { target } = evt;
@@ -18,9 +18,9 @@ async function OnClick(evt) {
         ModalMarkUP(productInfo);
     } catch (error) {
         console.log(error);
-        
+        np
     }
-} 
+}
 // const modalWindow = document.querySelector('.shop-modal-backdrop');
 // const modalCloseBtn = document.querySelector('.shop-modal-close-btn');
 // modalCloseBtn.addEventListener('click', OnCloseModal);
@@ -29,7 +29,7 @@ async function OnClick(evt) {
 // }
 
 // const modalWindow = document.querySelector('.modal-backdrop');
-// shopBtn.addEventListener('click', GetModalShop); 
+// shopBtn.addEventListener('click', GetModalShop);
 // function GetModalShop(evt) {
 //     evt.preventDefault();
 //     modalWindow.classList.remove('is-hidden');
