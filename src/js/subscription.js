@@ -8,6 +8,7 @@ const closeBtn = document.querySelectorAll('.modal-close-btn');
 const someModal = document.querySelector('.modal-container')
 const btnToTop = document.querySelector('.footer-btn-to-top');
 const containerFooter = document.querySelector('.footer-container');
+const loader = document.querySelector('.loader');
 
 someModal.classList.add('is-hidden');
   
@@ -43,9 +44,15 @@ function onSubmit(evt) {
     const data = {
         email
     };
-
+    loader.classList.remove('is-hidden');
+    window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        modal.classList.add('is-hidden');
+    }
+    });
     postSubscription(data)
         .then(response => {
+            loader.classList.add('is-hidden');
             modal.classList.remove('is-hidden');
             modalUnsub.classList.add('is-hidden');
             modalSub.classList.remove('is-hidden')
@@ -53,6 +60,7 @@ function onSubmit(evt) {
             return response.json()
         })
         .catch((error) => {
+            loader.classList.add('is-hidden');
             if (error.response && error.response.status === 409) {
                 modal.classList.remove('is-hidden');
                 modalUnsub.classList.remove('is-hidden');
