@@ -40,7 +40,7 @@
 
 
 .modal-subscribe-container-text {
-    padding: 100px 60px;
+    padding: 100px 44.5px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -77,7 +77,8 @@
     background-size: cover;
     right: 0%;
     bottom: 0%;
-    width: 490px;
+    width: 335px;
+    margin-top: 22px;
 }
 
 .is-hidden {
