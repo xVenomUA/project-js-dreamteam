@@ -20,7 +20,6 @@ window.addEventListener('resize', GetCards);
 async function GetCategories() {
   try {
     const categResult = await APICategories();
-    categResult.push('Show all');
     const markUpCategories = categResult
       .map(data => `<option value="${data}">${data}</option>`)
       .join('');
@@ -29,6 +28,7 @@ async function GetCategories() {
     console.log(error);
   }
 }
+
 // РЕНДЕР КАРТОК В СЕЛЕКТІ з врахуванням вибраних фільтрів
 async function GetCards() { 
   const limit = getLimit();
