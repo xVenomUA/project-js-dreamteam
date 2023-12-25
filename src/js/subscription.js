@@ -2,7 +2,7 @@ import axios from "axios";
 const form = document.querySelector('.footer-form');
 const modal = document.querySelector('.modal-backdrop');
 const modalSub = document.querySelector('.modal-subscribe-container');
-const modalUnsub= document.querySelector('.modal-unsubscription-container');
+const modalUnsub = document.querySelector('.modal-unsubscription-container');
 const closeBtn = document.querySelectorAll('.modal-close-btn');
 
 form.addEventListener('submit', onSubmit);
@@ -34,7 +34,7 @@ function onSubmit(evt) {
             }
             return error.message
         })
-    evt.targer.reset(); 
+    evt.targer.reset();
 }
 
 function closeModal(evt) {
