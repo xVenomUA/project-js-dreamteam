@@ -11,9 +11,11 @@ async function OnClick(evt) {
     evt.preventDefault();
     const { target } = evt;
     //щоб всередині кнопки також працювало 
-    const parent = target.closest('.filt-btn-card');
+    const parent = target.closest('.filt-div-card');
     if (!parent) return;
-    const id = parent.dataset.idcards;
+    const block = target.closest('.filt-btn-card');
+    if (block) return;
+    const id = parent.dataset.idcarts;
     try {
         const productInfo = await getProductById(id);
         ModalMarkUP(productInfo);

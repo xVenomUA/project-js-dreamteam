@@ -118,6 +118,7 @@ padding-top:14px;
   padding: 20px;
   background-color: #fafafa;
   border-radius: 20px;
+  cursor: pointer;
 }
 .filt-div-img {
   max-width: 295px;
