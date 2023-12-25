@@ -20,10 +20,14 @@ window.addEventListener('resize', GetCards);
 async function GetCategories() {
   try {
     const categResult = await APICategories();
-    const markUpCategories = categResult
-      .map(data => `<option value="${data}">${data}</option>`)
-      .join('');
-    refs.categor.innerHTML += markUpCategories;
+    const markUpCategories = categResult.map(data => {
+      let   replacedata
+      if (data.includes('_')) { 
+      replacedata = data.replace(/_/g, ' '); 
+      }
+      return `<option value="${data}">${replacedata}</option>`;
+    }).join('');
+    refs.categor.innerHTML += markUpCategories; 
   } catch (error) {
     console.log(error);
   }
