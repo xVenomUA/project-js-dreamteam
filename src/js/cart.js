@@ -4,12 +4,58 @@
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
 import { refs } from '../main';
+import { getProductById } from '../js/APIFoodBoutique';
 
-// // common
-// const common = {
-//     FILTERS_KEY: "filters",
-//     CART_KEY: "cart"
-// }
+// common
+const common = {
+    FILTERS_KEY: "filters",
+    CART_KEY: "cart"
+}
+const cardCounter = document.querySelector('span#cart-counter')
+const cartJsBlock = document.querySelector('.js-cart-block');
+const cartListBlock = document.querySelector('.cart-list-block');
+
+function getDataLocalStorage(key) {
+    try {
+        const data = localStorage.getItem(key);
+        return data ? JSON.parse(data) : [];
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+function cardUse() {
+    let cartArr = await getDataLocalStorage(common.CART_KEY);
+    cardCounter.textContent = cartArr.length;
+
+    if (cartArr.length === 0) {
+        // createMarkup empty cart
+    
+    }
+    renderCards(cartArr);
+    // deleteAllBtn
+}
+
+async function renderCards() {
+    cartListBlock.innerHTML = "";
+
+    let cartArr = await getDataLocalStorage(common.CART_KEY);
+    for (const cartArrItem of cartArr) {
+        let id = cartArrItem.id;
+
+        try {
+            const resp = await getProductById(id);
+            const cartId = renderProdCard(resp, id); // !!
+            cartListBlock.innerHTML += cartId;
+
+            const deleteBtn = document.querySelector(`.`)
+
+        }
+    }
+}
+// TO BE continued...
+
+
 
 // // localStorage
 // function saveData(data, key) {
