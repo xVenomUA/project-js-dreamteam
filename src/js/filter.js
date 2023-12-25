@@ -105,6 +105,7 @@ async function handleFiltersSubmit(evt) {
 
   localStorage.setItem('filters', JSON.stringify(localValue));
   GetCards();
+  evt.target.reset();
 }
 
 // функція запису ключового слова з локал сторидж  в INPUT при перезавантаженні сторінки.

@@ -10,8 +10,6 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 .filter-categories  {
-  width: 20px;
-  height: 20px;
   padding: 14px 20px;
   background-color: transparent;
   border-radius: 30px;
@@ -84,6 +82,24 @@
 .filter-selec:focus {
   border: 1px solid green;
   outline: none;
+}
+.filt-text-no{
+font-size: 18px;
+font-weight: 500;
+line-height: 1.25rem;
+text-align: center;
+}
+.filt-p-no{
+  color: rgba(1, 1, 1, 0.70);
+text-align: center;
+line-height: 1.125rem;
+padding-top:14px;
+}
+.filt-span-no{
+  color : var(--color-link);
+}
+.filt{
+  padding-top: 60px;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -172,6 +188,14 @@ img .filt-div-img {
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 768px) {
+.filt{
+  padding-top: 110px;
+  padding-bottom: 300px;
+}
+.filt-p-no{
+  width: 335px;
+}
+
   .filt-div-position {
     display: flex;
     gap: 8px;
@@ -223,6 +247,19 @@ img .filt-div-img {
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 1440px) {
+  .filt{
+  padding-top: 160px;
+  padding-bottom:0px;
+}
+.filt-text-no{
+  font-size: 20px;
+}
+.filt-p-no{
+  width: 371px;
+  font-size: 18px;
+  line-height: 1.5rem;
+}
+
   .filter{ 
     padding-bottom: 0;
   }
