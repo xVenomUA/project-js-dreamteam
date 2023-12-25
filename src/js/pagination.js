@@ -6,7 +6,7 @@
 // import { refs } from '../main';
 
 async function getData() {
-  const response = await fetch ('https://food-boutique.b.goit.study/api/products?keyword=Ac&category=Fresh_Produce&page=1&limit=6');
+  const response = await fetch ('https://food-boutique.b.goit.study/api/products');
   const data = await response.json();
   return data;
 }
