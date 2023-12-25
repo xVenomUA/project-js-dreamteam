@@ -5,3 +5,4 @@ export const refs = {
   filtersInput: document.getElementById('filter-search'),
   filtersCategories: document.querySelector('.filter-categories'),
 };
+
