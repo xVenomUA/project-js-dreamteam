@@ -25,6 +25,9 @@ async function GetCategories() {
       if (data.includes('_')) { 
       replacedata = data.replace(/_/g, ' '); 
       }
+      else {
+        replacedata = data
+      }
       return `<option value="${data}">${replacedata}</option>`;
     }).join('');
     refs.categor.innerHTML += markUpCategories; 
