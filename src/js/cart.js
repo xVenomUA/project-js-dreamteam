@@ -24,7 +24,7 @@ function getDataLocalStorage(key) {
     }
 }
 
-function cardUse() {
+async function cardUse() {
     let cartArr = await getDataLocalStorage(common.CART_KEY);
     cardCounter.textContent = cartArr.length;
 
@@ -47,12 +47,13 @@ async function renderCards() {
             const resp = await getProductById(id);
             const cartId = renderProdCard(resp, id); // !!
             cartListBlock.innerHTML += cartId;
-
             const deleteBtn = document.querySelector(`.`)
-
+        } catch (e) { 
+            console.log(e);
         }
-    }
+    } 
 }
+
 // TO BE continued...
 
 
