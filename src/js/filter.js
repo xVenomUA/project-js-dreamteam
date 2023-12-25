@@ -21,7 +21,7 @@ async function GetCategories() {
   try {
     const categResult = await APICategories();
     const markUpCategories = categResult.map(data => {
-      let   replacedata
+      let replacedata
       if (data.includes('_')) { 
       replacedata = data.replace(/_/g, ' '); 
       }
@@ -30,7 +30,11 @@ async function GetCategories() {
       }
       return `<option value="${data}">${replacedata}</option>`;
     }).join('');
-    refs.categor.innerHTML += markUpCategories; 
+    refs.categor.innerHTML += markUpCategories;
+     const option = document.createElement('option');
+     option.value = 'Show all';
+     option.textContent = 'Show all';
+     refs.categor.prepend(option);
   } catch (error) {
     console.log(error);
   }
