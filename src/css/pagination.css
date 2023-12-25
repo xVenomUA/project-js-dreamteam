@@ -123,7 +123,12 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 768px) {
-
+.pagination_item:nth-child(3) {
+   display: flex;
+}
+.pagination_item:nth-child(4) {
+   display: flex;
+}
 }
 
 
@@ -133,4 +138,6 @@
            LAPTOP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-@media screen and (min-width: 1440px) {}
+@media screen and (min-width: 1440px) {
+
+}
