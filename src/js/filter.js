@@ -136,3 +136,4 @@ function getLimit() {
     return 6; // значення за замовчуванням
   }
 }
+
