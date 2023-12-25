@@ -11,6 +11,10 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 footer{
     background-color: var(--color-link);
+    margin: 0;
+}
+.footer-container{
+    position: relative;
 }
 .footer-ref{
     display: flex;
@@ -37,6 +41,7 @@ footer{
     font-weight: 900;
     line-height: 1.25rem;
     letter-spacing: -0.0225rem;
+    font-family: var(--font-quincy);
 }
 .footer-socials-list {
     display: flex;
@@ -124,11 +129,15 @@ footer{
     line-height: 1.28;
 }
 
-
+.footer-btn-to-top{
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: none;
+    background-color: transparent;
+}
 @media screen and (max-width:767.98px){
-        .footer-ref {
-            margin-bottom: 20px;
-        }
     
         .footer-logo {
             margin-right: 8px;
@@ -189,6 +198,11 @@ footer{
         width: 20px;
         height: 20px;
     }
+    .footer-logo-text{
+        width: 157px;
+        font-size: 24px;
+        letter-spacing: -0.02em;
+    }
     .footer-socials-item{
         width: 44px;
         height: 44px;
@@ -198,7 +212,14 @@ footer{
         height: 24px;
     }
     .footer-info-title {
+        font-size: 40px;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
         margin-bottom: 20px;
+    }
+    .footer-info-text{
+        font-size: 18px;
+        line-height: 1.33;
     }
     .footer-form-btn{
         width: 336px;
@@ -217,6 +238,10 @@ footer{
             position: absolute;
             bottom: 20px;
             right: 32px;
+        }
+        .footer-common-text{
+            font-size: 18px;
+            line-height: 1.33;
         }
 
 } 
