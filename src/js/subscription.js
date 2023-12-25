@@ -3,7 +3,7 @@ import { postSubscription } from "./APIFoodBoutique";
 const form = document.querySelector('.footer-form');
 const modal = document.querySelector('.modal-backdrop');
 const modalSub = document.querySelector('.modal-subscribe-container');
-const modalUnsub= document.querySelector('.modal-unsubscription-container');
+const modalUnsub = document.querySelector('.modal-unsubscription-container');
 const closeBtn = document.querySelectorAll('.modal-close-btn');
 const someModal = document.querySelector('.modal-container')
 const btnToTop = document.querySelector('.footer-btn-to-top');
@@ -62,7 +62,7 @@ function onSubmit(evt) {
             }
             return error.message
         })
-    evt.target.reset(); 
+    evt.targer.reset();
 }
 
 function closeModal(evt) {
