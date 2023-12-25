@@ -131,6 +131,10 @@
   margin-bottom: 40px;
   margin-top: 20px;
 }
+.is-hidden-card {
+    transition: all .3s ease-in-out;
+    display: none;
+}
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~

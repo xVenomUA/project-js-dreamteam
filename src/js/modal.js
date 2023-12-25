@@ -1,10 +1,12 @@
 // import { refs } from "./refs";
 import { getProductById } from './APIFoodBoutique';
 import { ModalMarkUP } from './ModalMArkUp';
-import iconimg from '/img/icon.svg';
 const listCards = document.querySelector('.filter-cards');
+const modalWindowId = document.getElementById('id-modal-card');
+const closeModalBtn = document.querySelector('.shop-modal-close-btn');
+const addCartBtn = document.querySelector('.shop-btn-card');
+// const modalCard = document.querySelector('.shop-div-card');
 listCards.addEventListener('click', OnClick);
-const IDCards = [];
 async function OnClick(evt) {
     evt.preventDefault();
     const { target } = evt;
@@ -14,23 +16,42 @@ async function OnClick(evt) {
     const id = parent.dataset.idcards;
     try {
         const productInfo = await getProductById(id);
-        console.log(productInfo);
         ModalMarkUP(productInfo);
+        modalWindowId.classList.remove('is-hidden-card');
     } catch (error) {
         console.log(error);
-        np
     }
 }
-// const modalWindow = document.querySelector('.shop-modal-backdrop');
-// const modalCloseBtn = document.querySelector('.shop-modal-close-btn');
-// modalCloseBtn.addEventListener('click', OnCloseModal);
-// function OnCloseModal() {
-//     modalWindow.classList.add('is-hidden');
-// }
 
-// const modalWindow = document.querySelector('.modal-backdrop');
-// shopBtn.addEventListener('click', GetModalShop);
-// function GetModalShop(evt) {
-//     evt.preventDefault();
-//     modalWindow.classList.remove('is-hidden');
-// }
+closeModalBtn.addEventListener('click', OnCloseModal);
+function OnCloseModal() {
+    modalWindowId.classList.add('is-hidden-card');
+}
+
+
+function OnAddCart(evt) {
+    const { target } = evt;
+    const parent = target.closest('.shop-btn-card');
+    if (!parent) return;
+    const id = parent.dataset.idcards;
+    OnCloseModal();
+    //запишемо в локалсторедж
+    const cart = localStorage.getItem('cart');
+    const parseCart = JSON.parse(cart);
+    if (parseCart) {
+        const findProduct = parseCart.find(product => product._id === id);
+        if (findProduct) {
+            findProduct.quantity += 1;
+            localStorage.setItem('cart', JSON.stringify(parseCart));
+            return;
+        }
+        parseCart.push({ _id: id, quantity: 1 });
+        localStorage.setItem('cart', JSON.stringify(parseCart));
+        return;
+    }
+    const cartList = [];
+    cartList.push({ _id: id, quantity: 1 });
+    localStorage.setItem('cart', JSON.stringify(cartList));
+    
+}
+addCartBtn.addEventListener('click', OnAddCart);
