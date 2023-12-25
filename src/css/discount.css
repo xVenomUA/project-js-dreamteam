@@ -3,8 +3,9 @@
     Katherine
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
-.discount-container {
-    margin-top: 80px;
+.discount-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 
 .discount {
@@ -12,6 +13,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
 }
 
 .discount-title {
@@ -29,7 +31,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 16px;
+    padding: 16px 15px 16px 16px;
+    cursor: pointer;
 }
 
 .product-background {
@@ -57,8 +60,8 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
+    /* padding-left: 16px;
+    padding-right: 16px; */
 }
 
 .details-text {
@@ -135,7 +138,7 @@
 
 @media screen and (min-width: 375px) {
     .product-background {
-        width: 295px;
+        width: 304px;
     }
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -151,6 +154,13 @@
     .discount-container {
         margin-top: 64px;
     }
+    .discount-title {
+        font-size: 28px;
+    } 
+    .discount-section {
+        padding-top: 64px;
+        padding-bottom: 100px;
+    }
 } 
 
 
@@ -165,7 +175,11 @@
         display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 0;
+        /* padding: 0; */
+    }
+    .discount-section {
+        padding-top: 0px;
+        padding-bottom: 0px;
     }
     .discount-section .container{ 
        padding: 0;
