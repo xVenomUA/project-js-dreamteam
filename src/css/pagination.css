@@ -10,6 +10,7 @@
     padding: 0px;
     box-sizing: border-box;
 }
+
 .title {
     display: flex;
     justify-content: center;
@@ -21,6 +22,7 @@
     margin-top: 40px;
     gap: 32px;
 }
+
 .element-nav {
     display: flex;
     align-items: center;
@@ -31,6 +33,7 @@
     border-radius: 60px;
     background: #FAFAFA;
 }
+
 .pagination__item {
     display: flex;
     align-items: center;
@@ -48,6 +51,7 @@
     justify-content: center;
     gap: 8px;
 }
+
 .tui-end {
     transform: scale(-1);
 }
@@ -56,6 +60,7 @@
 .pagination__item:hover {
     background-color: #6D8434;
 }
+
 .pagination_list {
     display: flex;
     align-items: center;
@@ -63,6 +68,7 @@
     border-radius: 50%;
     gap: 8px;
 }
+
 .post {
     color: #A3A3A3;
     display: flex;
@@ -75,10 +81,12 @@
     height: 40px;
     border-radius: 50%;
 }
+
 .post:hover {
     color: #E8E8E2;
     background-color: #6D8434;
 }
+
 .pagination__list {
     display: flex;
     list-style-type: none;
@@ -96,6 +104,7 @@
     background-color: #6D8434;
     border-radius: 50%;
 }
+
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~mobile~~~~~~~~~~~~~~~~ 
@@ -108,9 +117,7 @@
            TABLET
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-@media screen and (min-width: 768px) {
-
-} 
+@media screen and (min-width: 768px) {}
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -119,6 +126,4 @@
            LAPTOP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-@media screen and (min-width: 1440px) {
-    
-}
+@media screen and (min-width: 1440px) {}
