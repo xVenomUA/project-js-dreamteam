@@ -52,6 +52,11 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 250ms;
+}
+.footer-socials-item:hover,
+.footer-socials-item:focus{
+    background-color: rgba(232, 232, 226, 0.20);;
 }
 .footer-socials-item {
     display: flex;
@@ -114,6 +119,11 @@ footer{
     border-radius: 30px;
     border: 1px solid #E8E8E2;
     background-color: #E8E8E2;
+    transition: 250ms;
+}
+.footer-form-btn:focus,
+.footer-form-btn:hover{
+    color: #6D8434;
 }
 
 .footer-terms {
@@ -136,7 +146,45 @@ footer{
     right: 20px;
     border: none;
     background-color: transparent;
+    animation: fadeIn 250ms;
 }
+.modal-backdrop{
+    animation: fadeIn 250ms;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.loader {
+    position: absolute;
+    top: 543px;
+    right: 42%;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 3px solid #FFF;
+    border-right: 3px solid transparent;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 @media screen and (max-width:767.98px){
     
         .footer-logo {
@@ -243,6 +291,10 @@ footer{
             font-size: 18px;
             line-height: 1.33;
         }
+        .loader{
+            top: 455px;
+            right: 34%;
+        }
 
 } 
 @media screen and (min-width: 768px) and (max-width:1439.98px){
@@ -302,5 +354,8 @@ footer{
         .footer-rights{
             left: 100px;
         }
-
+        .loader{
+            top: 216px;
+            right: 17%;
+        }
 }
