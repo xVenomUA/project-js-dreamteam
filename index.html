@@ -8,7 +8,7 @@
     
     <script type="module" crossorigin src="/project-js-dreamteam/commonHelpers2.js"></script>
     <link rel="modulepreload" crossorigin href="/project-js-dreamteam/assets/vendor-a61d8330.js">
-    <link rel="stylesheet" href="/project-js-dreamteam/assets/styles-5214427f.css">
+    <link rel="stylesheet" href="/project-js-dreamteam/assets/styles-8c6408b9.css">
   </head>
 
   <body>
@@ -83,13 +83,8 @@
       <div class="filter-div-search">
         <label for="filter-search" class="filter-seach-label">Filters:</label>
         <form class="filter-div-label">
-          <input
-            id="filter-search"
-            name="filter-search"
-            type="text"
-            class="filter-search-something filter-selec"
-            placeholder="Search for anything"
-          />
+          <input id="filter-search" name="filter-search" type="text" class="filter-search-something filter-selec"
+            placeholder="Search for anything" />
           <button type="submit" class="filter-btn-search">
             <svg class="hero-icon" width="20" height="20">
               <use href="/project-js-dreamteam/assets/icon-c285a3d7.svg#icon-lupa"></use>
@@ -98,10 +93,7 @@
         </form>
       </div>
       <!-- gg -->
-      <select
-        name="filt-name-select"
-        class="filter-categories filter-selec filter-strilka"
-      >
+      <select name="filt-name-select" class="filter-categories filter-selec filter-strilka">
         <option value="" selected disabled hidden>Categories</option>
       </select>
       <select class="filter-sort filter-selec filter-strilka">
@@ -115,9 +107,48 @@
       </select>
     </div>
     <div class="filter-cards"></div>
+    <div id="app"></div>
+
+    <div id="pagination-container" class="pagination">
+      <div class="tui-start">
+        <span class="element-nav tui-is-disabled">
+          <svg class="icon" width="24" height="24">
+            <use href="/project-js-dreamteam/assets/icon-c285a3d7.svg#icon-arrowx2"></use>
+          </svg>
+        </span>
+        <span class="element-nav tui-is-disabled">
+          <svg class="icon" width="24" height="24">
+            <use href="/project-js-dreamteam/assets/icon-c285a3d7.svg#icon-arrowx1"></use>
+          </svg>
+        </span>
+      </div>
+      <ul class="pagination_list">
+        <li href="#" class="pagination_item post">1</li>
+        <li href="#" class="pagination_item post">2</li>
+        <li href="#" class="pagination_item post">3</li>
+        <li href="#" class="pagination_item post">4</li>
+        <li href="#" class="pagination_item post tui-next-is-ellip tui-last-child">
+          <span class="tui-ico-ellip">...</span>
+        </li>
+      </ul>
+      <div class="tui-end">
+        <span href="#" class="element-nav tui-ico-next">
+          <svg class="icon" width="24" height="24">
+            <use href="/project-js-dreamteam/assets/icon-c285a3d7.svg#icon-arrowx2"></use>
+          </svg>
+        </span>
+        <span href="#" class="element-nav tui-ico-last">
+          <svg class="icon" width="24" height="24">
+            <use href="/project-js-dreamteam/assets/icon-c285a3d7.svg#icon-arrowx1"></use>
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>
+  <script src="js/pagination.js"></script>
+
   </div>
 </section>
-
           <div class="div-popular-discount">
             <section id="popularity" class=" popular-container">
   <div class="container"> 
