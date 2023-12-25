@@ -5,7 +5,6 @@ export function FilterMarkUp(filterinfo) {
     if (category.includes('_')) {
       category = category.replace(/_/g, ' ');
     }
-    
         return `<div class="filt-div-card" data-idcarts="${_id}">
       <div class="filt-div-img">
   <img class="filt-img" src="${img}" alt="${name}" width="140">
@@ -32,5 +31,10 @@ export function FilterMarkUp(filterinfo) {
 `;
     })
         .join('');
-    refs.filtercard.innerHTML = array;
+  refs.filtercard.innerHTML = array;
+  if (refs.filtercard.innerHTML === '') {
+    refs.filtercard.innerHTML = `<div class="filt"><p class="filt-text-no">Nothing was found for the selected <a href="#" class="filt-span-no"> filters...</a></p>
+    <p class="filt-p-no">Try adjusting your search parameters or browse our range by other criteria to find the perfect product for you. </p>
+    </div>`;
+  }
 }
