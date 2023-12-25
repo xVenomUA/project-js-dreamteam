@@ -47,14 +47,16 @@
             <p class="cart-name">CART <span>(0)</span></p>
             <p class="cart-cards-count-number"></p>
           </div>
+
+          <!-- ------------- -->
           <div class="cart-empty-basket">
             <picture class="cart-photo">
               <source
                 class="cart-basket-img"
                 media="(max-width: 767px)"
                 srcset="
-                  ../img/yellowBasket.png   1x,
-                  ../img/yellowBasket2x.png 2x
+                  ./img/yellowBasket.png   1x,
+                  ./img/yellowBasket2x.png 2x
                 "
                 width="132"
                 height="114"
@@ -64,8 +66,8 @@
                 class="cart-basket-img"
                 media="(min-width: 768px)"
                 srcset="
-                  ../img/yellowBasket.png   1x,
-                  ../img/yellowBasket2x.png 2x
+                  ./img/yellowBasket.png   1x,
+                  ./img/yellowBasket2x.png 2x
                 "
                 width="164"
                 height="140"
@@ -73,7 +75,7 @@
 
               <img
                 class="cart-basket-img"
-                src="../img/yellowBasket.png"
+                src="./img/yellowBasket.png"
                 alt="yellow basket"
                 loading="lazy"
               />
@@ -97,25 +99,24 @@
             </div>
           </div>    
 
-           <!-- <div class="cart-card-list">
-            <div class="cart-del-btn">
+
+          <!-- <div class="cart-del-btn">
               <button type="button" class="cart-delete-btn">
                 <b>Delete all</b>
                 <svg class="cart-icon-close" width="14" height="14">
                 <use href="./img/icon.svg#icon-close"></use>
               </svg>
               </button>
-            </div> -->
-
-            <!-- <div>
+            </div>
+           <div class="cart-card-list">
+            <div>
             <ul class="cart-added-cards">
               <li>
                 <button type="button" class="cart-card-close-button">
-                  <svg class="cart-card-icon-close" width="14" height="14">
+                  <svg class="cart-card-icon-close" >
                 <use href="./img/icon.svg#icon-close"></use>
               </svg>
                 </button>
-                
                 <div class="cart-card-container">
                 <div class="cart-image-container">
                 <img src="./img/tomatoe1x-min.png" alt="card-image">
@@ -132,10 +133,10 @@
               <hr class="cart-line">
               </li>
               
+              
             </ul>
-            </div> -->
-
-            <!-- <div class="cart-order-form">
+            </div>
+            <div class="cart-order-form">
               <p class="cart-your-order">YOUR ORDER</p>
               <div class="cart-total-sum">
                 <ul class="cart-sum-ul">
@@ -229,5 +230,6 @@
     </div>
   </div>
   </footer>
+
 </body>
 </html>
