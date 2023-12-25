@@ -1,9 +1,9 @@
-import { refs } from "../js/refs";
+import { refs } from '../js/refs';
 import iconimg from '/img/icon.svg';
-export function FilterMarkUp(filterinfo) {
+export function ModalMarkUP(filterinfo) {
   const array = filterinfo
     .map(({ _id, category, img, name, size, popularity, price }) => {
-        return `<div class="filt-div-card" data-idcarts="${_id}">
+      return `<div class="filt-div-card" data-idcarts="${_id}">
       <div class="filt-div-img">
   <img class="filt-img" src="${img}" alt="${name}" width="140">
   </div>
@@ -19,7 +19,7 @@ export function FilterMarkUp(filterinfo) {
   </div>
   <div class="filt-div-price"> 
     <h2 class="filt-h-price">$${price}</h2>
-    <button class="filt-btn-card" data-idcards="${_id}" type="submit">
+    <button class="filt-btn-card" data-idcards="#${_id}" type="submit">
       <svg class="filt-card-icon" height="18" width="18" >
           <use href="${iconimg}#icon-shop"></use>
         </svg>
@@ -28,6 +28,6 @@ export function FilterMarkUp(filterinfo) {
 </div>
 `;
     })
-        .join('');
-    refs.filtercard.innerHTML = array;
+    .join('');
+  refs.filtercard.innerHTML = array;
 }
