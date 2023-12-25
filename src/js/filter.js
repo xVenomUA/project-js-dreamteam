@@ -30,7 +30,7 @@ async function GetCategories() {
 }
 
 // РЕНДЕР КАРТОК В СЕЛЕКТІ з врахуванням вибраних фільтрів
-async function GetCards() { 
+export async function GetCards() { 
   const limit = getLimit();
   localValue.limit = limit;
   const filtersParce = JSON.parse(localStorage.getItem('filters'));
