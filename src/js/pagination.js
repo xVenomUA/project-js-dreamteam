@@ -3,6 +3,7 @@
     Natalia
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
+
 import { refs } from '../main';
 
 let thisPage = 1;
@@ -52,3 +53,6 @@ function changePage(i) {
   thisPage = i;
   loadItem();
 }
+
+import { refs } from '../main';
+

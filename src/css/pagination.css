@@ -20,7 +20,7 @@
     display: flex;
     justify-content: center;
     margin-top: 40px;
-    gap: 32px;
+    gap: 8px;
 }
 
 .element-nav {
@@ -104,7 +104,12 @@
     background-color: #6D8434;
     border-radius: 50%;
 }
-
+.pagination_item:nth-child(3) {
+   display: none;
+}
+.pagination_item:nth-child(4) {
+   display: none;
+}
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~mobile~~~~~~~~~~~~~~~~ 
@@ -117,7 +122,14 @@
            TABLET
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-@media screen and (min-width: 768px) {}
+@media screen and (min-width: 768px) {
+.pagination_item:nth-child(3) {
+   display: flex;
+}
+.pagination_item:nth-child(4) {
+   display: flex;
+}
+}
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -126,4 +138,6 @@
            LAPTOP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-@media screen and (min-width: 1440px) {}
+@media screen and (min-width: 1440px) {
+
+}
