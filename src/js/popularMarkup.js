@@ -1,6 +1,9 @@
 import iconimg from '/img/icon.svg';
 
 export function createPopularCards(product) {
+  if (product.category.includes('_')) {
+    product.category = product.category.replace(/_/g, ' ');
+  }
     return `
         <div class="popular-card" data-productlist-id="${product._id}">
           <div class="popular-background">
