@@ -1,6 +1,7 @@
 
 import { getProductById } from './APIFoodBoutique';
 import { ModalMarkUP } from './ModalMArkUp';
+import { GetCards } from './filter';
 import { refs } from './refs';
 const modalWindowId = document.getElementById('id-modal-card');
 const closeModalBtn = document.querySelector('.shop-modal-close-btn');
@@ -28,13 +29,14 @@ async function OnClick(evt) {
 closeModalBtn.addEventListener('click', OnCloseModal);
 export function OnCloseModal() {
     modalWindowId.classList.add('is-hidden-card');
+    
 }
 
 
 function OnAddCart(evt) {
     const { target } = evt;
     const parent = target.closest('.shop-btn-card');
-    console.log(parent);
+    GetCards();
     if (!parent) return;
     const id = parent.dataset.idcards;
     OnCloseModal();

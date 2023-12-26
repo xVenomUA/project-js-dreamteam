@@ -146,7 +146,6 @@ function OnAddCartShop(evt) {
   const useSvg = parent.querySelector('.filt-use');
   useSvg.setAttribute('href', `${iconimg}#icon-check`);
   parent.setAttribute('disabled', 'true');
-  
   const id = parent.dataset.idcards;
   const cart = localStorage.getItem('cart');
   const parseCart = JSON.parse(cart);

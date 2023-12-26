@@ -1,5 +1,4 @@
 import { refs } from "./refs";
-
 /* <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
     Natalia
@@ -52,8 +51,3 @@ import { refs } from "./refs";
 //   thisPage = i;
 //   loadItem();
 // }
-
-async function fesfse() {
-  
-}
-
