@@ -1,4 +1,5 @@
 import { getProductById } from "./APIFoodBoutique";
+import iconimg from '/img/icon.svg';
 
 
 /* <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
@@ -14,6 +15,16 @@ const common = {
 const cardCounter = document.querySelector('span#cart-counter');
 const cartJsBlock = document.querySelector('.js-cart-block');
 const cartListBlock = document.querySelector('.cart-list-block');
+const cartDeleteBtn = document.querySelector('.cart-delete-btn');
+
+
+cartDeleteBtn.addEventListener('click', onClick)
+
+function onClick() {
+  localStorage.removeItem('cart');
+  cardUse();
+  
+}
 
 function getDataLocalStorage(key) {
   try {
@@ -25,7 +36,7 @@ function getDataLocalStorage(key) {
 }
 const cartArr = getDataLocalStorage('cart');
 const id = cartArr.map(item => item._id);
-console.log(id);
+
 
 async function cardUse() {
   let cartArr = await getDataLocalStorage(common.CART_KEY);
@@ -38,25 +49,85 @@ async function cardUse() {
   renderCards(cartArr);
   // deleteAllBtn
 }
+cardUse();
 
 async function renderCards() {
   cartListBlock.innerHTML = '';
 
-  let cartArr = await getDataLocalStorage(common.CART_KEY);
-  for (const cartArrItem of cartArr) {
-    let id = cartArrItem.id;
-    try {
-      const resp = await getProductById(id);
-      const cartId = renderProdCard(resp, id); // !!
+  // let cartArr = await getDataLocalStorage(common.CART_KEY);
+  // for (const cartArrItem of cartArr) {
+  //   let id = cartArrItem.id;
+  
+  try {
+    for (let i = 0; i < id.length; i += 1) {
+      const resp = await getProductById(id[i]);
+      const cartId = renderProdCard(resp, id[i]);
       cartListBlock.innerHTML += cartId;
+      
+      waitForElements('.cart-close')
+  .then(elements => {
+  
+    elements.forEach(element => {
+      element.addEventListener('click', e => {
+        console.log(e.currentTarget.id); 
+        
+        
+        
+// console.log(element);
+     
+      });
+    });
+  })
+  .catch(error => {
+    console.error(error.message);
+  });
+      
+    }
+     
       // const deleteBtn = document.querySelector(`.js-cart-block .`);
-      const cartList = document.querySelector(".js-cart-block .cart-list-block");
+      // const cartList = document.querySelector(".js-cart-block .cart-list-block");
      
     } catch (e) {
       console.log(e);
     }
-  }
 }
+  
+
+//    const cartClose = document.querySelector('.cart-close');
+// console.log(cartClose);
+      
+//   cartClose.addEventListener('click', onClose)
+// function onClose(event) {
+//     console.log(event.target);
+//   }
+
+function waitForElements(selector) {
+  return new Promise((resolve, reject) => {
+    const elements = document.querySelectorAll(selector);
+
+    if (elements.length > 0) {
+      resolve(elements);
+    } else {
+      const observer = new MutationObserver(() => {
+        const updatedElements = document.querySelectorAll(selector);
+        if (updatedElements.length > 0) {
+          observer.disconnect();
+          resolve(updatedElements);
+        }
+      });
+
+      observer.observe(document.documentElement, {
+        childList: true,
+        subtree: true,
+      });
+    }
+  });
+}
+
+
+
+
+
 // рендер доданої картки
 
 function renderProdCard(product) {
@@ -91,6 +162,13 @@ function renderProdCard(product) {
             <p class="cart-card-price">${product.price}</p>
           </div>
             <hr class="cart-line">
+
+           <button type="button" id="${product._id}" class="cart-close">
+              <svg class="cart-close-icon" width="18" height="18">
+                <use href="${iconimg}#icon-close"></use>
+              </svg>
+            </button>
+
           </div>
         </div>
       </div>
@@ -127,6 +205,7 @@ function createMarkupCartEmpty() {
             </div>
   `;
 }
+
 
 
 {/* // TO BE continued...
