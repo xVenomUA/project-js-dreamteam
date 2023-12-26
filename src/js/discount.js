@@ -23,7 +23,7 @@ getDiskountProduct()
     const discountContainer = document.getElementById('discountContainer');
 
     randomProducts.forEach(product => {
-      discountContainer.innerHTML += createDiscountCards(product);
+      discountContainer.appendChild(createDiscountCards(product));
     });
   })
   .catch(error => {
