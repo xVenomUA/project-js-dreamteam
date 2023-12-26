@@ -1,60 +1,53 @@
 import { refs } from "./refs";
-import { GetCards } from "./filter";
+/* <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
+₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
+    Natalia
+₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
+₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
 
-export const ulTag = document.querySelector('.pagination-list');
-export const totalPage = JSON.parse(localStorage.getItem('totalPage'));
-export const page = JSON.parse(localStorage.getItem('filters')).page;
-console.log(totalPage);
-export function element(totalPages, page) {
-    let liTag = '';
-    let thirdPagesAnd = totalPages - 2;
-    let thirdPages = page - 2;
-    let curentPage = page;
-    // напиши логіку для відображення пагінації на передану кількість сторінок
-    // якщо сторінок менше 5 то відображаємо всі
-    // якщо сторінок більше 5 то відображаємо лише 5
-    // якщо сторінок більше 5 і сторінка більше 3 то відображаємо 5 сторінок
-    if (totalPages < 5) {
-        for (let i = 1; i <= totalPages; i++) {
-            liTag += `<li class="pagination-item"><button class="pagination-number ${
-                i === curentPage ? 'active' : ''
-                }">${i}</button></li>`;
-        }
-    } else {
-        if (page > 3) {
-            for (let i = thirdPages; i <= thirdPagesAnd; i++) {
-                liTag += `<li class="pagination-item"><button class="pagination-number ${
-                    i === curentPage ? 'active' : ''
-                    }">${i}</button></li>`;
-            }
-        } else {
-            for (let i = 1; i <= 5; i++) {
-                liTag += `<li class="pagination-item"><button class="pagination-number ${
-                    i === curentPage ? 'active' : ''
-                    }">${i}</button></li>`;
-            }
-        }
-    }
-    ulTag.innerHTML = liTag;
-}
-// =============================================================================
-// =============================================================================
-// =============================================================================
-//взяти тотал пейдж з локал сторедж 
+// let thisPage = 1;
+// let limit = 6;
+// let list = document.querySelectorAll('.list .item');
 
-async function loadMor(event) {
-    if (event.target.classList.contains('pagination-arrow') || event.target.classList.contains('pagination-number')) {
-        const page = event.target.textContent;
-        const filtersParce = JSON.parse(localStorage.getItem('filters'));
-        filtersParce.page = page;
-        localStorage.setItem('filters', JSON.stringify(filtersParce));
-        GetCards();
-        element(totalPage, page);
-    }
-    else {
-        return;
-    }
-}
+// function loadItem() {
+//   let beginGet = limit * (thisPage - 1);
+//   let endGet = limit * thisPage - 1;
+//   list.forEach((item, key) => {
+//     if (key >= beginGet && key <= endGet) {
+//       item.computedStyleMap.display = 'none';
+//     }
+//   })
+//   listPage();
+// }
+// loadItem();
+// function listPage() {
+//   let count = Math.ceil(list.length / limit);
+// console.log(count);
+//   if (thisPage != 1) {
+//     let prev = document.createElement('li');
+//     prev.innerText = 'PREV';
+//     prev.setAttribute('onclick', "changePage(" + (thisPage - 1) + ")");
+//     document.querySelector('.listPage').appendChild(prev);
+//   }
 
+//   for (i = 1; i <= count; i+=1) {
+//     let newPage = document.createElement('li');
+//     newPage.innerText = i;
+//     if (i == thisPage) {
+//       newPage.classList.add('active');
+//     }
+//     newPage.setAttribute('onclick', "changePage(" + i + ")");
+//     document.querySelector('.listPage').appendChild(newPage);
+//   }
 
-ulTag.addEventListener('click', loadMor);
+//   if (thisPage != count) {
+//     let next = document.createElement('li');
+//     next.innerText = 'NEXT';
+//     next.setAttribute('onclick', "changePage(" + (thisPage + 1) + ")");
+//     document.querySelector('.listPage').appendChild(next);
+//   }
+// }
+// function changePage(i) {
+//   thisPage = i;
+//   loadItem();
+// }
