@@ -10,7 +10,6 @@ import { APIProductSearch, APICategories } from './APIFoodBoutique';
 import { FilterMarkUp } from './FilterMarkUp';
 import { onChangeCount } from './headerFunctionCount';
 import iconimg from '/img/icon.svg';
-import { element, page, totalPage } from './pagination';
 const localValueChange = { keyword: null };
 const localValue = { keyword: null, category: null, page: 1, limit: 6 };
 // відслідковування зміни ширини вікна
@@ -53,7 +52,7 @@ export async function GetCards() {
   localValue.keyword = filtersParce.keyword;
   localValue.category = filtersParce.category;
   localValue.page = filtersParce.page;
-    localStorage.setItem('filters', JSON.stringify(localValue));
+  localStorage.setItem('filters', JSON.stringify(localValue));
   changeForm();
   }
   try {
@@ -66,8 +65,6 @@ export async function GetCards() {
       localValue.page,
       limit
     );
-    console.log(seacrhresult.totalPages);
-    localStorage.setItem('totalPage', JSON.stringify(seacrhresult.totalPages));
     const results = seacrhresult.results;
     FilterMarkUp(results);
   } catch (error) {
@@ -76,7 +73,6 @@ export async function GetCards() {
 }
 GetCategories();
 GetCards();
-element(totalPage, page);
 if (refs.form) {
   refs.form.addEventListener('input', handleFiltersInput);
   refs.form.addEventListener('submit', handleFiltersSubmit);
@@ -91,7 +87,6 @@ async function handleFiltersInput() {
   }
 
   localStorage.setItem('keyword', JSON.stringify(localValueChange));
-
 }
 
 // функція запису значень ключового слова і категорії в локалсторидж при нажатті на кнопку
@@ -111,11 +106,8 @@ async function handleFiltersSubmit(evt) {
     localValue.category = null;
   }
 
-  localValue.page = 1;
   localStorage.setItem('filters', JSON.stringify(localValue));
   GetCards();
-  const filterTotalPage = JSON.parse(localStorage.getItem('totalPage'));
-  element(filterTotalPage, page);
   evt.target.reset();
 }
 
