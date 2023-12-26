@@ -5,3 +5,4 @@ import './js/popular';
 import './js/discount';
 import './js/subscription';
 import './js/pagination';
+import './js/korzina';
