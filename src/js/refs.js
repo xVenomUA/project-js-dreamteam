@@ -4,5 +4,7 @@ export const refs = {
   form: document.querySelector('.filter-div-label'),
   filtersInput: document.getElementById('filter-search'),
   filtersCategories: document.querySelector('.filter-categories'),
+  addCartBtn: document.querySelector('.shop-btn-card'),
+  listCards: document.querySelector('.filter-cards'),
 };
 

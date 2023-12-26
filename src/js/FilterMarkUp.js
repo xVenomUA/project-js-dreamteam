@@ -5,6 +5,14 @@ export function FilterMarkUp(filterinfo) {
     if (category.includes('_')) {
       category = category.replace(/_/g, ' ');
     }
+    let iconChange = 'shop';
+    const localValue = JSON.parse(localStorage.getItem('cart'));
+    if (localValue) {
+      const findProduct = localValue.find(product => product._id === _id);
+      if (findProduct) {
+        iconChange = 'check';
+      }
+    }
         return `<div class="filt-div-card" data-idcarts="${_id}">
       <div class="filt-div-img">
   <img class="filt-img" src="${img}" alt="${name}" width="140">
@@ -21,9 +29,9 @@ export function FilterMarkUp(filterinfo) {
   </div>
   <div class="filt-div-price"> 
     <h2 class="filt-h-price">$${price}</h2>
-    <button class="filt-btn-card" data-idcards="${_id}" type="submit">
+    <button class="filt-btn-card" data-idcards="${_id}" type="submit" >
       <svg class="filt-card-icon" height="18" width="18" >
-          <use href="${iconimg}#icon-shop"></use>
+          <use class="filt-use" href="${iconimg}#icon-${iconChange}"></use>
         </svg>
     </button>
   </div>

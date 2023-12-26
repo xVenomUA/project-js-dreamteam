@@ -1,12 +1,12 @@
-// import { refs } from "./refs";
+
 import { getProductById } from './APIFoodBoutique';
 import { ModalMarkUP } from './ModalMArkUp';
-const listCards = document.querySelector('.filter-cards');
+import { refs } from './refs';
 const modalWindowId = document.getElementById('id-modal-card');
 const closeModalBtn = document.querySelector('.shop-modal-close-btn');
-const addCartBtn = document.querySelector('.shop-btn-card');
+
 // const modalCard = document.querySelector('.shop-div-card');
-listCards.addEventListener('click', OnClick);
+refs.listCards.addEventListener('click', OnClick);
 async function OnClick(evt) {
     evt.preventDefault();
     const { target } = evt;
@@ -26,7 +26,7 @@ async function OnClick(evt) {
 }
 
 closeModalBtn.addEventListener('click', OnCloseModal);
-function OnCloseModal() {
+export function OnCloseModal() {
     modalWindowId.classList.add('is-hidden-card');
 }
 
@@ -34,10 +34,10 @@ function OnCloseModal() {
 function OnAddCart(evt) {
     const { target } = evt;
     const parent = target.closest('.shop-btn-card');
+    console.log(parent);
     if (!parent) return;
     const id = parent.dataset.idcards;
     OnCloseModal();
-    //запишемо в локалсторедж
     const cart = localStorage.getItem('cart');
     const parseCart = JSON.parse(cart);
     if (parseCart) {
@@ -56,4 +56,4 @@ function OnAddCart(evt) {
     localStorage.setItem('cart', JSON.stringify(cartList));
     
 }
-addCartBtn.addEventListener('click', OnAddCart);
+refs.addCartBtn.addEventListener('click', OnAddCart);
