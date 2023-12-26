@@ -84,12 +84,7 @@ async function renderCards() {
 
               localStorage.setItem('cart', JSON.stringify(cartList));
               cardUse();
-
-              // const cartList = [];
-              //     cartList.push({ _id: id, quantity: 1 });
-              //     console.log(cartList);
-              // localStorage.setItem('cart1', JSON.stringify(cartList));
-              // console.log(element);
+              sum(cartArr);
             });
           });
         })
@@ -98,21 +93,10 @@ async function renderCards() {
           console.error(error.message);
         });
     }
-
-    // const deleteBtn = document.querySelector(`.js-cart-block .`);
-    // const cartList = document.querySelector(".js-cart-block .cart-list-block");
   } catch (e) {
     console.log(e);
   }
 }
-
-//    const cartClose = document.querySelector('.cart-close');
-// console.log(cartClose);
-
-//   cartClose.addEventListener('click', onClose)
-// function onClose(event) {
-//     console.log(event.target);
-//   }
 
 function waitForElements(selector) {
   return new Promise((resolve, reject) => {
@@ -214,44 +198,24 @@ function createMarkupCartEmpty() {
             </div>
   `;
 }
+const spanYourOrderPrice = document.querySelector(
+  'span#your-order-total-price'
+);
 
-{
-  /* // TO BE continued...
+async function sum(cartArr) {
+  try {
+    let totalSum = 0;
+    const promises = cartArr.map(cartArrItem => getProductById(cartArrItem.id));
 
- //  localStorage
-function saveData(data, key) {
-//     localStorage.setItem(key, JSON.stringify(data))
-// }
+    const responses = await Promise.all(promises);
+    console.log(responses);
+    responses.forEach(response => {
+      let productPrice = response.price;
+      totalSum += productPrice;
+    });
 
-//  function getData(key) {
-//     const data = localStorage.getItem(key);
-
-//     return data ? JSON.parse(data) : []
-// }
-
-// // addProducts
-
-// export function addProducts() {
-//     const cartArr = getData(common.CART_KEY);
-
-//     cartArr.forEach(_id => {
-//         const products = document.querySelectorAll(`[data-idcards="${_id}]`);
-
-//         products.forEach(product => {
-//             const productBtn = // знайти кнопку, яка додає товар
-//                 productBtn.innerHTML = `<svg class="_item-checked"><use href=""></></svg>`;
-//         }
-//             )
-//     })
-// }
-
-// export function removeProducts() {
-//     const cartArr = getData(common.CART_KEY);
-
-//     cartArr.forEach(_id => {
-//         const products = document.querySelectorAll(`[data-idcards="${_id}]`);
-
-//     }
-//     )
-// } */
+    spanYourOrderPrice.textContent = `${Number(totalSum.toFixed(2))}`;
+  } catch (error) {
+    console.error(error.message);
+  }
 }
