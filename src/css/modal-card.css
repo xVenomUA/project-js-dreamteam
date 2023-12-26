@@ -131,9 +131,15 @@
   margin-bottom: 40px;
   margin-top: 20px;
 }
+
 .is-hidden-card {
-    transition: all .3s ease-in-out;
-    display: none;
+  transition: all .3s ease-in-out;
+  display: none;
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  background-color: #0101011a;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~

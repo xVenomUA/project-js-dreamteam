@@ -16,6 +16,7 @@
 @import url('./pagination.css');
 @import url('./modal.css');
 @import url('./modal-card.css');
+@import url('./modalBasket.css');
 
 *,
 *::before,
@@ -28,11 +29,12 @@
 ~~~~~~~~~~~~~~~~~mobile~~~~~~~~~~~~~~~~ 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-body{ 
+body {
   background-color: var(--back-color);
   font-family: var(--font-montreal);
 }
-.container{ 
+
+.container {
   max-width: 375px;
   padding: 0 20px;
   margin: 0 auto;
@@ -45,12 +47,12 @@ body{
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 768px) {
-  .container{ 
+  .container {
     max-width: 768px;
     padding: 0 32px;
     margin: 0 auto;
   }
-} 
+}
 
 
 
@@ -61,8 +63,8 @@ body{
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 1440px) {
-  .container { 
+  .container {
     max-width: 1440px;
     padding: 0 100px;
-  } 
+  }
 }
