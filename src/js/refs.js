@@ -6,5 +6,6 @@ export const refs = {
   filtersCategories: document.querySelector('.filter-categories'),
   addCartBtn: document.querySelector('.shop-btn-card'),
   listCards: document.querySelector('.filter-cards'),
+  countHeader: document.querySelector('.header-cart-count'),
 };
 

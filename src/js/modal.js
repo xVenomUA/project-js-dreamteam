@@ -2,12 +2,15 @@
 import { getProductById } from './APIFoodBoutique';
 import { ModalMarkUP } from './ModalMArkUp';
 import { GetCards } from './filter';
+import { onChangeCount } from './headerFunctionCount';
 import { refs } from './refs';
+
 const modalWindowId = document.getElementById('id-modal-card');
 const closeModalBtn = document.querySelector('.shop-modal-close-btn');
 
 // const modalCard = document.querySelector('.shop-div-card');
 refs.listCards.addEventListener('click', OnClick);
+// ВІДКРИТИ МОДАЛЬНЕ ВІКНО
 async function OnClick(evt) {
     evt.preventDefault();
     const { target } = evt;
@@ -32,7 +35,7 @@ export function OnCloseModal() {
     
 }
 
-
+//ДЛЯ КНОПКИ ДОДАТИ В КОШИК
 function OnAddCart(evt) {
     const { target } = evt;
     const parent = target.closest('.shop-btn-card');
@@ -51,11 +54,13 @@ function OnAddCart(evt) {
         }
         parseCart.push({ _id: id, quantity: 1 });
         localStorage.setItem('cart', JSON.stringify(parseCart));
+        onChangeCount();
         return;
     }
     const cartList = [];
     cartList.push({ _id: id, quantity: 1 });
     localStorage.setItem('cart', JSON.stringify(cartList));
+    onChangeCount();
     
 }
 refs.addCartBtn.addEventListener('click', OnAddCart);

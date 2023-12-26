@@ -7,7 +7,7 @@
 import { refs } from '../js/refs';
 import { APIProductSearch, APICategories } from './APIFoodBoutique';
 import { FilterMarkUp } from './FilterMarkUp';
-import { OnCloseModal } from './modal';
+import { onChangeCount } from './headerFunctionCount';
 import iconimg from '/img/icon.svg';
 const localValueChange = { keyword: null };
 const localValue = { keyword: null, category: null, page: 1, limit: 6 };
@@ -140,6 +140,7 @@ function getLimit() {
 }
 
 function OnAddCartShop(evt) {
+  
   const { target } = evt;
   const parent = target.closest('.filt-btn-card');
   if (!parent) return;
@@ -158,12 +159,14 @@ function OnAddCartShop(evt) {
     }
     parseCart.push({ _id: id, quantity: 1 });
     localStorage.setItem('cart', JSON.stringify(parseCart));
+    onChangeCount();
     return;
   }
   if (!parseCart) {
     const cartList = [];
     cartList.push({ _id: id, quantity: 1 });
     localStorage.setItem('cart', JSON.stringify(cartList));
+    onChangeCount();
   }
   
 }
