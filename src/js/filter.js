@@ -160,5 +160,11 @@ function OnAddCartShop(evt) {
     localStorage.setItem('cart', JSON.stringify(parseCart));
     return;
   }
+  if (!parseCart) {
+    const cartList = [];
+    cartList.push({ _id: id, quantity: 1 });
+    localStorage.setItem('cart', JSON.stringify(cartList));
+  }
+  
 }
 refs.listCards.addEventListener('click', OnAddCartShop);

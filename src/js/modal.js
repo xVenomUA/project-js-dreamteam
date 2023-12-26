@@ -59,3 +59,4 @@ function OnAddCart(evt) {
     
 }
 refs.addCartBtn.addEventListener('click', OnAddCart);
+
