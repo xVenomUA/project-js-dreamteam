@@ -51,6 +51,35 @@
             <p class="cart-name">CART (<span id="cart-counter">0</span>)</p> 
             <p class="cart-cards-count-number"></p>
           </div>
+<!-- ***********empty cart візуалізація***********   -->
+          <!-- <div class="js-cart-block">
+  <div class="cart-empty-basket">
+  <img class="cart-basket-img"
+                src="./img/yellowBasket.png"
+                alt="yellow basket"
+                loading="lazy"
+                width="132"
+                height="114"
+              />
+  </div>
+  <div class="cart-empty-desc">
+              <ul class="cart-desc-ul">
+                <li>
+                  <p class="cart-empty-text">
+                    Your basket is <span class="cart-text-span">
+                    empty...</span>
+                  </p>
+                </li>
+                <li>
+                  <p class="cart-gray-text">
+                    Go to the main page to select your favorite <br /> products and add
+                    them to the cart.
+                  </p>
+                </li>
+              </ul>
+            </div>  -->
+  <!-- ******************** -->
+
           <!-- <div class="cart-empty-basket">
             <picture class="cart-photo">
               <source
@@ -115,8 +144,36 @@
             <!-- cart-list-block -->
 <div class="cart-list-block"></div>
 </div>
+<!-- ******* render prod card візуалізація *************-->
+<!-- <div class="cart-card-container" data-productlist-id="${product._id}">
+          <div class="cart-image-container">
+            <img src="${product.img}" alt="${product.name}" class="">
+          </div>
+        
+        <div class="cart-info">
+          <div class="cart-descript-text">
+            <p class="cart-prod-name">${product.name}</p>
+          <div class="cart-frame">
+  
+          <div class="category-cont">
+            <p class="cart-category-text">Category:
+              <span class="cart-category-black">${product.category}</span></p>
+              
+              <ul class="cart-text-cat">
+              <li class="cart-text-size">
 
-
+            <p class="cart-size-text">Size:
+              <span class="cart-size-black">${product.size}</span></p></li>
+              
+          </div>
+  
+            <div class="cart-price">
+            <p class="cart-card-price">${product.price}</p>
+          </div>
+            <hr class="cart-line">
+          </div>
+        </div>
+      </div> -->
             <!-- <div>
             <ul class="cart-added-cards">
               <li>
@@ -133,8 +190,8 @@
                 <div class="cart-info">
                 <p class="cart-prod-name">Tomato</p>
                 <ul class="cart-ul-info">
-                  <li><p class="cart-category">Category:<span class="cart-category-black"> Fresh Produce</span></p></li>
-                  <li><p class="cart-size">Size:<span class="cart-size-black"> Each</span></li>
+                  <li><p class="cart-category-text">Category:<span class="cart-category-black"> Fresh Produce</span></p></li>
+                  <li><p class="cart-size-text">Size:<span class="cart-size-black"> Each</span></li>
                 </ul>
                 <p class="cart-card-price">$1.99</p>
                 </div>
@@ -242,3 +299,5 @@
   i
 </body>
 </html>
+
+
