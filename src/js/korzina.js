@@ -51,6 +51,7 @@ async function cardUse() {
 }
 cardUse();
 
+
 async function renderCards() {
   cartListBlock.innerHTML = '';
 
@@ -59,23 +60,53 @@ async function renderCards() {
   //   let id = cartArrItem.id;
   
   try {
+    let cartList = [];
+    let listArr = []; // елементи в корзині
     for (let i = 0; i < id.length; i += 1) {
       const resp = await getProductById(id[i]);
       const cartId = renderProdCard(resp, id[i]);
       cartListBlock.innerHTML += cartId;
       
+      const cartParce = JSON.parse(localStorage.getItem('cart'));
+  // console.log(cartParce[i]._id);
+      
+
       waitForElements('.cart-close')
   .then(elements => {
-  
+
+   
+    listArr.push(cartParce[i]._id);
+      console.log(listArr);
+    
+    localStorage.setItem('cart1', JSON.stringify(cartList));
     elements.forEach(element => {
       element.addEventListener('click', e => {
-        console.log(e.currentTarget.id); 
+        const id = e.currentTarget.id; 
+        console.log('removed id', id);
+
+      
+
+        listArr = listArr.filter(item => item !== id);
+        console.log(listArr);
+        cartList = [];
+        for (let j = 0; j < listArr.length; j += 1) {
+         
+          cartList.push({ _id: listArr[j], quantity: 1 });
+
+        }
+     console.log(cartList);
+        localStorage.setItem('cart', JSON.stringify(cartList));
+       
+          cardUse();
         
-        
-        
+    // const cartList = [];
+    //     cartList.push({ _id: id, quantity: 1 });
+    //     console.log(cartList);
+    // localStorage.setItem('cart1', JSON.stringify(cartList));
 // console.log(element);
      
       });
+     
     });
   })
   .catch(error => {
@@ -91,7 +122,7 @@ async function renderCards() {
       console.log(e);
     }
 }
-  
+ 
 
 //    const cartClose = document.querySelector('.cart-close');
 // console.log(cartClose);
