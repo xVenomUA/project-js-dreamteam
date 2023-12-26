@@ -25,9 +25,11 @@
 }
 
 .modal-close-btn:hover,
-.modal-close-btn:focus {
-  background-color: #0101011a;
-}
+.modal-close-btn:focus{
+    background-color: #0101011a;
+  }
+
+
 
 .shop-div-card {
   position: relative;
@@ -122,6 +124,10 @@
   gap: 10px;
 }
 
+.shop-btn-card:hover {
+  background-color: #586F1F;
+}
+
 .shop-card-icon {
   fill: #e8e8e2;
 }
@@ -130,6 +136,7 @@
   max-width: 246px;
   margin-bottom: 40px;
   margin-top: 20px;
+
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -157,7 +164,7 @@
   }
 
   .shop-div-info-text {
-    max-width: 246px;
+    margin-top: 0;
   }
 
 }

@@ -1,0 +1,124 @@
+.modal-backdrop-two {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 998;
+    background: rgba(1, 1, 1, .4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-container-basket {
+    position: relative;
+    align-items: center;
+}
+
+.modal-close-btn-basket {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    cursor: pointer;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: transparent;
+    background: transparent;
+}
+
+.modal-close-btn-basket:hover,
+.modal-close-btn-basket:focus {
+    background: #E8E8E2;
+}
+
+.modal-container-basket-content {
+
+    background: #E8E8E2;
+    margin: auto;
+    border-radius: 20px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+}
+
+.modal-container-basket-info {
+    text-align: center;
+
+
+}
+
+.modal-container-basket-title {
+    color: #010101;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    margin-top: 43px;
+}
+
+.modal-container-basket-discription {
+    max-width: 295px;
+}
+
+.is-hidden-basket {
+    transition: all .3s ease-in-out;
+    display: none;
+
+}
+
+.modal-container-basket-img {
+    position: relative;
+}
+
+.icon-ellipse {
+    fill: rgba(1, 1, 1, 0.10);
+    filter: blur(10px);
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    transform: translate(-50%, -50%);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           TABLET
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+@media screen and (min-width: 768px) {
+    .modal-container-basket-content {
+        max-width: 560px;
+    }
+
+    .modal-container-basket-discription {
+        max-width: 480px;
+    }
+
+    .icon-ellipse {
+        fill: rgba(1, 1, 1, 0.10);
+        filter: blur(10px);
+        position: absolute;
+        left: 50%;
+        top: 42%;
+        transform: translate(-50%, -50%);
+
+    }
+}

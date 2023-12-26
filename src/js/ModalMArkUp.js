@@ -2,9 +2,9 @@ import { refs } from '../js/refs';
 import iconimg from '/img/icon.svg';
 const backdropDiv = document.querySelector('.backdrop-div-card');
 export function ModalMarkUP(productInfo) {
-  const { _id, name, category, size, popularity, desc, price, img } = productInfo;
-  const array =
-    `<div class="shop-modal-backdrop">
+    const { _id, name, category, size, popularity, desc, price, img } = productInfo;
+    const array =
+        `<div class="shop-modal-backdrop">
     <div class="shop-div-card" data-idcarts="${_id}">
         <button class="shop-modal-close-btn">
             <svg class="svg-close" width="20" height="20">
@@ -29,6 +29,7 @@ export function ModalMarkUP(productInfo) {
         </div>
         <p class="shop-text-discription">${desc}</p>
     </div>
+    
 </div>
 
         <div class="shop-div-price">
@@ -42,5 +43,5 @@ export function ModalMarkUP(productInfo) {
     </div>
 </div>
 `;
-  backdropDiv.innerHTML = array;
+    backdropDiv.innerHTML = array;
 }
