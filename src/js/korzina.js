@@ -96,9 +96,9 @@ async function renderCards() {
         }
      console.log(cartList);
         localStorage.setItem('cart', JSON.stringify(cartList));
-        if (listArr.length) {
+       
           cardUse();
-        }
+        
     // const cartList = [];
     //     cartList.push({ _id: id, quantity: 1 });
     //     console.log(cartList);
