@@ -3,7 +3,7 @@ import iconimg from '/img/icon.svg';
 
 /* <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
-    Ivan || Yulia 
+    Ivan || Yulia || Valentyn
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
 // common
@@ -50,12 +50,11 @@ async function renderCards() {
   const cartArr = getDataLocalStorage('cart');
   const id = cartArr.map(item => item._id);
   cartListBlock.innerHTML = '';
-
-  // let cartArr = await getDataLocalStorage(common.CART_KEY);
-  // for (const cartArrItem of cartArr) {
-  //   let id = cartArrItem.id;
+ 
 
   try {
+    let total=0;
+    let prices=[];
     let cartList = [];
     let listArr = []; // елементи в корзині
     for (let i = 0; i < id.length; i += 1) {
@@ -64,8 +63,11 @@ async function renderCards() {
       cartListBlock.innerHTML += cartId;
 
       const cartParce = JSON.parse(localStorage.getItem('cart'));
-      // console.log(cartParce[i]._id);
-
+      total+=resp.price
+      prices.push(resp.price);
+      console.log(total);
+      spanYourOrderPrice.textContent = `${Number(total.toFixed(2))}`
+    
       waitForElements('.cart-close')
         .then(elements => {
           listArr.push(cartParce[i]._id);
@@ -84,7 +86,6 @@ async function renderCards() {
 
               localStorage.setItem('cart', JSON.stringify(cartList));
               cardUse();
-              // sum(cartArr);
             });
           });
         })
@@ -198,24 +199,6 @@ function createMarkupCartEmpty() {
             </div>
   `;
 }
-// const spanYourOrderPrice = document.querySelector(
-//   'span#your-order-total-price'
-// );
-
-// async function sum(cartArr) {
-//   try {
-//     let totalSum = 0;
-//     const promises = cartArr.map(cartArrItem => getProductById(cartArrItem.id));
-
-//     const responses = await Promise.all(promises);
-//     console.log(responses);
-//     responses.forEach(response => {
-//       let productPrice = response.price;
-//       totalSum += productPrice;
-//     });
-
-//     spanYourOrderPrice.textContent = `${Number(totalSum.toFixed(2))}`;
-//   } catch (error) {
-//     console.error(error.message);
-//   }
-// }
+const spanYourOrderPrice = document.querySelector(
+  'span#your-order-total-price'
+);

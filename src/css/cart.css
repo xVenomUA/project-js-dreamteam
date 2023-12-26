@@ -165,8 +165,7 @@
   font-weight: 500;
   line-height: 1.1; /* 116.667% */
 }
-.cart-order-form {
-}
+
 .cart-form {
   display: flex;
   flex-direction: column;
