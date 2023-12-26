@@ -84,7 +84,7 @@ async function renderCards() {
 
               localStorage.setItem('cart', JSON.stringify(cartList));
               cardUse();
-              sum(cartArr);
+              // sum(cartArr);
             });
           });
         })
@@ -198,24 +198,24 @@ function createMarkupCartEmpty() {
             </div>
   `;
 }
-const spanYourOrderPrice = document.querySelector(
-  'span#your-order-total-price'
-);
+// const spanYourOrderPrice = document.querySelector(
+//   'span#your-order-total-price'
+// );
 
-async function sum(cartArr) {
-  try {
-    let totalSum = 0;
-    const promises = cartArr.map(cartArrItem => getProductById(cartArrItem.id));
+// async function sum(cartArr) {
+//   try {
+//     let totalSum = 0;
+//     const promises = cartArr.map(cartArrItem => getProductById(cartArrItem.id));
 
-    const responses = await Promise.all(promises);
-    console.log(responses);
-    responses.forEach(response => {
-      let productPrice = response.price;
-      totalSum += productPrice;
-    });
+//     const responses = await Promise.all(promises);
+//     console.log(responses);
+//     responses.forEach(response => {
+//       let productPrice = response.price;
+//       totalSum += productPrice;
+//     });
 
-    spanYourOrderPrice.textContent = `${Number(totalSum.toFixed(2))}`;
-  } catch (error) {
-    console.error(error.message);
-  }
-}
+//     spanYourOrderPrice.textContent = `${Number(totalSum.toFixed(2))}`;
+//   } catch (error) {
+//     console.error(error.message);
+//   }
+// }
