@@ -8,6 +8,7 @@ import { refs } from '../js/refs';
 import { APIProductSearch, APICategories } from './APIFoodBoutique';
 import { FilterMarkUp } from './FilterMarkUp';
 import { OnCloseModal } from './modal';
+import iconimg from '/img/icon.svg';
 const localValueChange = { keyword: null };
 const localValue = { keyword: null, category: null, page: 1, limit: 6 };
 // відслідковування зміни ширини вікна
@@ -138,15 +139,12 @@ function getLimit() {
   }
 }
 
-
-
-
 function OnAddCartShop(evt) {
   const { target } = evt;
   const parent = target.closest('.filt-btn-card');
   if (!parent) return;
   const useSvg = parent.querySelector('.filt-use');
-  useSvg.setAttribute('href', './img/icon.svg#icon-check');
+  useSvg.setAttribute('href', `${iconimg}#icon-check`);
   parent.setAttribute('disabled', 'true');
   
   const id = parent.dataset.idcards;
