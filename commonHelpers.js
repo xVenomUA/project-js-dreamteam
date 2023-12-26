@@ -1,4 +1,4 @@
-import{g as d,i as g}from"./assets/icon-253637f9.js";import"./assets/vendor-e21ff9e3.js";const m={FILTERS_KEY:"filters",CART_KEY:"cart"},u=document.querySelector("span#cart-counter"),p=document.querySelector(".js-cart-block"),l=document.querySelector(".cart-list-block"),y=document.querySelector(".cart-delete-btn");y.addEventListener("click",v);function v(){localStorage.removeItem("cart"),i()}function o(t){try{const e=localStorage.getItem(t);return e?JSON.parse(e):[]}catch(e){console.log(e.message)}}const h=o("cart"),s=h.map(t=>t._id);async function i(){let t=await o(m.CART_KEY);if(u.textContent=t.length,t.length===0){p.innerHTML=S();return}f()}i();async function f(){l.innerHTML="";try{for(let t=0;t<s.length;t+=1){const e=await d(s[t]),n=k(e,s[t]);l.innerHTML+=n,b(".cart-close").then(c=>{c.forEach(a=>{a.addEventListener("click",r=>{console.log(r.currentTarget.id)})})}).catch(c=>{console.error(c.message)})}}catch(t){console.log(t)}}function b(t){return new Promise((e,n)=>{const c=document.querySelectorAll(t);if(c.length>0)e(c);else{const a=new MutationObserver(()=>{const r=document.querySelectorAll(t);r.length>0&&(a.disconnect(),e(r))});a.observe(document.documentElement,{childList:!0,subtree:!0})}})}function k(t){return t.category.includes("_")&&(t.category=t.category.replace(/_/g," ")),`
+import{g as y,i as v}from"./assets/icon-253637f9.js";import"./assets/vendor-e21ff9e3.js";const h={FILTERS_KEY:"filters",CART_KEY:"cart"},f=document.querySelector("span#cart-counter"),b=document.querySelector(".js-cart-block"),g=document.querySelector(".cart-list-block"),S=document.querySelector(".cart-delete-btn");S.addEventListener("click",k);function k(){localStorage.removeItem("cart"),i()}function m(t){try{const e=localStorage.getItem(t);return e?JSON.parse(e):[]}catch(e){console.log(e.message)}}const E=m("cart"),l=E.map(t=>t._id);async function i(){let t=await m(h.CART_KEY);if(f.textContent=t.length,t.length===0){b.innerHTML=x();return}L()}i();async function L(){g.innerHTML="";try{let t=[],e=[];for(let c=0;c<l.length;c+=1){const r=await y(l[c]),s=w(r,l[c]);g.innerHTML+=s;const n=JSON.parse(localStorage.getItem("cart"));_(".cart-close").then(o=>{e.push(n[c]._id),console.log(e),localStorage.setItem("cart1",JSON.stringify(t)),o.forEach(u=>{u.addEventListener("click",p=>{const d=p.currentTarget.id;console.log("removed id",d),e=e.filter(a=>a!==d),console.log(e),t=[];for(let a=0;a<e.length;a+=1)t.push({_id:e[a],quantity:1});console.log(t),localStorage.setItem("cart",JSON.stringify(t)),i()})})}).catch(o=>{console.error(o.message)})}}catch(t){console.log(t)}}function _(t){return new Promise((e,c)=>{const r=document.querySelectorAll(t);if(r.length>0)e(r);else{const s=new MutationObserver(()=>{const n=document.querySelectorAll(t);n.length>0&&(s.disconnect(),e(n))});s.observe(document.documentElement,{childList:!0,subtree:!0})}})}function w(t){return t.category.includes("_")&&(t.category=t.category.replace(/_/g," ")),`
         <div class="cart-card-container" data-productlist-id="${t._id}">
           <div class="cart-image-container">
             <img src="${t.img}" alt="${t.name}" class="">
@@ -28,14 +28,14 @@ import{g as d,i as g}from"./assets/icon-253637f9.js";import"./assets/vendor-e21f
 
            <button type="button" id="${t._id}" class="cart-close">
               <svg class="cart-close-icon" width="18" height="18">
-                <use href="${g}#icon-close"></use>
+                <use href="${v}#icon-close"></use>
               </svg>
             </button>
 
           </div>
         </div>
       </div>
-    `}function S(){return` 
+    `}function x(){return` 
   <div class="js-cart-block">
   <div class="cart-empty-basket">
   <img class="cart-basket-img"
