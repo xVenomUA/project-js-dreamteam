@@ -1,12 +1,22 @@
 import iconimg from '/img/icon.svg';
+import { ModalMarkUP } from './ModalMArkUp';
+
+const modalWindowId = document.getElementById('id-modal-card');
 
 export function createPopularCards(product) {
   if (product.category.includes('_')) {
     product.category = product.category.replace(/_/g, ' ');
   }
-    return `
-        <div class="popular-card" data-productlist-id="${product._id}">
-          <div class="popular-background">
+  const card = document.createElement("div")
+  card.classList.add("popular-card")
+  card.setAttribute("data-productlist-id", product._id);
+  card.addEventListener("click", ()=>{
+    ModalMarkUP(product)
+    modalWindowId.classList.remove('is-hidden-card')
+  })
+
+  card.innerHTML = `
+  <div class="popular-background">
             <img src="${product.img}" alt="${product.name}" class="popular-img">
           </div>
         
@@ -31,14 +41,14 @@ export function createPopularCards(product) {
   
             <div class="popularname-price">
           </div>
-            <div id="${product._id}" class="popular-icon-cont">
+          <div id="${product._id}" class="popular-icon-cont">
               <svg class="popular-icon" width="20" height="20">
                 <use href="${iconimg}#icon-shop"></use>
               </svg>
-            </div>
+          </div>
           </div>
         </div>
       </div>
-      </div>
-    `;
+  `
+    return card;
   }
