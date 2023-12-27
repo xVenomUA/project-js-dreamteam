@@ -54,8 +54,8 @@ function OnAddCartShop(evt) {
   const useSvg = parent.querySelector('.filt-use');
   useSvg.setAttribute('href', `${iconimg}#icon-check`);
   parent.setAttribute('disabled', 'true');
-  const SvgIconBack = parent.querySelector('.popular-icon ');
-  SvgIconBack.classList.add('popular-icon-back');  
+  const BtnIconBack = parent;
+  BtnIconBack.classList.add('popular-icon-back');  
   const id = parent.dataset.idcarts;
   const cart = localStorage.getItem('cart');
   const parseCart = JSON.parse(cart);

@@ -64,7 +64,6 @@ async function renderCards() {
       const cartParce = JSON.parse(localStorage.getItem('cart'));
       total += resp.price;
       prices.push(resp.price);
-      console.log(total);
       spanYourOrderPrice.textContent = `${Number(total.toFixed(2))}`;
 
       waitForElements('.cart-close')
@@ -127,7 +126,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("scroll", function () {
     const scrollPosition = window.scrollY;
-
   });
 });
 // рендер доданої картки

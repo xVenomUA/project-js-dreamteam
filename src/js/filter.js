@@ -5,16 +5,12 @@
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
 import throttle from 'lodash.throttle';
 
-
 import { refs } from '../js/refs';
 import { APIProductSearch, APICategories } from './APIFoodBoutique';
 import { FilterMarkUp } from './FilterMarkUp';
 import { onChangeCount } from './headerFunctionCount';
 import { getRenderPopularCard } from './popular';
-
 import iconimg from '/img/icon.svg';
-
-
 const localValueChange = { keyword: null };
 const localValue = { keyword: null, category: null, page: 1, limit: 6 };
 // відслідковування зміни ширини вікна

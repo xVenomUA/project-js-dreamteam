@@ -3,110 +3,116 @@
    Katherine
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
- .popular-title {
-   font-weight: 500;
-   font-size: 24px;
-   line-height: 1.17em;
-   margin-bottom: 20px;
- }
- .popular-name {
-   font-weight: 500;
-   font-size: 18px;
-   line-height: 1.11em;
-   margin-bottom: 12px;
- }
- .popular-card {
-   background-color: #fafafa;
-   border-radius: 10px;
-   width: 100%;
-   height: auto;
-   display: flex;
-   cursor: pointer;
-   align-items: start;
-   position: relative;
-   gap: 10px;
-   padding: 12px;
-   justify-content: start;
-   position: relative;
- }
- .popular-img {
-   background-color: #e8e8e2;
-   width: 100%;
-   /* height: 56px; */
- }
- .popular-background {
-   background-color: #e8e8e2;
-   width: 74px;
-   height: 74px;
-   padding: 9px;
-   border-radius: 10px;
-   justify-content: center;
-   align-items: center;
-   display: flex;
-   position: relative;
- }
- .popular-text {
-   color: rgba(1, 1, 1, 0.3);
-   font-size: 12px;
-   font-style: normal;
-   font-weight: 400;
-   line-height: 1.17em;
-   margin-bottom: 9px;
-   display: flex;
- }
- .popular {
-   display: flex;
-   flex-direction: column;
-   gap: 14px;
- }
- .popular-icon {
-   background-color: #e8e8e2;
-   fill: #6d8434;
-   border: none;
-   border-radius: 30px;
-   justify-content: center;
-   align-items: center;
-   padding: 4px;
-   transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-   display: flex;
-   position: absolute;
-   top: 12px;
-   right: 12px;
- }
- 
- .popular-icon:is(:hover, :focus) {
-   background-color: #6d8434;
-   fill: #e8e8e2;
- }
-  .popular-icon-back{ 
-  background-color: #6d8434;
- }
- .category-cont {
-   display: flex;
-   font-size: 12px;
-   /* gap: 9px; */
-   color: darkgray;
-   width: 154px;
-   flex-wrap: wrap;
-   align-items: flex-start;
-   align-content: flex-start;
- }
- 
- .pop-text-two-cat{
-   display: flex;
-   gap: 4px;
- }
- 
- .pop-text-size-pop{
- /* margin-right:9px; */
- width: 100%;
- }
- 
- .popular-word{
-   margin-left: 4px;
-   color: black;
- }
+.popular-title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.17em;
+  margin-bottom: 20px;
+}
+.popular-icon{ 
+  fill: #6d8434;
+}
+.popular-icon:is(:hover, :focus) {
+  fill: #e8e8e2;
+}
+.popular-icon-cont {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  border-radius: 50px;
+}
+.popular-name {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.11em;
+  margin-bottom: 12px;
+}
+.popular-card {
+  background-color: #fafafa;
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  cursor: pointer;
+  align-items: start;
+  position: relative;
+  gap: 10px;
+  padding: 12px;
+  justify-content: start;
+  position: relative;
+}
+.popular-img {
+  background-color: #e8e8e2;
+  width: 100%;
+  /* height: 56px; */
+}
+.popular-background {
+  background-color: #e8e8e2;
+  width: 74px;
+  height: 74px;
+  padding: 9px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+.popular-text {
+  color: rgba(1, 1, 1, 0.3);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.17em;
+  margin-bottom: 9px;
+  display: flex;
+}
+.popular {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.popular-icon {
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+.popular-icon-cont:is(:hover, :focus) {
+  background-color: #6d8434;
+  fill: #e8e8e2;
+}
+.popular-icon-back {
+  background-color: #6d8434;
+}
+.category-cont {
+  display: flex;
+  font-size: 12px;
+  /* gap: 9px; */
+  color: darkgray;
+  width: 154px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.pop-text-two-cat {
+  display: flex;
+  gap: 4px;
+}
+
+.pop-text-size-pop {
+  /* margin-right:9px; */
+  width: 100%;
+}
+
+.popular-word {
+  margin-left: 4px;
+  color: black;
+}
 
 @import url('./variable.css');
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -115,36 +121,34 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
            TABLET
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 768px) {
-    .popular {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 13px;
-    }
-    .popular-card {
-      width: calc(50% - 16px); /* 50% minus padding */
-   }
-    .popular-title {
-      font-size: 28px;
-      line-height: 1.14em;
-      gap: 20px;
-      white-space: nowrap;
-    }
-    .popular-name {
-      font-size: 20px;
-      line-height: 1.2em;
-      margin-bottom: 12px;
-    }
-} 
-
+  .popular {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 13px;
+  }
+  .popular-card {
+    width: calc(50% - 16px); /* 50% minus padding */
+  }
+  .popular-title {
+    font-size: 28px;
+    line-height: 1.14em;
+    gap: 20px;
+    white-space: nowrap;
+  }
+  .popular-name {
+    font-size: 20px;
+    line-height: 1.2em;
+    margin-bottom: 12px;
+  }
+}
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -153,43 +157,42 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 1440px) {
-   .popular-container {
-      width: 475px;
-   }
-   .div-position-my-post{ 
+  .popular-container {
+    width: 475px;
+  }
+  .div-position-my-post {
     display: flex;
     margin: 0 auto;
-    padding: 0 100px ;
+    padding: 0 100px;
     max-width: 1440px;
-   }
-   #popularity .container{ 
+  }
+  #popularity .container {
     padding: 0;
     width: 275px;
     margin: 0 0 40px 0;
-   }
-   #popularity{ 
+  }
+  #popularity {
     width: 275px;
-   }
-   .popular {
-      width: 100%;
-      flex-direction: column;
-   }
-   .popular-card {
-      width: 275px
-   }
-   .div-position-global{ 
+  }
+  .popular {
+    width: 100%;
+    flex-direction: column;
+  }
+  .popular-card {
+    width: 275px;
+  }
+  .div-position-global {
     padding-bottom: 100px;
-   }
-   .popular-title{ 
+  }
+  .popular-title {
     width: 209px;
     margin-bottom: 20px;
-   }
-.div-popular-discount{ 
-  padding-top: 118px;
-}
-.popular-icon-cont{ 
-  position: absolute;
-  top: 0;
-  right: 0;
-}
+  }
+  .div-popular-discount {
+    padding-top: 118px;
+  }
+  .popular-icon-cont {
+    width: 22px;
+    height: 22px;
+  }
 }
