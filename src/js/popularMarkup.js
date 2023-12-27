@@ -45,8 +45,8 @@ export function createPopularCards(product) {
   
             <div class="popularname-price">
           </div>
-          <button data-idcarts="${_id}" class="popular-icon-cont">
-              <svg class="popular-icon ${backHover}" width="20" height="20">
+          <button data-idcarts="${_id}" class="popular-icon-cont ${backHover}">
+              <svg class="popular-icon" width="20" height="20">
                 <use href="${iconimg}#icon-${iconChange}" class="filt-use"></use>
               </svg>
           </button>

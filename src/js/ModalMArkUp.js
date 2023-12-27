@@ -10,11 +10,14 @@ export function ModalMarkUP(productInfo) {
   const priceCard = document.querySelector('.shop-h-price');
   const imgCard = document.querySelector('.shop-img');
   const localValue = JSON.parse(localStorage.getItem('cart'));
+  let findProduct = {};
   if (localValue) {
-    const findProduct = localValue.find(product => product._id === _id);
-    if (findProduct) {
-      id.setAttribute('disabled', 'true');
-    }
+    findProduct = localValue.find(product => product._id === _id) ?? false;
+    console.log(findProduct);
+  }
+  if (findProduct) {
+    id.setAttribute('disabled', 'true');
+    //напиши щоб текст був 'Remove from cart' і при цьому не втрачав іконку
   }
   id.dataset.idcards = _id;
 
