@@ -75,7 +75,9 @@
   line-height: 0.875rem;
 
 }
-
+ button .shop-btn-card-active{
+  width: 157px;
+ }
 .shop-span {
   margin-left: 4px;
   color: #010101;
@@ -107,6 +109,8 @@
 }
 
 .shop-btn-card {
+  width: 116px;
+  height: 42px;
   border-radius: 30px;
   display: flex;
   justify-content: center;
@@ -169,5 +173,11 @@
   .shop-div-info-text {
     max-width: 246px;
   }
-
+  .shop-btn-card{
+    width: 130px;
+    height: 40px;
+  }
+  .shop-btn-card-active { 
+    width: 178px;
+  }
 }

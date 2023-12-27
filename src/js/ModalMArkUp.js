@@ -13,14 +13,23 @@ export function ModalMarkUP(productInfo) {
   let findProduct = {};
   if (localValue) {
     findProduct = localValue.find(product => product._id === _id) ?? false;
-    console.log(findProduct);
+    // console.log(findProduct);
   }
-  if (findProduct) {
-    id.setAttribute('disabled', 'true');
-    //напиши щоб текст був 'Remove from cart' і при цьому не втрачав іконку
+  if (findProduct !== false) {
+    id.innerHTML = `Remove from<svg class="shop-card-icon" height="18" width="18">
+          <use href="./img/icon.svg#icon-shop"></use>
+        </svg>`;
+    id.setAttribute('dataCheck', 'true');
+    id.classList.add('shop-btn-card-active');
+  } else { 
+    id.innerHTML = `Add to<svg class="shop-card-icon" height="18" width="18">
+          <use href="./img/icon.svg#icon-shop"></use>
+        </svg>`;
+    id.setAttribute('dataCheck', 'false');
+    id.classList.remove('shop-btn-card-active');
   }
+  
   id.dataset.idcards = _id;
-
   nameCard.textContent = name;
   categoryCard.textContent = category;
   sizeCard.textContent = size;
