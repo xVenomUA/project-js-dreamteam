@@ -4,6 +4,7 @@ import { GetCards } from './filter';
 export const ulTag = document.querySelector('.pagination-list');
 export const totalPage = JSON.parse(localStorage.getItem('totalPage'));
 export const page = JSON.parse(localStorage.getItem('filters')).page;
+const paginationFilt = document.querySelector('.pagination');
 console.log(totalPage);
 export function element(totalPages, page) {
   let liTag = '';
