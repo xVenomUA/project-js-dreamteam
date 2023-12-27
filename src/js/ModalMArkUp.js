@@ -26,4 +26,6 @@ export function ModalMarkUP(productInfo) {
   priceCard.textContent = `$${price}`;
   imgCard.src = img;
   imgCard.alt = name;
+
 }
+

@@ -122,16 +122,12 @@ function waitForElements(selector) {
 }
 //скрол для корзини
 document.addEventListener("DOMContentLoaded", function () {
-  var cart = document.getElementById("cart");
+  const cart = document.getElementById("cart");
+  const scrollThreshold = 100;
 
   window.addEventListener("scroll", function () {
-    var scrollPosition = window.scrollY;
+    const scrollPosition = window.scrollY;
 
-    if (scrollPosition > 100) {
-      cart.style.maxHeight = "0";
-    } else {
-      cart.style.maxHeight = "200px"; 
-    }
   });
 });
 // рендер доданої картки
