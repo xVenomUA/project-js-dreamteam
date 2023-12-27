@@ -9,7 +9,7 @@
   line-height: 1.17em;
   margin-bottom: 20px;
 }
-.popular-icon{ 
+.popular-icon {
   fill: #6d8434;
 }
 .popular-icon:is(:hover, :focus) {
@@ -46,6 +46,7 @@
   padding: 12px;
   justify-content: start;
   position: relative;
+  transition: background-color cubic-bezier(0.6, -0.28, 0.735, 0.045) 250ms;
 }
 .popular-img {
   background-color: #e8e8e2;

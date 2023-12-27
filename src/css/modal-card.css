@@ -48,7 +48,6 @@
   border-radius: 10px;
 }
 
-
 .shop-h-name {
   color: #010101;
   font-size: 18px;
@@ -73,11 +72,10 @@
   color: rgba(1, 1, 1, 0.3);
   font-size: 12px;
   line-height: 0.875rem;
-
 }
- button .shop-btn-card-active{
+button .shop-btn-card-active {
   width: 157px;
- }
+}
 .shop-span {
   margin-left: 4px;
   color: #010101;
@@ -124,8 +122,12 @@
   line-height: 0.036em;
   padding: 12px 24px;
   gap: 10px;
+  transition: background cubic-bezier(0.6, -0.28, 0.735, 0.045) 150ms;
 }
-
+.shop-btn-card:hover,
+.shop-btn-card:focus {
+  background: var(--icon-hovecolor);
+}
 .shop-card-icon {
   fill: #e8e8e2;
 }
@@ -137,7 +139,7 @@
 }
 
 .is-hidden-card {
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   display: none;
 }
 
@@ -152,11 +154,9 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 768px) {
-
   .shop-div-card {
     max-width: 600px;
     padding: 40px;
-
   }
 
   .shop-div-img {
@@ -167,17 +167,16 @@
   .shop-div-info {
     display: flex;
     gap: 24px;
-
   }
 
   .shop-div-info-text {
     max-width: 246px;
   }
-  .shop-btn-card{
+  .shop-btn-card {
     width: 130px;
     height: 40px;
   }
-  .shop-btn-card-active { 
+  .shop-btn-card-active {
     width: 178px;
   }
 }
