@@ -39,28 +39,48 @@ function OnAddCart(evt) {
     const { target } = evt;
     const parent = target.closest('.shop-btn-card');
     GetCards();
-    getRenderPopularCard(); 
+    getRenderPopularCard();
     if (!parent) return;
     const id = parent.dataset.idcards;
+    const dataCheck = parent.dataset.check;
+    console.log(dataCheck);
     OnCloseModal();
     const cart = localStorage.getItem('cart');
     const parseCart = JSON.parse(cart);
-    if (parseCart) {
-        const findProduct = parseCart.find(product => product._id === id);
-        if (findProduct) {
+    if (dataCheck === 'false') { 
+        if (parseCart) {
+          const findProduct = parseCart.find(product => product._id === id);
+          if (findProduct) {
             findProduct.quantity += 1;
             localStorage.setItem('cart', JSON.stringify(parseCart));
             return;
+          }
+          parseCart.push({ _id: id, quantity: 1 });
+          localStorage.setItem('cart', JSON.stringify(parseCart));
+          onChangeCount();
+          return;
         }
-        parseCart.push({ _id: id, quantity: 1 });
-        localStorage.setItem('cart', JSON.stringify(parseCart));
+        const cartList = [];
+        cartList.push({ _id: id, quantity: 1 });
+        localStorage.setItem('cart', JSON.stringify(cartList));
         onChangeCount();
-        return;
+    } else {
+        if (parseCart) {
+            const findProduct = parseCart.find(product => product._id === id);
+            if (findProduct) {
+                findProduct.quantity -= 1;
+                if (findProduct.quantity === 0) {
+                    const cartList = parseCart.filter(product => product._id !== id);
+                    localStorage.setItem('cart', JSON.stringify(cartList));
+                    onChangeCount();
+                    return;
+                }
+                localStorage.setItem('cart', JSON.stringify(parseCart));
+                onChangeCount();
+                return;
+            }
+        }
     }
-    const cartList = [];
-    cartList.push({ _id: id, quantity: 1 });
-    localStorage.setItem('cart', JSON.stringify(cartList));
-    onChangeCount();
     
 }
 refs.addCartBtn.addEventListener('click', OnAddCart);

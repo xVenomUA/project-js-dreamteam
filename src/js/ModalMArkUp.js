@@ -20,16 +20,15 @@ export function ModalMarkUP(productInfo) {
     id.innerHTML = `Remove from<svg class="shop-card-icon" height="18" width="18">
           <use href="${iconimg}#icon-shop"></use>
         </svg>`;
-    id.setAttribute('dataCheck', 'true');
+    id.setAttribute('data-check', 'true');
     id.classList.add('shop-btn-card-active');
   } else {
     id.innerHTML = `Add to<svg class="shop-card-icon" height="18" width="18">
           <use href="${iconimg}#icon-shop"></use>
         </svg>`;
-    id.setAttribute('dataCheck', 'false');
-    id.classList.remove('shop-btn-card-active');
+    id.setAttribute('data-check', 'false');
+    id.classList.remove('shop-btn-card-active');  
   }
-
   id.dataset.idcards = _id;
   nameCard.textContent = name;
   categoryCard.textContent = category;
