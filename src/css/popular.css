@@ -3,6 +3,10 @@
    Katherine
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
+.popular-buton{ 
+  border:none;
+}
+
  .popular-title {
    font-weight: 500;
    font-size: 24px;
