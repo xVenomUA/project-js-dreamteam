@@ -50,7 +50,7 @@ import{i as m,a as T,g as O,A,b as B,c as H,p as D}from"./assets/icon-c42978c0.j
   
             <div class="popularname-price">
           </div>
-          <button  data-idcarts="${s}" class="popular-icon-cont">
+          <button  class="popular-buton" data-idcarts="${s}" class="popular-icon-cont">
               <svg class="popular-icon ${u}" width="20" height="20">
                 <use href="${m}#icon-${l}" class="filt-use"></use>
               </svg>
