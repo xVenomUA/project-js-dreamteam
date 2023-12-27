@@ -120,7 +120,20 @@ function waitForElements(selector) {
     }
   });
 }
+//скрол для корзини
+document.addEventListener("DOMContentLoaded", function () {
+  var cart = document.getElementById("cart");
 
+  window.addEventListener("scroll", function () {
+    var scrollPosition = window.scrollY;
+
+    if (scrollPosition > 100) {
+      cart.style.maxHeight = "0";
+    } else {
+      cart.style.maxHeight = "200px"; 
+    }
+  });
+});
 // рендер доданої картки
 
 function renderProdCard(product) {
@@ -129,21 +142,29 @@ function renderProdCard(product) {
   }
 
   return `
-        <div class="cart-card-container" data-productlist-id="${product._id}">
+        <li class="cart-card-container" data-productlist-id="${product._id}">
           <div class="cart-image-container">
             <img src="${product.img}" alt="${product.name}" class="">
           </div>
         
         <div class="cart-info">
           <div class="cart-descript-text">
+          <div class="cart-div-new">
             <p class="cart-prod-name">${product.name}</p>
+            <button type="button" id="${product._id}" class="cart-close">
+              <svg class="cart-close-icon" width="10.125" height="10.125">
+                <use href="${iconimg}#icon-close"></use>
+              </svg>
+            </button>
+            </div>
           <div class="cart-frame">
   
           <div class="category-cont">
-            <p class="cart-category-text">Category:
-              <span class="cart-category-black">${product.category}</span></p>
-              
               <ul class="cart-text-cat">
+              <li>
+              <p class="cart-category-text">Category:
+              <span class=" cart-category-black">${product.category}</span></p>
+              </li>
               <li class="cart-text-size">
 
             <p class="cart-size-text">Size:
@@ -152,19 +173,13 @@ function renderProdCard(product) {
           </div>
   
             <div class="cart-price">
-            <p class="cart-card-price">${product.price}</p>
+            <p class="cart-card-price">$${product.price}</p>
           </div>
-            <hr class="cart-line">
-
-           <button type="button" id="${product._id}" class="cart-close">
-              <svg class="cart-close-icon" width="18" height="18">
-                <use href="${iconimg}#icon-close"></use>
-              </svg>
-            </button>
-
           </div>
         </div>
       </div>
+      </li>
+      <hr class="cart-line">
     `;
 }
 
