@@ -2,8 +2,8 @@
 import '../node_modules/modern-normalize/modern-normalize.css';
 import './js/headerFunctionCount';
 import './js/filter';
-import './js/modal';
+import './js/pagination';
 import './js/popular';
 import './js/discount';
+import './js/modal';
 import './js/subscription';
-import './js/pagination';
