@@ -271,6 +271,7 @@ img .filt-div-img {
   .filter-cards {
     gap: 40px 20px;
     width: 925px;
+    margin-bottom: 40px; 
   }
   .filter-strilka {
     width: 189px;
