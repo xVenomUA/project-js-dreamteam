@@ -15,7 +15,7 @@ const localValueChange = { keyword: null };
 const localValue = { keyword: null, category: null, page: 1, limit: 6 };
 // відслідковування зміни ширини вікна
 window.addEventListener('resize', throttle(GetCards, 2500));
-
+let totalPageSSS = 0; 
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 // РЕНДЕР КАТЕГОРІЙ В СЕЛЕКТІ
@@ -67,9 +67,12 @@ export async function GetCards() {
       localValue.page,
       limit
     );
-    console.log(seacrhresult.totalPages);
     localStorage.setItem('totalPage', JSON.stringify(seacrhresult.totalPages));
     const results = seacrhresult.results;
+    totalPageSSS = seacrhresult.totalPages; 
+    console.log(totalPageSSS);
+    console.log(localValue.page);
+    element(totalPageSSS, localValue.page);
     FilterMarkUp(results);
   } catch (error) {
     console.log(error);
@@ -114,8 +117,6 @@ async function handleFiltersSubmit(evt) {
   localValue.page = 1;
   localStorage.setItem('filters', JSON.stringify(localValue));
   GetCards();
-  const filterTotalPage = JSON.parse(localStorage.getItem('totalPage'));
-  element(filterTotalPage, page);
   evt.target.reset();
 }
 
