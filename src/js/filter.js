@@ -3,18 +3,18 @@
     Ондрій + Andrian Pohrebniak + Pasha + Валентин
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
-import throttle from 'lodash.throttle';
 
+import throttle from 'lodash.throttle';
 import { refs } from '../js/refs';
 import { APIProductSearch, APICategories } from './APIFoodBoutique';
 import { FilterMarkUp } from './FilterMarkUp';
 import { onChangeCount } from './headerFunctionCount';
-import { getRenderPopularCard } from './popular';
 import iconimg from '/img/icon.svg';
+import { element, page, totalPage } from './pagination';
 const localValueChange = { keyword: null };
 const localValue = { keyword: null, category: null, page: 1, limit: 6 };
 // відслідковування зміни ширини вікна
-window.addEventListener('resize', throttle((GetCards), 2500));
+window.addEventListener('resize', throttle(GetCards, 2500));
 
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
@@ -24,21 +24,22 @@ window.addEventListener('resize', throttle((GetCards), 2500));
 async function GetCategories() {
   try {
     const categResult = await APICategories();
-    const markUpCategories = categResult.map(data => {
-      let replacedata
-      if (data.includes('_')) { 
-      replacedata = data.replace(/_/g, ' '); 
-      }
-      else {
-        replacedata = data
-      }
-      return `<option value="${data}">${replacedata}</option>`;
-    }).join('');
+    const markUpCategories = categResult
+      .map(data => {
+        let replacedata;
+        if (data.includes('_')) {
+          replacedata = data.replace(/_/g, ' ');
+        } else {
+          replacedata = data;
+        }
+        return `<option value="${data}">${replacedata}</option>`;
+      })
+      .join('');
     refs.categor.innerHTML += markUpCategories;
-     const option = document.createElement('option');
-     option.value = 'Show all';
-     option.textContent = 'Show all';
-     refs.categor.prepend(option);
+    const option = document.createElement('option');
+    option.value = 'Show all';
+    option.textContent = 'Show all';
+    refs.categor.prepend(option);
   } catch (error) {
     console.log(error);
   }
@@ -66,6 +67,7 @@ export async function GetCards() {
       localValue.page,
       limit
     );
+    console.log(seacrhresult.totalPages);
     localStorage.setItem('totalPage', JSON.stringify(seacrhresult.totalPages));
     const results = seacrhresult.results;
     FilterMarkUp(results);
@@ -73,11 +75,9 @@ export async function GetCards() {
     console.log(error);
   }
 }
-
-
-
 GetCategories();
 GetCards();
+element(totalPage, page);
 if (refs.form) {
   refs.form.addEventListener('input', handleFiltersInput);
   refs.form.addEventListener('submit', handleFiltersSubmit);
@@ -111,8 +111,11 @@ async function handleFiltersSubmit(evt) {
     localValue.category = null;
   }
 
+  localValue.page = 1;
   localStorage.setItem('filters', JSON.stringify(localValue));
   GetCards();
+  const filterTotalPage = JSON.parse(localStorage.getItem('totalPage'));
+  element(filterTotalPage, page);
   evt.target.reset();
 }
 
@@ -128,6 +131,7 @@ function changeForm() {
   }
 }
 changeForm();
+
 
 // Функція для визначення ліміту в залежності від розміру екрану
 function getLimit() {
@@ -146,7 +150,7 @@ function getLimit() {
 }
 
 function OnAddCartShop(evt) {
-  getRenderPopularCard();
+  
   const { target } = evt;
   const parent = target.closest('.filt-btn-card');
   if (!parent) return;
