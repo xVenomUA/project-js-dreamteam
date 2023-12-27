@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  
-  <script type="module" crossorigin src="/project-js-dreamteam/commonHelpers.js"></script>
-  <link rel="modulepreload" crossorigin href="/project-js-dreamteam/assets/vendor-611745ce.js">
-  <link rel="modulepreload" crossorigin href="/project-js-dreamteam/assets/icon-c42978c0.js">
-  <link rel="stylesheet" href="/project-js-dreamteam/assets/vendor-9918a8f8.css">
-  <link rel="stylesheet" href="/project-js-dreamteam/assets/icon-45e6c7c7.css">
-</head>
+ <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/project-js-dreamteam/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DreamProject</title>
+    
+    <script type="module" crossorigin src="/project-js-dreamteam/commonHelpers.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-js-dreamteam/assets/vendor-611745ce.js">
+    <link rel="modulepreload" crossorigin href="/project-js-dreamteam/assets/icon-c42978c0.js">
+    <link rel="stylesheet" href="/project-js-dreamteam/assets/vendor-9918a8f8.css">
+    <link rel="stylesheet" href="/project-js-dreamteam/assets/icon-45e6c7c7.css">
+  </head>
 <body>
   <header class="header">
   <div class="container header-container">
@@ -24,15 +25,15 @@
   </div>
     <nav class="header-nav">
       <ul class="header-ul">
-        <li class="header-li"><a href="./index.html" class="header-home header-nav-link">Home</a></li>
+        <li class="header-li"><a href="" class="header-home header-nav-link">Home</a></li>
         <li class="header-buy">
-          <a href=""  class="header-goods header-nav-link">
+          <a href="./cart.html" class="header-goods header-nav-link">
         <svg class="header-icon-shop" width="14" height="14" >
           <use href="/project-js-dreamteam/assets/icon-ed92c614.svg#icon-shop"></use>
         </svg>
       </a></li>
         <li class="header-cart">
-          <a href="cart.html"  class="header-cart-link">CART
+          <a href="./cart.html" class="header-cart-link">CART
             <span class="header-cart-count">(0)</span>
           </a>
         </li>
@@ -40,6 +41,7 @@
     </nav>
   </div>
 </header>
+
 <main>
  <section class="cart-section">
         <div class="container cart-container">
@@ -53,84 +55,6 @@
             <p class="cart-name">CART (<span id="cart-counter">0</span>)</p> 
             <p class="cart-cards-count-number"></p>
           </div>
-<!-- ***********empty cart візуалізація***********   -->
-          <!-- <div class="js-cart-block">
-  <div class="cart-empty-basket">
-  <img class="cart-basket-img"
-                src="./img/yellowBasket.png"
-                alt="yellow basket"
-                loading="lazy"
-                width="132"
-                height="114"
-              />
-  </div>
-  <div class="cart-empty-desc">
-              <ul class="cart-desc-ul">
-                <li>
-                  <p class="cart-empty-text">
-                    Your basket is <span class="cart-text-span">
-                    empty...</span>
-                  </p>
-                </li>
-                <li>
-                  <p class="cart-gray-text">
-                    Go to the main page to select your favorite <br /> products and add
-                    them to the cart.
-                  </p>
-                </li>
-              </ul>
-            </div>  -->
-  <!-- ******************** -->
-
-          <!-- <div class="cart-empty-basket">
-            <picture class="cart-photo">
-              <source
-                class="cart-basket-img"
-                media="(max-width: 767px)"
-                srcset="
-                  ../img/yellowBasket.png   1x,
-                  ../img/yellowBasket2x.png 2x
-                "
-                width="132"
-                height="114"
-              />
-
-              <source
-                class="cart-basket-img"
-                media="(min-width: 768px)"
-                srcset="
-                  ../img/yellowBasket.png   1x,
-                  ../img/yellowBasket2x.png 2x
-                "
-                width="164"
-                height="140"
-              />
-
-              <img
-                class="cart-basket-img"
-                src="../img/yellowBasket.png"
-                alt="yellow basket"
-                loading="lazy"
-              />
-            </picture>
-
-            <div class="cart-empty-desc">
-              <ul class="cart-desc-ul">
-                <li>
-                  <p class="cart-empty-text">
-                    Your basket is
-                    <a href="../index.html" class="cart-link">empty...</a>
-                  </p>
-                </li>
-                <li>
-                  <p class="cart-gray-text">
-                    Go to the main page to select your favorite products and add
-                    them to the cart.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </div>     -->
 <div class="js-cart-block">
           <!-- delete all block -->
            <div class="cart-card-list">
@@ -146,63 +70,6 @@
             <!-- cart-list-block -->
 <ul class="cart-list-block"></ul>
 </div>
-<!-- ******* render prod card візуалізація *************-->
-<!-- <div class="cart-card-container" data-productlist-id="${product._id}">
-          <div class="cart-image-container">
-            <img src="${product.img}" alt="${product.name}" class="">
-          </div>
-        
-        <div class="cart-info">
-          <div class="cart-descript-text">
-            <p class="cart-prod-name">${product.name}</p>
-          <div class="cart-frame">
-  
-          <div class="category-cont">
-            <p class="cart-category-text">Category:
-              <span class="cart-category-black">${product.category}</span></p>
-              
-              <ul class="cart-text-cat">
-              <li class="cart-text-size">
-
-            <p class="cart-size-text">Size:
-              <span class="cart-size-black">${product.size}</span></p></li>
-              
-          </div>
-  
-            <div class="cart-price">
-            <p class="cart-card-price">${product.price}</p>
-          </div>
-            <hr class="cart-line">
-          </div>
-        </div>
-      </div> -->
-            <!-- <div>
-            <ul class="cart-added-cards">
-              <li>
-                <button type="button" class="cart-card-close-button">
-                  <svg class="cart-card-icon-close" width="14" height="14">
-                <use href="./img/icon.svg#icon-close"></use>
-              </svg>
-                </button>
-                
-                <div class="cart-card-container">
-                <div class="cart-image-container">
-                <img src="./img/tomatoe1x-min.png" alt="card-image">
-                </div>
-                <div class="cart-info">
-                <p class="cart-prod-name">Tomato</p>
-                <ul class="cart-ul-info">
-                  <li><p class="cart-category-text">Category:<span class="cart-category-black"> Fresh Produce</span></p></li>
-                  <li><p class="cart-size-text">Size:<span class="cart-size-black"> Each</span></li>
-                </ul>
-                <p class="cart-card-price">$1.99</p>
-                </div>
-              </div>
-              <hr class="cart-line">
-              </li>
-              
-            </ul>
-            </div> -->
             <div class="cart-order-form">
               <p class="cart-your-order">YOUR ORDER</p>
               <div class="cart-total-sum">
@@ -228,8 +95,28 @@
           </div>
         </div>
 </main>
-  <footer>
+  <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
+₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
+      Sloboda Volodymyr
+₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
+₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ 
+     1. Всі класи починаються з вашого розділу, тобто якщо у вас footer,
+клас обовязково має виглядати так class="footer-вашаназва" - це потрібно 
+для того, щоб ваші назви не збігались!!  
+     2. Обовязково у вашій секції всередині має бути дів з класом container!!!!!! (потрібно для різних розмірів екрану тобто для Mobile/tablet/dekstop verison) 
+     Приклад знизу або файл hero.html можете глянути
+     <section><div class="container"></div></section>
+     3. Якщо щось потрібно пояснити чи додати фотографію чи іконку - пишіть постараюсь допомогти
+
+     Успіхів!  -->
+
+<footer>
   <div class="footer-container container">
+    <button class="footer-btn-to-top">
+      <svg class="icon-top" width="50" height="50">
+        <use href="/project-js-dreamteam/assets/icon-ed92c614.svg#icon-ctrl"></use>
+      </svg>
+    </button>
     <div class="footer-logo-socials">
       <a class="footer-ref" href="./index.html">
         <div class="footer-logo">
@@ -240,22 +127,28 @@
         <p class="footer-logo-text">Food Boutique</p>
       </a>
       <ul class="footer-socials-list">
-        <li class="footer-socials-item">
-          <a href="">
+        <li>
+          <a
+            class="footer-socials-item"
+            href="https://www.facebook.com/goITclub/"
+          >
             <svg class="footer-socials-icon" width="24" height="24">
               <use href="/project-js-dreamteam/assets/icon-ed92c614.svg#icon-facebook"></use>
             </svg>
           </a>
         </li>
-        <li class="footer-socials-item">
-          <a href="">
+        <li>
+          <a
+            class="footer-socials-item"
+            href="https://www.instagram.com/goitclub/"
+          >
             <svg class="footer-socials-icon" width="24" height="24">
               <use href="/project-js-dreamteam/assets/icon-ed92c614.svg#icon-instagram"></use>
             </svg>
           </a>
         </li>
-        <li class="footer-socials-item">
-          <a href="">
+        <li>
+          <a class="footer-socials-item" href="https://www.youtube.com/c/GoIT">
             <svg class="footer-socials-icon" width="24" height="24">
               <use href="/project-js-dreamteam/assets/icon-ed92c614.svg#icon-youtube"></use>
             </svg>
@@ -295,8 +188,115 @@
         <li><a href="" class="footer-common-text">Terms of Service</a></li>
       </ul>
     </div>
+    <div class="loader is-hidden"></div>
   </div>
-  </footer>
+</footer>
+
+  <div class="modal-backdrop is-hidden">
+  <div class="modal-subscribe-container">
+    <div class="modal-subscribe">
+      <button class="modal-close-btn">
+        <svg class="svg-close" width="20" height="20">
+          <use href="/project-js-dreamteam/assets/icon-ed92c614.svg#icon-close"></use>
+        </svg>
+      </button>
+      <div class="modal-subscribe-container-text">
+        <h2 class="modal-subscribe-text-title">
+          Thanks for subscribing for
+          <span class="span-subscribe-text">new</span> products
+        </h2>
+        <p class="modal-subscribe-text-discription">
+          We promise you organic and high-quality products that will meet your
+          expectations. Please stay with us and we promise you many pleasant
+          surprises.
+        </p>
+        <img
+          class="modal-subscribe-img"
+          srcset="/project-js-dreamteam/assets/modalfood1xpng-min-bbe957e4.png 1x, /project-js-dreamteam/assets/modalfood2xpng-min-85e5ce45.png 2x"
+          src="/project-js-dreamteam/assets/modalfood1xpng-min-bbe957e4.png"
+          alt="food"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-unsubscription-container">
+    <div class="modal-unsubscribe">
+      <button class="modal-close-btn">
+        <svg class="svg-close" width="20" height="20">
+          <use href="/project-js-dreamteam/assets/icon-ed92c614.svg#icon-close"></use>
+        </svg>
+      </button>
+    </div>
+    <div class="modal-subscribe-container-text">
+      <h2 class="modal-subscribe-text-title">
+        This <span class="span-subscribe-text">email address</span> has already
+        been entered
+      </h2>
+      <p class="modal-subscribe-text-discription">
+        You have already subscribed to our new products. Watch for offers at the
+        mailing address.
+      </p>
+    </div>
+  </div>
+
+  <div class="modal-container">
+    <button class="modal-close-btn">
+      <svg class="svg-close" width="20" height="20">
+        <use href="/project-js-dreamteam/assets/icon-ed92c614.svg#icon-close"></use>
+      </svg>
+    </button>
+
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+<div id="id-modal-card" class="shop-modal-backdrop is-hidden-card ">
+  <div class="shop-div-card" data-idcarts="">
+    <button class="shop-modal-close-btn">
+      <svg class="svg-close" width="20" height="20">
+        <use href="/project-js-dreamteam/assets/icon-ed92c614.svg#icon-close"></use>
+      </svg>
+    </button>
+    <div class="shop-div-info">
+      <div class="shop-div-img">
+        <img class="shop-img" src="/project-js-dreamteam/assets/hero3701x-min-b33a25b4.jpg" alt="" width="140" />
+      </div>
+      <div class="shop-div-info-text">
+        <h2 class="shop-h-name"></h2>
+        <div class="shop-div-text-discription">
+          <div class="shop-div-text-new">
+            <p class="shop-text">
+              Category: <span class="shop-span shop-span-category"></span>
+            </p>
+            <p class="shop-text">
+              Size: <span class="shop-span shop-span-size"></span>
+            </p>
+          </div>
+          <div class="shop-div-text-second">
+            <p class="shop-text">
+              Popularity: <span class="shop-span shop-span-popularity"></span>
+            </p>
+          </div>
+        </div>
+        <p class="shop-text-discription"></p>
+      </div>
+    </div>
+
+    <div class="shop-div-price">
+      <h2 class="shop-h-price">$</h2>
+      <button class="shop-btn-card" data-idcards="" type="submit">
+        Add to
+        <svg class="shop-card-icon" height="18" width="18">
+          <use href="/project-js-dreamteam/assets/icon-ed92c614.svg#icon-shop"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+  <div class="backdrop-div-card"></div>
   
 </body>
 </html>
