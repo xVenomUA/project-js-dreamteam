@@ -78,6 +78,9 @@
    background-color: #6d8434;
    fill: #e8e8e2;
  }
+ .popular-icon-back{ 
+  background-color: #6d8434;
+ }
  .category-cont {
    display: flex;
    font-size: 12px;
