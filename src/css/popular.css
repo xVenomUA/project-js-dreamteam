@@ -15,7 +15,6 @@
    line-height: 1.11em;
    margin-bottom: 12px;
  }
- 
  .popular-card {
    background-color: #fafafa;
    border-radius: 10px;
@@ -28,6 +27,7 @@
    gap: 10px;
    padding: 12px;
    justify-content: start;
+   position: relative;
  }
  .popular-img {
    background-color: #e8e8e2;
@@ -78,7 +78,7 @@
    background-color: #6d8434;
    fill: #e8e8e2;
  }
- .popular-icon-back{ 
+  .popular-icon-back{ 
   background-color: #6d8434;
  }
  .category-cont {
@@ -186,5 +186,10 @@
    }
 .div-popular-discount{ 
   padding-top: 118px;
+}
+.popular-icon-cont{ 
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 }
