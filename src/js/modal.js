@@ -68,15 +68,9 @@ function OnAddCart(evt) {
         if (parseCart) {
             const findProduct = parseCart.find(product => product._id === id);
             if (findProduct) {
-                findProduct.quantity -= 1;
-                if (findProduct.quantity === 0) {
                     const cartList = parseCart.filter(product => product._id !== id);
                     localStorage.setItem('cart', JSON.stringify(cartList));
                     onChangeCount();
-                    return;
-                }
-                localStorage.setItem('cart', JSON.stringify(parseCart));
-                onChangeCount();
                 return;
             }
         }
