@@ -37,6 +37,5 @@ export function createDiscountCards(product) {
   </div>
   `;
     return card;
-  }
+}
 
-  
