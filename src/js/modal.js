@@ -3,9 +3,8 @@ import { getProductById } from './APIFoodBoutique';
 import { ModalMarkUP } from './ModalMArkUp';
 import { GetCards } from './filter';
 import { onChangeCount } from './headerFunctionCount';
+import { getRenderPopularCard } from './popular';
 import { refs } from './refs';
-
-const modalWindowId = document.getElementById('id-modal-card');
 const closeModalBtn = document.querySelector('.shop-modal-close-btn');
 
 // const modalCard = document.querySelector('.shop-div-card');
@@ -23,7 +22,7 @@ async function OnClick(evt) {
     try {
         const productInfo = await getProductById(id);
         ModalMarkUP(productInfo);
-        modalWindowId.classList.remove('is-hidden-card');
+        refs.modalWindowId.classList.remove('is-hidden-card');
     } catch (error) {
         console.log(error);
     }
@@ -31,7 +30,7 @@ async function OnClick(evt) {
 
 closeModalBtn.addEventListener('click', OnCloseModal);
 export function OnCloseModal() {
-    modalWindowId.classList.add('is-hidden-card');
+    refs.modalWindowId.classList.add('is-hidden-card');
     
 }
 
@@ -40,6 +39,7 @@ function OnAddCart(evt) {
     const { target } = evt;
     const parent = target.closest('.shop-btn-card');
     GetCards();
+    getRenderPopularCard(); 
     if (!parent) return;
     const id = parent.dataset.idcards;
     OnCloseModal();
