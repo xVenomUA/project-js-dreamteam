@@ -182,6 +182,7 @@ function renderProdCard(product) {
 function createMarkupCartEmpty() {
   return ` 
   <div class="js-cart-block">
+  <div class="cart-empty-new">
   <div class="cart-empty-basket">
   <img class="cart-basket-img"
                 src="${basket}"
@@ -207,8 +208,10 @@ function createMarkupCartEmpty() {
                 </li>
               </ul>
             </div>
+            </div>
   `;
 }
+
 const spanYourOrderPrice = document.querySelector(
   'span#your-order-total-price'
 );
