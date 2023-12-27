@@ -1,58 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="./css/styles.css">
 </head>
-
 <body>
   <header class="header">
-    <div class="container header-container">
-      <div class="header-div-link">
-        <a href="./index.html" class="header-logo">
-          <svg class="header-icon-food" width="16" height="16">
-            <use href="./img/icon.svg#icon-food_boot"></use>
-          </svg>
-        </a>
-        <a href="./index.html" class="header-name">Food Boutique</a>
-      </div>
-      <nav class="header-nav">
-        <ul class="header-ul">
-          <li class="header-li"><a href="./index.html" class="header-home header-nav-link">Home</a></li>
-          <li class="header-buy">
-            <a href="" class="header-goods header-nav-link">
-              <svg class="header-icon-shop" width="14" height="14">
+  <div class="container header-container">
+    <div class="header-div-link">
+    <a href="./index.html" class="header-logo">
+      <svg class="header-icon-food" width="16" height="16">
+        <use href="./img/icon.svg#icon-food_boot"></use>
+      </svg>
+    </a>
+    <a href="./index.html" class="header-name">Food Boutique</a>
+  </div>
+    <nav class="header-nav">
+      <ul class="header-ul">
+        <li class="header-li"><a href="./index.html" class="header-home header-nav-link">Home</a></li>
+        <li class="header-buy">
+          <a href=""  class="header-goods header-nav-link">
+        <svg class="header-icon-shop" width="14" height="14" >
+          <use href="./img/icon.svg#icon-shop"></use>
+        </svg>
+      </a></li>
+        <li class="header-cart">
+          <a href="cart.html"  class="header-cart-link">CART
+            <span class="header-cart-count">(0)</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main>
+ <section class="cart-section">
+        <div class="container cart-container">
+          <div class="cart-count">
+            <a class="cart-link-icon" href="index.html">
+              <svg class="header-icon-shop" width="18" height="18">
                 <use href="./img/icon.svg#icon-shop"></use>
               </svg>
             </a>
-          </li>
-          <li class="header-cart">
-            <a href="cart.html" class="header-cart-link">CART
-              <span class="header-cart-count">(0)</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <main>
-    <section class="cart-section">
-      <div class="container cart-container">
-        <div class="cart-count">
-          <a class="cart-link-icon" href="index.html">
-            <svg class="header-icon-shop" width="18" height="18">
-              <use href="./img/icon.svg#icon-shop"></use>
-            </svg>
-          </a>
-          <!-- <p class="cart-name">CART <span>(0)</span></p>  IVAN-->
-          <p class="cart-name">CART (<span id="cart-counter">0</span>)</p>
-          <p class="cart-cards-count-number"></p>
-        </div>
-        <!-- ***********empty cart візуалізація***********   -->
-        <!-- <div class="js-cart-block">
+            <!-- <p class="cart-name">CART <span>(0)</span></p>  IVAN--> 
+            <p class="cart-name">CART (<span id="cart-counter">0</span>)</p> 
+            <p class="cart-cards-count-number"></p>
+          </div>
+<!-- ***********empty cart візуалізація***********   -->
+          <!-- <div class="js-cart-block">
   <div class="cart-empty-basket">
   <img class="cart-basket-img"
                 src="./img/yellowBasket.png"
@@ -78,9 +75,9 @@
                 </li>
               </ul>
             </div>  -->
-        <!-- ******************** -->
+  <!-- ******************** -->
 
-        <!-- <div class="cart-empty-basket">
+          <!-- <div class="cart-empty-basket">
             <picture class="cart-photo">
               <source
                 class="cart-basket-img"
@@ -129,23 +126,23 @@
               </ul>
             </div>
           </div>     -->
-        <div class="js-cart-block">
+<div class="js-cart-block">
           <!-- delete all block -->
-          <div class="cart-card-list">
+           <div class="cart-card-list">
             <div class="cart-del-btn">
               <button type="button" class="cart-delete-btn">
                 <b>Delete all</b>
                 <svg class="cart-icon-close" width="14" height="14">
-                  <use href="./img/icon.svg#icon-close"></use>
-                </svg>
+                <use href="./img/icon.svg#icon-close"></use>
+              </svg>
               </button>
             </div>
 
             <!-- cart-list-block -->
-            <div class="cart-list-block"></div>
-          </div>
-          <!-- ******* render prod card візуалізація *************-->
-          <!-- <div class="cart-card-container" data-productlist-id="${product._id}">
+<div class="cart-list-block"></div>
+</div>
+<!-- ******* render prod card візуалізація *************-->
+<!-- <div class="cart-card-container" data-productlist-id="${product._id}">
           <div class="cart-image-container">
             <img src="${product.img}" alt="${product.name}" class="">
           </div>
@@ -174,7 +171,7 @@
           </div>
         </div>
       </div> -->
-          <!-- <div>
+            <!-- <div>
             <ul class="cart-added-cards">
               <li>
                 <button type="button" class="cart-card-close-button">
@@ -201,14 +198,13 @@
               
             </ul>
             </div> -->
-
-          <!-- <div class="cart-order-form">
+            <div class="cart-order-form">
               <p class="cart-your-order">YOUR ORDER</p>
               <div class="cart-total-sum">
                 <ul class="cart-sum-ul">
                   <li class="cart-total">Total</li>
                   <li class="cart-sum">Sum:</li>
-                  <li class="cart-number">$</li>
+                  <li class="cart-number">$<span class="span-sum" id="your-order-total-price"></span></li>
                 </ul>
               </div>
               <form class="cart-form">
@@ -225,72 +221,79 @@
               </form>
             </div>
           </div>
-        </div> -->
-  </main>
-  <footer>
-    <div class="footer-container container">
-      <div class="footer-logo-socials">
-        <a class="footer-ref" href="./index.html">
-          <div class="footer-logo">
-            <svg class="footer-logo-icon" width="16" height="16">
-              <use href="./img/icon.svg#icon-food_boot"></use>
-            </svg>
-          </div>
-          <p class="footer-logo-text">Food Boutique</p>
-        </a>
-        <ul class="footer-socials-list">
-          <li class="footer-socials-item">
-            <a href="">
-              <svg class="footer-socials-icon" width="24" height="24">
-                <use href="./img/icon.svg#icon-facebook"></use>
-              </svg>
-            </a>
-          </li>
-          <li class="footer-socials-item">
-            <a href="">
-              <svg class="footer-socials-icon" width="24" height="24">
-                <use href="./img/icon.svg#icon-instagram"></use>
-              </svg>
-            </a>
-          </li>
-          <li class="footer-socials-item">
-            <a href="">
-              <svg class="footer-socials-icon" width="24" height="24">
-                <use href="./img/icon.svg#icon-youtube"></use>
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="footer-info-form">
-        <div class="footer-info">
-          <h2 class="footer-info-title">
-            Discover the Variety of Flavors and Quality
-          </h2>
-          <p class="footer-info-text">
-            An online store where you will find fresh, natural and delicious
-            products for a healthy life and unforgettable gastronomic adventures.
-          </p>
         </div>
-        <form class="footer-form">
-          <label class="footer-form-text footer-common-text" for="user-email">Subscribe and learn about new
-            products!</label>
-          <input class="footer-form-email" id="user-email" type="email" name="user-email" placeholder="Email" />
-          <button class="footer-form-btn" type="submit">Send</button>
-        </form>
-        <p class="footer-common-text footer-rights">
-          Food Boutique. All rights reserved.
-        </p>
-        <ul class="footer-terms">
-          <li><a href="" class="footer-common-text">Privacy Policy</a></li>
-          <li class="footer-common-text">/</li>
-          <li><a href="" class="footer-common-text">Terms of Service</a></li>
-        </ul>
-      </div>
+</main>
+  <footer>
+  <div class="footer-container container">
+    <div class="footer-logo-socials">
+      <a class="footer-ref" href="./index.html">
+        <div class="footer-logo">
+          <svg class="footer-logo-icon" width="16" height="16">
+            <use href="./img/icon.svg#icon-food_boot"></use>
+          </svg>
+        </div>
+        <p class="footer-logo-text">Food Boutique</p>
+      </a>
+      <ul class="footer-socials-list">
+        <li class="footer-socials-item">
+          <a href="">
+            <svg class="footer-socials-icon" width="24" height="24">
+              <use href="./img/icon.svg#icon-facebook"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="footer-socials-item">
+          <a href="">
+            <svg class="footer-socials-icon" width="24" height="24">
+              <use href="./img/icon.svg#icon-instagram"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="footer-socials-item">
+          <a href="">
+            <svg class="footer-socials-icon" width="24" height="24">
+              <use href="./img/icon.svg#icon-youtube"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
     </div>
+    <div class="footer-info-form">
+      <div class="footer-info">
+        <h2 class="footer-info-title">
+          Discover the Variety of Flavors and Quality
+        </h2>
+        <p class="footer-info-text">
+          An online store where you will find fresh, natural and delicious
+          products for a healthy life and unforgettable gastronomic adventures.
+        </p>
+      </div>
+      <form class="footer-form">
+        <label class="footer-form-text footer-common-text" for="user-email"
+          >Subscribe and learn about new products!</label
+        >
+        <input
+          class="footer-form-email"
+          id="user-email"
+          type="email"
+          name="user-email"
+          placeholder="Email"
+        />
+        <button class="footer-form-btn" type="submit">Send</button>
+      </form>
+      <p class="footer-common-text footer-rights">
+        Food Boutique. All rights reserved.
+      </p>
+      <ul class="footer-terms">
+        <li><a href="" class="footer-common-text">Privacy Policy</a></li>
+        <li class="footer-common-text">/</li>
+        <li><a href="" class="footer-common-text">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
   </footer>
-  <load src="/partials/modalBasket.html" />
   <script type="module" src="./js/korzina.js"></script>
 </body>
-
 </html>
+
+
