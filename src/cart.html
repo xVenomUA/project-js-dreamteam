@@ -1,40 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./css/styles.css">
-</head>
+ <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DreamProject</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
 <body>
-  <header class="header">
-  <div class="container header-container">
-    <div class="header-div-link">
-    <a href="./index.html" class="header-logo">
-      <svg class="header-icon-food" width="16" height="16">
-        <use href="./img/icon.svg#icon-food_boot"></use>
-      </svg>
-    </a>
-    <a href="./index.html" class="header-name">Food Boutique</a>
-  </div>
-    <nav class="header-nav">
-      <ul class="header-ul">
-        <li class="header-li"><a href="./index.html" class="header-home header-nav-link">Home</a></li>
-        <li class="header-buy">
-          <a href=""  class="header-goods header-nav-link">
-        <svg class="header-icon-shop" width="14" height="14" >
-          <use href="./img/icon.svg#icon-shop"></use>
-        </svg>
-      </a></li>
-        <li class="header-cart">
-          <a href="cart.html"  class="header-cart-link">CART
-            <span class="header-cart-count">(0)</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  <load src="/partials/header.html"/>
 <main>
  <section class="cart-section">
         <div class="container cart-container">
@@ -48,84 +22,6 @@
             <p class="cart-name">CART (<span id="cart-counter">0</span>)</p> 
             <p class="cart-cards-count-number"></p>
           </div>
-<!-- ***********empty cart візуалізація***********   -->
-          <!-- <div class="js-cart-block">
-  <div class="cart-empty-basket">
-  <img class="cart-basket-img"
-                src="./img/yellowBasket.png"
-                alt="yellow basket"
-                loading="lazy"
-                width="132"
-                height="114"
-              />
-  </div>
-  <div class="cart-empty-desc">
-              <ul class="cart-desc-ul">
-                <li>
-                  <p class="cart-empty-text">
-                    Your basket is <span class="cart-text-span">
-                    empty...</span>
-                  </p>
-                </li>
-                <li>
-                  <p class="cart-gray-text">
-                    Go to the main page to select your favorite <br /> products and add
-                    them to the cart.
-                  </p>
-                </li>
-              </ul>
-            </div>  -->
-  <!-- ******************** -->
-
-          <!-- <div class="cart-empty-basket">
-            <picture class="cart-photo">
-              <source
-                class="cart-basket-img"
-                media="(max-width: 767px)"
-                srcset="
-                  ../img/yellowBasket.png   1x,
-                  ../img/yellowBasket2x.png 2x
-                "
-                width="132"
-                height="114"
-              />
-
-              <source
-                class="cart-basket-img"
-                media="(min-width: 768px)"
-                srcset="
-                  ../img/yellowBasket.png   1x,
-                  ../img/yellowBasket2x.png 2x
-                "
-                width="164"
-                height="140"
-              />
-
-              <img
-                class="cart-basket-img"
-                src="../img/yellowBasket.png"
-                alt="yellow basket"
-                loading="lazy"
-              />
-            </picture>
-
-            <div class="cart-empty-desc">
-              <ul class="cart-desc-ul">
-                <li>
-                  <p class="cart-empty-text">
-                    Your basket is
-                    <a href="../index.html" class="cart-link">empty...</a>
-                  </p>
-                </li>
-                <li>
-                  <p class="cart-gray-text">
-                    Go to the main page to select your favorite products and add
-                    them to the cart.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </div>     -->
 <div class="js-cart-block">
           <!-- delete all block -->
            <div class="cart-card-list">
@@ -141,63 +37,6 @@
             <!-- cart-list-block -->
 <ul class="cart-list-block"></ul>
 </div>
-<!-- ******* render prod card візуалізація *************-->
-<!-- <div class="cart-card-container" data-productlist-id="${product._id}">
-          <div class="cart-image-container">
-            <img src="${product.img}" alt="${product.name}" class="">
-          </div>
-        
-        <div class="cart-info">
-          <div class="cart-descript-text">
-            <p class="cart-prod-name">${product.name}</p>
-          <div class="cart-frame">
-  
-          <div class="category-cont">
-            <p class="cart-category-text">Category:
-              <span class="cart-category-black">${product.category}</span></p>
-              
-              <ul class="cart-text-cat">
-              <li class="cart-text-size">
-
-            <p class="cart-size-text">Size:
-              <span class="cart-size-black">${product.size}</span></p></li>
-              
-          </div>
-  
-            <div class="cart-price">
-            <p class="cart-card-price">${product.price}</p>
-          </div>
-            <hr class="cart-line">
-          </div>
-        </div>
-      </div> -->
-            <!-- <div>
-            <ul class="cart-added-cards">
-              <li>
-                <button type="button" class="cart-card-close-button">
-                  <svg class="cart-card-icon-close" width="14" height="14">
-                <use href="./img/icon.svg#icon-close"></use>
-              </svg>
-                </button>
-                
-                <div class="cart-card-container">
-                <div class="cart-image-container">
-                <img src="./img/tomatoe1x-min.png" alt="card-image">
-                </div>
-                <div class="cart-info">
-                <p class="cart-prod-name">Tomato</p>
-                <ul class="cart-ul-info">
-                  <li><p class="cart-category-text">Category:<span class="cart-category-black"> Fresh Produce</span></p></li>
-                  <li><p class="cart-size-text">Size:<span class="cart-size-black"> Each</span></li>
-                </ul>
-                <p class="cart-card-price">$1.99</p>
-                </div>
-              </div>
-              <hr class="cart-line">
-              </li>
-              
-            </ul>
-            </div> -->
             <div class="cart-order-form">
               <p class="cart-your-order">YOUR ORDER</p>
               <div class="cart-total-sum">
@@ -223,75 +62,9 @@
           </div>
         </div>
 </main>
-  <footer>
-  <div class="footer-container container">
-    <div class="footer-logo-socials">
-      <a class="footer-ref" href="./index.html">
-        <div class="footer-logo">
-          <svg class="footer-logo-icon" width="16" height="16">
-            <use href="./img/icon.svg#icon-food_boot"></use>
-          </svg>
-        </div>
-        <p class="footer-logo-text">Food Boutique</p>
-      </a>
-      <ul class="footer-socials-list">
-        <li class="footer-socials-item">
-          <a href="">
-            <svg class="footer-socials-icon" width="24" height="24">
-              <use href="./img/icon.svg#icon-facebook"></use>
-            </svg>
-          </a>
-        </li>
-        <li class="footer-socials-item">
-          <a href="">
-            <svg class="footer-socials-icon" width="24" height="24">
-              <use href="./img/icon.svg#icon-instagram"></use>
-            </svg>
-          </a>
-        </li>
-        <li class="footer-socials-item">
-          <a href="">
-            <svg class="footer-socials-icon" width="24" height="24">
-              <use href="./img/icon.svg#icon-youtube"></use>
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="footer-info-form">
-      <div class="footer-info">
-        <h2 class="footer-info-title">
-          Discover the Variety of Flavors and Quality
-        </h2>
-        <p class="footer-info-text">
-          An online store where you will find fresh, natural and delicious
-          products for a healthy life and unforgettable gastronomic adventures.
-        </p>
-      </div>
-      <form class="footer-form">
-        <label class="footer-form-text footer-common-text" for="user-email"
-          >Subscribe and learn about new products!</label
-        >
-        <input
-          class="footer-form-email"
-          id="user-email"
-          type="email"
-          name="user-email"
-          placeholder="Email"
-        />
-        <button class="footer-form-btn" type="submit">Send</button>
-      </form>
-      <p class="footer-common-text footer-rights">
-        Food Boutique. All rights reserved.
-      </p>
-      <ul class="footer-terms">
-        <li><a href="" class="footer-common-text">Privacy Policy</a></li>
-        <li class="footer-common-text">/</li>
-        <li><a href="" class="footer-common-text">Terms of Service</a></li>
-      </ul>
-    </div>
-  </div>
-  </footer>
+  <load ="./partials/footer.html"/>
+  <load ="./partials/modal.html"/>
+  <div class="backdrop-div-card"></div>
   <script type="module" src="./js/korzina.js"></script>
 </body>
 </html>
