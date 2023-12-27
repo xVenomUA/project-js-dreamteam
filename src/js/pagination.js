@@ -19,7 +19,7 @@ function loadItem() {
   })
   listPage();
 }
-losdItem();
+loadItem();
 function listPage() {
   let count = math.ceil(list.length / limit);
   document.querySelector('.listPage').innerHTML = '';
