@@ -9,7 +9,7 @@
          MOBILE view       
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-.filter-categories  {
+.filter-categories {
   padding: 14px 20px;
   background-color: transparent;
   border-radius: 30px;
@@ -23,7 +23,7 @@
   -moz-appearance: none;
   -webkit-appearance: none;
   background-image: url('../img/chevron-down.svg');
-  background-size: 20px; 
+  background-size: 20px;
   background-repeat: no-repeat;
   background-position: right 15px center;
 }
@@ -48,6 +48,7 @@
   line-height: 1.125rem; /* 128.571% */
   margin-bottom: 12px;
   display: inline-block;
+  transition: border cubic-bezier(0.6, -0.28, 0.735, 0.045) 150ms;
 }
 .filter-div-label {
   position: relative;
@@ -66,7 +67,7 @@
   margin-bottom: 40px;
   appearance: none;
   background-image: url('../img/chevron-down.svg');
-  background-size: 20px; 
+  background-size: 20px;
   background-repeat: no-repeat;
   background-position: right 15px center;
 }
@@ -83,22 +84,22 @@
   border: 1px solid green;
   outline: none;
 }
-.filt-text-no{
-font-size: 18px;
-font-weight: 500;
-line-height: 1.25rem;
-text-align: center;
+.filt-text-no {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.25rem;
+  text-align: center;
 }
-.filt-p-no{
-  color: rgba(1, 1, 1, 0.70);
-text-align: center;
-line-height: 1.125rem;
-padding-top:14px;
+.filt-p-no {
+  color: rgba(1, 1, 1, 0.7);
+  text-align: center;
+  line-height: 1.125rem;
+  padding-top: 14px;
 }
-.filt-span-no{
-  color : var(--color-link);
+.filt-span-no {
+  color: var(--color-link);
 }
-.filt{
+.filt {
   padding-top: 60px;
 }
 
@@ -179,6 +180,11 @@ img .filt-div-img {
   align-items: center;
   border: none;
   background-color: var(--color-link);
+  transition: background-color cubic-bezier(0.6, -0.28, 0.735, 0.045) 150ms;
+}
+.filt-btn-card:hover,
+.filt-btn-card:focus {
+  background-color: var(--icon-hovecolor);
 }
 .filt-card-icon {
   fill: var(--back-color);
@@ -189,13 +195,13 @@ img .filt-div-img {
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 768px) {
-.filt{
-  padding-top: 110px;
-  padding-bottom: 300px;
-}
-.filt-p-no{
-  width: 335px;
-}
+  .filt {
+    padding-top: 110px;
+    padding-bottom: 300px;
+  }
+  .filt-p-no {
+    width: 335px;
+  }
 
   .filt-div-position {
     display: flex;
@@ -212,7 +218,6 @@ img .filt-div-img {
     width: 182px;
     height: 52px;
     margin: 0;
-    
   }
   .filt-div-card {
     width: 336px;
@@ -248,20 +253,20 @@ img .filt-div-img {
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 1440px) {
-  .filt{
-  padding-top: 160px;
-  padding-bottom:0px;
-}
-.filt-text-no{
-  font-size: 20px;
-}
-.filt-p-no{
-  width: 371px;
-  font-size: 18px;
-  line-height: 1.5rem;
-}
+  .filt {
+    padding-top: 160px;
+    padding-bottom: 0px;
+  }
+  .filt-text-no {
+    font-size: 20px;
+  }
+  .filt-p-no {
+    width: 371px;
+    font-size: 18px;
+    line-height: 1.5rem;
+  }
 
-  .filter{ 
+  .filter {
     padding-bottom: 0;
   }
   .filt-div-card {
@@ -271,10 +276,10 @@ img .filt-div-img {
   .filter-cards {
     gap: 40px 20px;
     width: 925px;
+    margin-bottom: 40px;
   }
   .filter-strilka {
     width: 189px;
-   
   }
   .filt-div-position {
     width: 925px;
@@ -293,5 +298,5 @@ img .filt-div-img {
   .filter .container {
     padding: 0;
     margin: 0 40px 0 0;
-  } 
+  }
 }

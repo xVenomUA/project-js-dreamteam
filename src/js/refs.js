@@ -7,6 +7,7 @@ export const refs = {
   addCartBtn: document.querySelector('.shop-btn-card'),
   listCards: document.querySelector('.filter-cards'),
   countHeader: document.querySelector('.header-cart-count'),
-  // discountcard: document.querySelector('product-card'),
+  PopularDiv: document.getElementById('popularContainer'),
+  modalWindowId: document.getElementById('id-modal-card'),
 };
 

@@ -4,71 +4,71 @@
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
 .discount-section {
-    padding-top: 80px;
-    padding-bottom: 80px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .discount {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .discount-title {
-    text-align: start;
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: 500;
+  text-align: start;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 500;
 }
 
 .product-card {
-    background-color: #fafafa;
-    border-radius: 15px;
-    width: 100%;
-    height: 232px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 16px 15px 16px 16px;
-    cursor: pointer;
+  background-color: #fafafa;
+  border-radius: 15px;
+  width: 100%;
+  height: 232px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 15px 16px 16px;
+  cursor: pointer;
 }
 
 .product-background {
-    background-color: #E8E8E2;
-    width: 250px;
-    height: 150px;
-    border-radius: 10px;
-    /* justify-content: center;
+  background-color: #e8e8e2;
+  width: 250px;
+  height: 150px;
+  border-radius: 10px;
+  /* justify-content: center;
     align-items: center; */
-    display: flex;
-    position: relative;
+  display: flex;
+  position: relative;
 }
 
 .product-image {
-    background-color: #E8E8E2;
-    width: 114px;
-    height: 114px;
-    margin: auto;
+  background-color: #e8e8e2;
+  width: 114px;
+  height: 114px;
+  margin: auto;
 }
 
 .product-details {
-    margin-top: 16px;
-    /* display: flex; */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    /* padding-left: 16px;
+  margin-top: 16px;
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* padding-left: 16px;
     padding-right: 16px; */
 }
 
 .details-text {
-    display: flex;
-    /* justify-content: space-between; */
-    align-items: center;
-    /* padding-left: 16px;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  /* padding-left: 16px;
     padding-right: 16px; */
 }
 
@@ -80,21 +80,21 @@
 } */
 
 .price-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
 
 .product-name {
-    font-size: 18px;
-    font-weight: 500;
-    margin-right: auto;
+  font-size: 18px;
+  font-weight: 500;
+  margin-right: auto;
 }
 
 .product-price {
-    font-size: 18px;
-    font-weight: 500;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 /* .discount-label {
@@ -102,32 +102,36 @@
 } */
 
 .discount-icon-cont {
-    width: 34px;
-    height: 34px;
-    border-radius: 30px;
-    background-color: #6D8434;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 30px;
+  background-color: #6d8434;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color cubic-bezier(0.6, -0.28, 0.735, 0.045) 150ms;
+}
+.discount-icon-cont:hover,
+.discount-icon-cont:focus {
+  background-color: var(--icon-hovecolor);
 }
 
 .discount-label-icon {
-    width: 60px;
-    height: 60px;
-    position: absolute;
-    right: -8px;
-    top: -10px;
-    background-color: #6D8434;
-    flex-shrink: 0;
-    border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  right: -8px;
+  top: -10px;
+  background-color: #6d8434;
+  flex-shrink: 0;
+  border-radius: 50%;
 }
 
 .discount-icon {
-    fill: #f4f4fd;
-    width: 18px;
-    height: 18px;
+  fill: #f4f4fd;
+  width: 18px;
+  height: 18px;
 }
-
 
 @import url('./variable.css');
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -137,9 +141,9 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 @media screen and (min-width: 375px) {
-    .product-background {
-        width: 304px;
-    }
+  .product-background {
+    width: 304px;
+  }
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -147,22 +151,21 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 768px) {
-    .discount {
-        flex-direction: row;
-        gap: 32px;
-    }
-    .discount-container {
-        margin-top: 64px;
-    }
-    .discount-title {
-        font-size: 28px;
-    } 
-    .discount-section {
-        padding-top: 64px;
-        padding-bottom: 100px;
-    }
-} 
-
+  .discount {
+    flex-direction: row;
+    gap: 32px;
+  }
+  .discount-container {
+    margin-top: 64px;
+  }
+  .discount-title {
+    font-size: 28px;
+  }
+  .discount-section {
+    padding-top: 64px;
+    padding-bottom: 100px;
+  }
+}
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -171,31 +174,31 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media screen and (min-width: 1440px) {
-    .discount-container {
-        display: inline-flex;
-        flex-direction: column;
-        align-items: flex-start;
-        /* padding: 0; */
-    }
-    .discount-section {
-        padding-top: 0px;
-        padding-bottom: 0px;
-    }
-    .discount-section .container{ 
-       padding: 0;
-       margin: 0;
-    }
-    .product-card {
-        width: 275px;
-    }
-    .product-background {
-        width: 243px;
-    }
-    .discount {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .discount-container {
-        margin-top: 40px;
-    }
+  .discount-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* padding: 0; */
+  }
+  .discount-section {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .discount-section .container {
+    padding: 0;
+    margin: 0;
+  }
+  .product-card {
+    width: 275px;
+  }
+  .product-background {
+    width: 243px;
+  }
+  .discount {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .discount-container {
+    margin-top: 40px;
+  }
 }

@@ -1,10 +1,9 @@
-import { getProductById } from "./APIFoodBoutique";
+import { getProductById } from './APIFoodBoutique';
 import iconimg from '/img/icon.svg';
-
-
+import basket from '/img/yellowBasket.png';
 /* <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
-    Ivan || Yulia 
+    Ivan || Yulia || Valentyn
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
 // common
@@ -17,13 +16,11 @@ const cartJsBlock = document.querySelector('.js-cart-block');
 const cartListBlock = document.querySelector('.cart-list-block');
 const cartDeleteBtn = document.querySelector('.cart-delete-btn');
 
-
-cartDeleteBtn.addEventListener('click', onClick)
+cartDeleteBtn.addEventListener('click', onClick);
 
 function onClick() {
   localStorage.removeItem('cart');
   cardUse();
-  
 }
 
 function getDataLocalStorage(key) {
@@ -34,16 +31,14 @@ function getDataLocalStorage(key) {
     console.log(error.message);
   }
 }
-const cartArr = getDataLocalStorage('cart');
-const id = cartArr.map(item => item._id);
-
 
 async function cardUse() {
   let cartArr = await getDataLocalStorage(common.CART_KEY);
+
   cardCounter.textContent = cartArr.length;
 
   if (cartArr.length === 0) {
-    cartJsBlock.innerHTML = createMarkupCartEmpty();// createMarkup empty cart
+    cartJsBlock.innerHTML = createMarkupCartEmpty(); // createMarkup empty cart
     return;
   }
   renderCards(cartArr);
@@ -51,86 +46,56 @@ async function cardUse() {
 }
 cardUse();
 
-
 async function renderCards() {
+  const cartArr = getDataLocalStorage('cart');
+  const id = cartArr.map(item => item._id);
   cartListBlock.innerHTML = '';
 
-  // let cartArr = await getDataLocalStorage(common.CART_KEY);
-  // for (const cartArrItem of cartArr) {
-  //   let id = cartArrItem.id;
-  
   try {
+    let total = 0;
+    let prices = [];
     let cartList = [];
     let listArr = []; // елементи в корзині
     for (let i = 0; i < id.length; i += 1) {
       const resp = await getProductById(id[i]);
       const cartId = renderProdCard(resp, id[i]);
       cartListBlock.innerHTML += cartId;
-      
+
       const cartParce = JSON.parse(localStorage.getItem('cart'));
-  // console.log(cartParce[i]._id);
-      
+      total += resp.price;
+      prices.push(resp.price);
+      spanYourOrderPrice.textContent = `${Number(total.toFixed(2))}`;
 
       waitForElements('.cart-close')
-  .then(elements => {
+        .then(elements => {
+          listArr.push(cartParce[i]._id);
 
-   
-    listArr.push(cartParce[i]._id);
-      console.log(listArr);
-    
-    localStorage.setItem('cart1', JSON.stringify(cartList));
-    elements.forEach(element => {
-      element.addEventListener('click', e => {
-        const id = e.currentTarget.id; 
-        console.log('removed id', id);
+          localStorage.setItem('cart1', JSON.stringify(cartList));
+          elements.forEach(element => {
+            element.addEventListener('click', e => {
+              const id = e.currentTarget.id;
 
-      
+              listArr = listArr.filter(item => item !== id);
 
-        listArr = listArr.filter(item => item !== id);
-        console.log(listArr);
-        cartList = [];
-        for (let j = 0; j < listArr.length; j += 1) {
-         
-          cartList.push({ _id: listArr[j], quantity: 1 });
+              cartList = [];
+              for (let j = 0; j < listArr.length; j += 1) {
+                cartList.push({ _id: listArr[j], quantity: 1 });
+              }
 
-        }
-     console.log(cartList);
-        localStorage.setItem('cart', JSON.stringify(cartList));
-       
-          cardUse();
-        
-    // const cartList = [];
-    //     cartList.push({ _id: id, quantity: 1 });
-    //     console.log(cartList);
-    // localStorage.setItem('cart1', JSON.stringify(cartList));
-// console.log(element);
-     
-      });
-     
-    });
-  })
-  .catch(error => {
-    console.error(error.message);
-  });
-      
+              localStorage.setItem('cart', JSON.stringify(cartList));
+              cardUse();
+            });
+          });
+        })
+
+        .catch(error => {
+          console.error(error.message);
+        });
     }
-     
-      // const deleteBtn = document.querySelector(`.js-cart-block .`);
-      // const cartList = document.querySelector(".js-cart-block .cart-list-block");
-     
-    } catch (e) {
-      console.log(e);
-    }
+  } catch (e) {
+    console.log(e);
+  }
 }
- 
-
-//    const cartClose = document.querySelector('.cart-close');
-// console.log(cartClose);
-      
-//   cartClose.addEventListener('click', onClose)
-// function onClose(event) {
-//     console.log(event.target);
-//   }
 
 function waitForElements(selector) {
   return new Promise((resolve, reject) => {
@@ -154,11 +119,15 @@ function waitForElements(selector) {
     }
   });
 }
+//скрол для корзини
+document.addEventListener("DOMContentLoaded", function () {
+  const cart = document.getElementById("cart");
+  const scrollThreshold = 100;
 
-
-
-
-
+  window.addEventListener("scroll", function () {
+    const scrollPosition = window.scrollY;
+  });
+});
 // рендер доданої картки
 
 function renderProdCard(product) {
@@ -166,22 +135,30 @@ function renderProdCard(product) {
     product.category = product.category.replace(/_/g, ' ');
   }
 
-    return `
-        <div class="cart-card-container" data-productlist-id="${product._id}">
+  return `
+        <li class="cart-card-container" data-productlist-id="${product._id}">
           <div class="cart-image-container">
             <img src="${product.img}" alt="${product.name}" class="">
           </div>
         
         <div class="cart-info">
           <div class="cart-descript-text">
+          <div class="cart-div-new">
             <p class="cart-prod-name">${product.name}</p>
+            <button type="button" id="${product._id}" class="cart-close">
+              <svg class="cart-close-icon" width="10.125" height="10.125">
+                <use href="${iconimg}#icon-close"></use>
+              </svg>
+            </button>
+            </div>
           <div class="cart-frame">
   
           <div class="category-cont">
-            <p class="cart-category-text">Category:
-              <span class="cart-category-black">${product.category}</span></p>
-              
               <ul class="cart-text-cat">
+              <li>
+              <p class="cart-category-text">Category:
+              <span class=" cart-category-black">${product.category}</span></p>
+              </li>
               <li class="cart-text-size">
 
             <p class="cart-size-text">Size:
@@ -190,19 +167,13 @@ function renderProdCard(product) {
           </div>
   
             <div class="cart-price">
-            <p class="cart-card-price">${product.price}</p>
+            <p class="cart-card-price">$${product.price}</p>
           </div>
-            <hr class="cart-line">
-
-           <button type="button" id="${product._id}" class="cart-close">
-              <svg class="cart-close-icon" width="18" height="18">
-                <use href="${iconimg}#icon-close"></use>
-              </svg>
-            </button>
-
           </div>
         </div>
       </div>
+      </li>
+      <hr class="cart-line">
     `;
 }
 
@@ -211,7 +182,7 @@ function createMarkupCartEmpty() {
   <div class="js-cart-block">
   <div class="cart-empty-basket">
   <img class="cart-basket-img"
-                src="../img/yellowBasket.png"
+                src="${basket}"
                 alt="yellow basket"
                 loading="lazy"
                 width="132"
@@ -236,44 +207,6 @@ function createMarkupCartEmpty() {
             </div>
   `;
 }
-
-
-
-{/* // TO BE continued...
-
- //  localStorage
-function saveData(data, key) {
-//     localStorage.setItem(key, JSON.stringify(data))
-// }
-
-//  function getData(key) {
-//     const data = localStorage.getItem(key);
-
-//     return data ? JSON.parse(data) : []
-// }
-
-// // addProducts
-
-// export function addProducts() {
-//     const cartArr = getData(common.CART_KEY);
-
-//     cartArr.forEach(_id => {
-//         const products = document.querySelectorAll(`[data-idcards="${_id}]`);
-
-//         products.forEach(product => {
-//             const productBtn = // знайти кнопку, яка додає товар
-//                 productBtn.innerHTML = `<svg class="_item-checked"><use href=""></></svg>`;
-//         }
-//             )
-//     })
-// }
-
-// export function removeProducts() {
-//     const cartArr = getData(common.CART_KEY);
-
-//     cartArr.forEach(_id => {
-//         const products = document.querySelectorAll(`[data-idcards="${_id}]`);
-
-//     }
-//     )
-// } */}
+const spanYourOrderPrice = document.querySelector(
+  'span#your-order-total-price'
+);

@@ -3,12 +3,13 @@
     Ондрій + Andrian Pohrebniak + Pasha + Валентин
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
-
 import throttle from 'lodash.throttle';
+
 import { refs } from '../js/refs';
 import { APIProductSearch, APICategories } from './APIFoodBoutique';
 import { FilterMarkUp } from './FilterMarkUp';
 import { onChangeCount } from './headerFunctionCount';
+import { getRenderPopularCard } from './popular';
 import iconimg from '/img/icon.svg';
 const localValueChange = { keyword: null };
 const localValue = { keyword: null, category: null, page: 1, limit: 6 };
@@ -44,16 +45,16 @@ async function GetCategories() {
 }
 
 // РЕНДЕР КАРТОК В СЕЛЕКТІ з врахуванням вибраних фільтрів
-export async function GetCards() { 
+export async function GetCards() {
   const limit = getLimit();
   localValue.limit = limit;
   const filtersParce = JSON.parse(localStorage.getItem('filters'));
-  if(filtersParce){
-  localValue.keyword = filtersParce.keyword;
-  localValue.category = filtersParce.category;
-  localValue.page = filtersParce.page;
-  localStorage.setItem('filters', JSON.stringify(localValue));
-  changeForm();
+  if (filtersParce) {
+    localValue.keyword = filtersParce.keyword;
+    localValue.category = filtersParce.category;
+    localValue.page = filtersParce.page;
+    localStorage.setItem('filters', JSON.stringify(localValue));
+    changeForm();
   }
   try {
     const seacrhresult = await APIProductSearch(
@@ -65,12 +66,16 @@ export async function GetCards() {
       localValue.page,
       limit
     );
+    localStorage.setItem('totalPage', JSON.stringify(seacrhresult.totalPages));
     const results = seacrhresult.results;
     FilterMarkUp(results);
   } catch (error) {
     console.log(error);
   }
 }
+
+
+
 GetCategories();
 GetCards();
 if (refs.form) {
@@ -141,7 +146,7 @@ function getLimit() {
 }
 
 function OnAddCartShop(evt) {
-  
+  getRenderPopularCard();
   const { target } = evt;
   const parent = target.closest('.filt-btn-card');
   if (!parent) return;
