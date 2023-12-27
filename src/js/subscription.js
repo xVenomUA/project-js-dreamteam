@@ -37,43 +37,44 @@ form.addEventListener('submit', onSubmit);
 closeBtn.forEach(btn => {
     btn.addEventListener('click', closeModal);
 });
-function onSubmit(evt) {
+async function onSubmit(evt) {
     evt.preventDefault();
 
     const email = document.querySelector('.footer-form-email').value;
-    const data = {
-        email
-    };
+    const data = { email };
     loader.classList.remove('is-hidden');
-    window.addEventListener('click', (event) => {
-    if (event.target === modal) {
-        modal.classList.add('is-hidden');
-    }
-    });
-    postSubscription(data)
-        .then(response => {
-            loader.classList.add('is-hidden');
+
+    try {
+        const response = await postSubscription(data);
+        loader.classList.add('is-hidden');
+        modal.classList.remove('is-hidden');
+        modalUnsub.classList.add('is-hidden');
+        modalSub.classList.remove('is-hidden');
+        console.log(response.data);
+    } catch (error) {
+        loader.classList.add('is-hidden');
+        if (error.response && error.response.status === 409) {
             modal.classList.remove('is-hidden');
-            modalUnsub.classList.add('is-hidden');
-            modalSub.classList.remove('is-hidden')
-            console.log(response.data);
-            return response.json()
-        })
-        .catch((error) => {
-            loader.classList.add('is-hidden');
-            if (error.response && error.response.status === 409) {
-                modal.classList.remove('is-hidden');
-                modalUnsub.classList.remove('is-hidden');
-                modalSub.classList.add('is-hidden')
-            } else {
-                console.log(error);
-            }
-            return error.message
-        })
-    evt.target.reset(); 
+            modalUnsub.classList.remove('is-hidden');
+            modalSub.classList.add('is-hidden');
+        } else if(error.response && error.response.status === 400) {
+            showError();
+        }
+    }
+
+    evt.target.reset();
 }
 
 function closeModal(evt) {
     evt.preventDefault();
     modal.classList.add('is-hidden')
+}
+
+function showError() {
+    const errorMessageDiv = document.querySelector('.error-message');
+    errorMessageDiv.style.display = 'block';
+    
+    setTimeout(() => {
+        errorMessageDiv.style.display = 'none';
+    }, 2000); 
 }
