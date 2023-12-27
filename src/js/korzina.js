@@ -1,6 +1,6 @@
 import { getProductById } from './APIFoodBoutique';
 import iconimg from '/img/icon.svg';
-
+import basket from '/img/yellowBasket.png';
 /* <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
     Ivan || Yulia || Valentyn
@@ -173,7 +173,7 @@ function createMarkupCartEmpty() {
   <div class="js-cart-block">
   <div class="cart-empty-basket">
   <img class="cart-basket-img"
-                src="../img/yellowBasket.png"
+                src="${basket}"
                 alt="yellow basket"
                 loading="lazy"
                 width="132"
