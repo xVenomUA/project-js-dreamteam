@@ -1,3 +1,4 @@
+import iconimg from '/img/icon.svg';
 export function ModalMarkUP(productInfo) {
   const { _id, name, category, size, popularity, desc, price, img } =
     productInfo;
@@ -17,18 +18,18 @@ export function ModalMarkUP(productInfo) {
   }
   if (findProduct !== false) {
     id.innerHTML = `Remove from<svg class="shop-card-icon" height="18" width="18">
-          <use href="./img/icon.svg#icon-shop"></use>
+          <use href="${iconimg}#icon-shop"></use>
         </svg>`;
     id.setAttribute('dataCheck', 'true');
     id.classList.add('shop-btn-card-active');
-  } else { 
+  } else {
     id.innerHTML = `Add to<svg class="shop-card-icon" height="18" width="18">
-          <use href="./img/icon.svg#icon-shop"></use>
+          <use href="${iconimg}#icon-shop"></use>
         </svg>`;
     id.setAttribute('dataCheck', 'false');
     id.classList.remove('shop-btn-card-active');
   }
-  
+
   id.dataset.idcards = _id;
   nameCard.textContent = name;
   categoryCard.textContent = category;
