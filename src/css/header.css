@@ -50,6 +50,7 @@
   line-height: 18px; /* 128.571% */
   border-radius: 30px;
   background-color: var(--color-link);
+  transition: background-color cubic-bezier(0.6, -0.28, 0.735, 0.045) 150ms;
 }
 .header-name {
   color: #010101;
@@ -68,6 +69,11 @@
   align-items: center;
   background-color: var(--color-link);
   border-radius: 50%;
+  transition: background-color cubic-bezier(0.6, -0.28, 0.735, 0.045) 150ms;
+}
+.header-goods:hover,
+.header-goods:focus {
+  background-color: var(--icon-hovecolor);
 }
 .header-icon-food {
   fill: var(--back-color);
