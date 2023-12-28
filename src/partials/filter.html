@@ -44,15 +44,42 @@
     <div class="filter-cards"></div>
 
     <div class="pagination-container pagination">
-      <button type="button" class="pagination-arrow pag-first-page">1</button>
-      <button class="pagination-arrow prew-button is-hiden" type="button" disabled="true">
-        prew
+      <button type="button" class="pagination-arrow pag-first-page">
+        1
+        <span class="pagination-icon">
+          <svg class="pagination-arrows-icon" width="24" height="24">
+            <use href="./img/icon.svg#icon-arrowx2" class="pag-use"></use>
+          </svg>
+        </span>
+      </button>
+      <button
+        class="pagination-arrow prew-button is-hiden"
+        type="button"
+        disabled="true"
+      >
+        prev
+        <span class="pagination-icon">
+          <svg class="pagination-arrows-icon" width="12" height="12">
+            <use href="./img/icon.svg#icon-arrowx1" class="pag-use"></use>
+          </svg>
+        </span>
       </button>
       <ul class="pagination-list"></ul>
       <button class="pagination-arrow next-button is-hiden" type="button">
         next
+        <span class="pagination-icon">
+          <svg class="pagination-arrows-icon reverse" width="12" height="12">
+            <use href="./img/icon.svg#icon-arrowx1" class="pag-use"></use>
+          </svg>
+        </span>
       </button>
-      <button type="button"  class="pagination-arrow last-total-page"></button>
+      <button type="button" class="pagination-arrow last-total-page">
+        <span class="pagination-icon">
+          <svg class="pagination-arrows-icon" width="24" height="24">
+            <use href="./img/icon.svg#icon-arrowx2" class="pag-use"></use>
+          </svg>
+        </span>
+      </button>
     </div>
   </div>
 </section>
