@@ -8,6 +8,7 @@ export const refs = {
   listCards: document.querySelector('.filter-cards'),
   countHeader: document.querySelector('.header-cart-count'),
   PopularDiv: document.getElementById('popularContainer'),
+  DiscountDiv: document.getElementById('discountContainer'),
   modalWindowId: document.getElementById('id-modal-card'),
 };
 
