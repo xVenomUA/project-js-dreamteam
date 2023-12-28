@@ -1,5 +1,13 @@
 import { refs } from "../js/refs";
 import iconimg from '/img/icon.svg';
+
+export function updateAllProductIcons(productId, iconHref) {
+  const allProductIcons = document.querySelectorAll(`[data-idcarts="${productId}"] .filt-use`);
+  allProductIcons.forEach(icon => {
+    icon.setAttribute('href', iconHref);
+  });
+}
+
 export function FilterMarkUp(filterinfo) {
   const array = filterinfo.map(({ _id, category, img, name, size, popularity, price }) => {
     if (category.includes('_')) {
