@@ -158,7 +158,11 @@ body::-webkit-scrollbar-thumb {
            TABLET
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-@media screen and (min-width: 768px) {}
+@media screen and (min-width: 768px) {
+    .modal-subscribe-text-discription {
+        height: 22vh;
+    }
+}
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -167,4 +171,8 @@ body::-webkit-scrollbar-thumb {
            LAPTOP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-@media screen and (min-width: 1440px) {}
+@media screen and (min-width: 1440px) {
+    .modal-subscribe-text-discription {
+        height: 15vh;
+    }
+}
