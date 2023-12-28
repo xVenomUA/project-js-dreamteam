@@ -18,6 +18,10 @@ const select = document.querySelector('.filter-categories')
 if (!localStorage.getItem('filters')) {
   localStorage.setItem('filters', JSON.stringify(localValue));
 }
+if (!localStorage.getItem('cart')) {
+  localStorage.setItem('cart', JSON.stringify([]));
+}
+
 // відслідковування зміни ширини вікна
 window.addEventListener('resize', throttle(GetCards, 1000));
 let totalPageSSS = 0; 
