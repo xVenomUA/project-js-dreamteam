@@ -24,6 +24,25 @@
     overflow: auto;
 }
 
+body::-webkit-scrollbar {
+    width: 12px;
+    /* ширина всієї смуги прокрутки */
+}
+
+body::-webkit-scrollbar-track {
+    background: #a2a797;
+    /* колір скролінгової області */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #6D8434;
+    /* колір скролбару */
+    border-radius: 15px;
+    /* заокруглення скролбару */
+    border: 3px solid #a2a797;
+    /* додає паддінги навколу скролу */
+}
+
 .modal-subscribe-container,
 .modal-container {
     position: relative;
