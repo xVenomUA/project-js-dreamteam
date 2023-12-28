@@ -11,6 +11,7 @@ import { FilterMarkUp } from './FilterMarkUp';
 import { onChangeCount } from './headerFunctionCount';
 import iconimg from '/img/icon.svg';
 import { element} from './pagination';
+import { getRenderPopularCard } from './popular';
 const localValueChange = { keyword: null };
 const localValue = { keyword: null, category: null, page: 1, limit: getLimit() };
 const select = document.querySelector('.filter-categories')
@@ -152,7 +153,7 @@ function getLimit() {
 }
 
 function OnAddCartShop(evt) {
-  
+  getRenderPopularCard();
   const { target } = evt;
   const parent = target.closest('.filt-btn-card');
   if (!parent) return;
