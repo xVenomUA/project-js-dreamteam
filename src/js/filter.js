@@ -12,6 +12,7 @@ import { onChangeCount } from './headerFunctionCount';
 import iconimg from '/img/icon.svg';
 import { element} from './pagination';
 import { getRenderPopularCard } from './popular';
+import { updateAllProductIcons } from './FilterMarkUp';
 const localValueChange = { keyword: null };
 const localValue = { keyword: null, category: null, page: 1, limit: getLimit() };
 const select = document.querySelector('.filter-categories')
@@ -176,6 +177,7 @@ function OnAddCartShop(evt) {
     }
     parseCart.push({ _id: id, quantity: 1 });
     localStorage.setItem('cart', JSON.stringify(parseCart));
+    updateAllProductIcons(id, `${iconimg}#icon-check`);
     onChangeCount();
     return;
   }

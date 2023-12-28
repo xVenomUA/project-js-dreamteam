@@ -124,6 +124,9 @@ button .shop-btn-card-active {
   gap: 10px;
   transition: background cubic-bezier(0.6, -0.28, 0.735, 0.045) 150ms;
 }
+.shop-btn-card-active{
+  width: 158px;
+}
 .shop-btn-card:hover,
 .shop-btn-card:focus {
   background: var(--icon-hovecolor);

@@ -11,6 +11,7 @@ import { GetCards } from './filter';
 import { onChangeCount } from './headerFunctionCount';
 import { createPopularCards } from './popularMarkup';
 import iconimg from '/img/icon.svg';
+import { updateAllProductIcons } from './FilterMarkUp';
 
 getRenderPopularCard();
 
@@ -46,7 +47,6 @@ async function OnClick(evt) {
   }
 }
 
-
 function OnAddCartShop(evt) {
   GetCards();
   const { target } = evt;
@@ -69,6 +69,7 @@ function OnAddCartShop(evt) {
     }
     parseCart.push({ _id: id, quantity: 1 });
     localStorage.setItem('cart', JSON.stringify(parseCart));
+    updateAllProductIcons(id, `${iconimg}#icon-check`);
     onChangeCount();
     document.body.style.overflow = "scroll";
     return;

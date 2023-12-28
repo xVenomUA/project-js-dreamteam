@@ -9,6 +9,7 @@ import { refs } from '../js/refs';
 import { getDiskountProduct, getProductById } from './APIFoodBoutique';
 import { ModalMarkUP } from './ModalMArkUp';
 import { GetCards } from './filter';
+import { updateAllProductIcons } from './FilterMarkUp';
 import { onChangeCount } from './headerFunctionCount';
 import { createDiscountCards } from './discountMarkup';
 import iconimg from '/img/icon.svg';
@@ -90,10 +91,12 @@ async function OnAddCartShop(evt) {
       findProduct.quantity += 1;
     } else {
       parseCart.push({ _id: id, quantity: 1 });
+      updateAllProductIcons(id, `${iconimg}#icon-check`);
       onChangeCount();
     }
 
     localStorage.setItem('cart', JSON.stringify(parseCart));
+    
   } catch (error) {
 
   }
