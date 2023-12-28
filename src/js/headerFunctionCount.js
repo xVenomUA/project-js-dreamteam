@@ -9,3 +9,9 @@ export function onChangeCount() {
     }
 }
 onChangeCount();
+
+export function OnSaveLocaleValue(){ 
+    const localValue = { keyword: null, category: null, page: 1, limit: 6 };
+    localStorage.setItem('filters', JSON.stringify(localValue));
+
+};

@@ -3,19 +3,22 @@
     Ондрій + Andrian Pohrebniak + Pasha + Валентин
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
-import throttle from 'lodash.throttle';
 
+import throttle from 'lodash.throttle';
 import { refs } from '../js/refs';
 import { APIProductSearch, APICategories } from './APIFoodBoutique';
 import { FilterMarkUp } from './FilterMarkUp';
 import { onChangeCount } from './headerFunctionCount';
-import { getRenderPopularCard } from './popular';
 import iconimg from '/img/icon.svg';
+import { element} from './pagination';
 const localValueChange = { keyword: null };
-const localValue = { keyword: null, category: null, page: 1, limit: 6 };
+const localValue = { keyword: null, category: null, page: 1, limit: getLimit() };
+if (!localStorage.getItem('filters')) {
+  localStorage.setItem('filters', JSON.stringify(localValue));
+}
 // відслідковування зміни ширини вікна
-window.addEventListener('resize', throttle((GetCards), 2500));
-
+window.addEventListener('resize', throttle(GetCards, 2500));
+let totalPageSSS = 0; 
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 // РЕНДЕР КАТЕГОРІЙ В СЕЛЕКТІ
@@ -24,21 +27,22 @@ window.addEventListener('resize', throttle((GetCards), 2500));
 async function GetCategories() {
   try {
     const categResult = await APICategories();
-    const markUpCategories = categResult.map(data => {
-      let replacedata
-      if (data.includes('_')) { 
-      replacedata = data.replace(/_/g, ' '); 
-      }
-      else {
-        replacedata = data
-      }
-      return `<option value="${data}">${replacedata}</option>`;
-    }).join('');
+    const markUpCategories = categResult
+      .map(data => {
+        let replacedata;
+        if (data.includes('_')) {
+          replacedata = data.replace(/_/g, ' ');
+        } else {
+          replacedata = data;
+        }
+        return `<option value="${data}">${replacedata}</option>`;
+      })
+      .join('');
     refs.categor.innerHTML += markUpCategories;
-     const option = document.createElement('option');
-     option.value = 'Show all';
-     option.textContent = 'Show all';
-     refs.categor.prepend(option);
+    const option = document.createElement('option');
+    option.value = 'Show all';
+    option.textContent = 'Show all';
+    refs.categor.prepend(option);
   } catch (error) {
     console.log(error);
   }
@@ -68,16 +72,19 @@ export async function GetCards() {
     );
     localStorage.setItem('totalPage', JSON.stringify(seacrhresult.totalPages));
     const results = seacrhresult.results;
+    totalPageSSS = seacrhresult.totalPages; //загальна кількість сторінок
+    console.log(totalPageSSS);
+    console.log(localValue.page); // сторінки з локал сторедж 
+    element(totalPageSSS, localValue.page) // рендер пагінації;
+    //записуємо все в локал сторедж
     FilterMarkUp(results);
   } catch (error) {
     console.log(error);
   }
 }
-
-
-
 GetCategories();
 GetCards();
+
 if (refs.form) {
   refs.form.addEventListener('input', handleFiltersInput);
   refs.form.addEventListener('submit', handleFiltersSubmit);
@@ -110,7 +117,7 @@ async function handleFiltersSubmit(evt) {
   if (filtersCatValue === 'Show all') {
     localValue.category = null;
   }
-
+  localValue.page = 1;
   localStorage.setItem('filters', JSON.stringify(localValue));
   GetCards();
   evt.target.reset();
@@ -129,13 +136,13 @@ function changeForm() {
 }
 changeForm();
 
+
 // Функція для визначення ліміту в залежності від розміру екрану
 function getLimit() {
   const screenWidth =
     window.innerWidth ||
     document.documentElement.clientWidth ||
     document.body.clientWidth;
-
   if (screenWidth >= 1440) {
     return 9;
   } else if (screenWidth >= 768) {
@@ -146,7 +153,7 @@ function getLimit() {
 }
 
 function OnAddCartShop(evt) {
-  getRenderPopularCard();
+  
   const { target } = evt;
   const parent = target.closest('.filt-btn-card');
   if (!parent) return;

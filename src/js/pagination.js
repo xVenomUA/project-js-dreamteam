@@ -1,69 +1,121 @@
+import { refs } from './refs';
+import { GetCards } from './filter';
 
-// selecting required element
-const element = document.querySelector(".pagination ul");
-let totalPages = 10;
-let page = 1;
-const paginationFilt = document.querySelector(".pagination");
-//calling function with passing parameters and adding inside element which is ul tag
-element.innerHTML = createPagination(totalPages, page);
-function createPagination(totalPages, page){
-  let liTag = '';
-  let active;
-  let beforePage = page - 1;
-  let afterPage = page + 1;
-  if(page > 1){ //show the next button if the page value is greater than 1
-    liTag += `<li class="btn prev" onclick="createPagination(totalPages, ${page - 1})"><span><i class="fas fa-angle-left"></i> Prev</span></li>`;
-  }
-  if(page > 2){ //if page value is less than 2 then add 1 after the previous button
-    liTag += `<li class="first numb" onclick="createPagination(totalPages, 1)"><span>1</span></li>`;
-    if(page > 3){ //if page value is greater than 3 then add this (...) after the first li or page
-      liTag += `<li class="dots"><span>...</span></li>`;
-    }
-  }
+export const ulTag = document.querySelector('.pagination-list');
+const paginationFilt = document.querySelector('.pagination');
+const lastTOtalpage = document.querySelector('.last-total-page');
+const firstTotalPage = document.querySelector('.pag-first-page');
+const prewBtn = document.querySelector('.prew-button');
+const nextBtn = document.querySelector('.next-button');
 
-  // how many pages or li show before the current li
-  if (page == totalPages) {
-    beforePage = beforePage - 2;
-  } else if (page == totalPages - 1) {
-    beforePage = beforePage - 1;
-  }
-  // how many pages or li show after the current li
-  if (page == 1) {
-    afterPage = afterPage + 2;
-  } else if (page == 2) {
-    afterPage  = afterPage + 1;
-  }
-
-  for (var plength = beforePage; plength <= afterPage; plength++) {
-    if (plength > totalPages) { //if plength is greater than totalPage length then continue
-      continue;
-    }
-    if (plength == 0) { //if plength is 0 than add +1 in plength value
-      plength = plength + 1;
-    }
-    if(page == plength){ //if page is equal to plength than assign active string in the active variable
-      active = "active";
-    }else{ //else leave empty to the active variable
-      active = "";
-    }
-    liTag += `<li class="numb ${active}" onclick="createPagination(totalPages, ${plength})"><span>${plength}</span></li>`;
-  }
-
-  if(page < totalPages - 1){ //if page value is less than totalPage value by -1 then show the last li or page
-    if(page < totalPages - 2){ //if page value is less than totalPage value by -2 then add this (...) before the last li or page
-      liTag += `<li class="dots"><span>...</span></li>`;
-    }
-    liTag += `<li class="last numb" onclick="createPagination(totalPages, ${totalPages})"><span>${totalPages}</span></li>`;
-  }
-
-  if (page < totalPages) { //show the next button if the page value is less than totalPage(20)
-    liTag += `<li class="btn next" onclick="createPagination(totalPages, ${page + 1})"><span>Next <i class="fas fa-angle-right"></i></span></li>`;
-  }
+export function element(totalPages, page) {
+    let liTag = '';
+    let thirdPagesAnd = totalPages - 2;
+    let thirdPages = page - 2;
+    let curentPage = page;
+  lastTOtalpage.textContent = totalPages;
   if (totalPages === 1) {
-    paginationFilt.style.display = "none";
+    paginationFilt.style = 'display: none';
+  } else {
+    paginationFilt.style = 'display: flex';
   }
-  element.innerHTML = liTag; //add li tag inside ul tag
-  return liTag; //reurn the li tag
+  if (page === 1) {
+    prewBtn.setAttribute('disabled', true);
+  } else {
+    prewBtn.removeAttribute('disabled');
+  }
+  if (page == totalPages) {
+    nextBtn.setAttribute('disabled', true);
+  } else {
+    nextBtn.removeAttribute('disabled');
+  }
+    if (totalPages > 6) {
+      if (page < 3) {
+        thirdPages = 1;
+        page = 3;
+      }
+      if (page > totalPages - 3) {
+        page = totalPages - 3;
+        thirdPages = page - 2;
+      }
+      for (let i = thirdPages; i <= page; i++) {
+        if (i === curentPage) {
+          liTag += `<li class="pagination-item"><button class="pagination-number active" type="button">${i}</button></li>`;
+        } else {
+          liTag += `<li class="pagination-item"><button class="pagination-number" type="button">${i}</button></li>`;
+        }
+      }
+      liTag += `<li class="pagination-item dot-item"><span>...</span></li>`;
+      for (let i = thirdPagesAnd; i <= totalPages; i++) {
+        if (i === curentPage) {
+          liTag += `<li class="pagination-item"><button class="pagination-number active" type="button">${i}</button></li>`;
+        } else {
+          liTag += `<li class="pagination-item"><button class="pagination-number" type="button">${i}</button></li>`;
+        }
+      }
+  } 
+    ulTag.innerHTML = liTag;
+  if (totalPages > 1 && totalPages < 7) {
+    firstTotalPage.style = 'display: none';
+    lastTOtalpage.style = 'display: none';
+    for (let i = 1; i <= totalPages; i++) {
+      liTag += `<li class="pagination-item"><button class="pagination-number" type="button">${i}</button></li>`;
+    }
+  } else {
+    firstTotalPage.style = 'display: block';
+    lastTOtalpage.style = 'display: block';
+  }
+  ulTag.innerHTML = liTag; //add li tag inside ul tag
+}
+// =============================================================================
+// =============================================================================
+// =============================================================================
+//взяти тотал пейдж з локал сторедж
+async function loadMor(event) {
+  if (
+    event.target.classList.contains('pagination-arrow') ||
+    event.target.classList.contains('pagination-number')
+  ) {
+    const page = event.target.textContent;
+    const filtersParce = JSON.parse(localStorage.getItem('filters'));
+    filtersParce.page = page;
+    localStorage.setItem('filters', JSON.stringify(filtersParce));
+    GetCards();
+  } else {
+    return;
+  }
+}
+async function prewList(event) {
+  const filtersParce = JSON.parse(localStorage.getItem('filters'));
+   const totalP = filtersParce.totalPages;
+  filtersParce.page = filtersParce.page - 1;
+  localStorage.setItem('filters', JSON.stringify(filtersParce));
+  GetCards();
+}
+async function nextList(event) {
+  const filtersParce = JSON.parse(localStorage.getItem('filters'));
+  const totalP = filtersParce.totalPages;
+  filtersParce.page = Number(filtersParce.page)+ 1;
+  localStorage.setItem('filters', JSON.stringify(filtersParce));
+  GetCards();
 }
 
+async function firstPage(event) {
+  const filtersParce = JSON.parse(localStorage.getItem('filters'));
+  filtersParce.page = 1;
+  localStorage.setItem('filters', JSON.stringify(filtersParce));
+  GetCards();
+}
+async function lastPage(event) {
+  const filtersParce = JSON.parse(localStorage.getItem('filters'));
+  filtersParce.page = lastTOtalpage.textContent;
+  localStorage.setItem('filters', JSON.stringify(filtersParce));
+  GetCards();
+}
+ulTag.addEventListener('click', loadMor);
 
+prewBtn.addEventListener('click', prewList);
+nextBtn.addEventListener('click', nextList);
+
+firstTotalPage.addEventListener('click', firstPage);
+lastTOtalpage.addEventListener('click', lastPage);
