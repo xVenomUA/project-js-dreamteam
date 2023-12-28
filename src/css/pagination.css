@@ -9,16 +9,16 @@
   transition: all 0.3s ease;
 }
 .pagination-arrow {
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 
   color: transparent;
   list-style: none;
   font-size: 14px;
   height: 40px;
   width: 40px;
-  margin: 0 3px;
+  margin: 0 8px;
   border-radius: 20px;
   border: none;
   transition: background-color 150ms;
@@ -51,6 +51,8 @@
   align-items: center;
   flex-direction: row;
   gap: 8px;
+  margin-left: 32px;
+  margin-right: 32px;
 }
 .pagination-number {
   background-color: transparent;
@@ -78,18 +80,17 @@
   height: 40px;
   width: 40px;
   margin: 0 3px;
-  line-height: 45px;
+
   border: 1px;
   border-radius: 20px;
-  padding-left: 12px;
+
   text-align: center;
   color: #e8e8e2;
   background-color: #6d8434;
 }
 .pagination {
-  margin-left: 225.5px;
   justify-content: center;
-  max-width: 472px;
+  max-width: 100%;
   text-align: center;
   background-color: #d8d8d8;
   border-radius: 20px;

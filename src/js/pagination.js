@@ -9,10 +9,10 @@ const prewBtn = document.querySelector('.prew-button');
 const nextBtn = document.querySelector('.next-button');
 
 export function element(totalPages, page) {
-    let liTag = '';
-    let thirdPagesAnd = totalPages - 2;
-    let thirdPages = page - 2;
-    let curentPage = page;
+  let liTag = '';
+  let thirdPagesAnd = totalPages - 2;
+  let thirdPages = page - 2;
+  let curentPage = page;
   lastTOtalpage.dataset.total = totalPages;
   if (totalPages === 1) {
     paginationFilt.style = 'display: none';
@@ -31,27 +31,27 @@ export function element(totalPages, page) {
   }
 
   if (totalPages > 6) {
-      if (page > totalPages - 4) {
-        page = totalPages - 4;
+    if (page > totalPages - 4) {
+      page = totalPages - 4;
+    }
+    page === 1 ? (page = page + 1) : null;
+    for (let i = page - 1; i <= page + 1; i++) {
+      if (i == curentPage) {
+        liTag += `<li class="pagination-item"><button class="pagination-number active" type="button">${i}</button></li>`;
+      } else {
+        liTag += `<li class="pagination-item"><button class="pagination-number" type="button">${i}</button></li>`;
       }
-      page === 1 ? (page = page + 1) : null;
-      for (let i = page - 1; i <= page + 1; i++) {
-        if (i == curentPage) {
-          liTag += `<li class="pagination-item"><button class="pagination-number active" type="button">${i}</button></li>`;
-        } else {
-          liTag += `<li class="pagination-item"><button class="pagination-number" type="button">${i}</button></li>`;
-        }
+    }
+    liTag += `<li class="pagination-item dot-item"><span>...</span></li>`;
+    for (let i = thirdPagesAnd; i <= totalPages; i++) {
+      if (i == curentPage) {
+        liTag += `<li class="pagination-item"><button class="pagination-number active" type="button">${i}</button></li>`;
+      } else {
+        liTag += `<li class="pagination-item"><button class="pagination-number" type="button">${i}</button></li>`;
       }
-      liTag += `<li class="pagination-item dot-item"><span>...</span></li>`;
-      for (let i = thirdPagesAnd; i <= totalPages; i++) {
-        if (i == curentPage) {
-          liTag += `<li class="pagination-item"><button class="pagination-number active" type="button">${i}</button></li>`;
-        } else {
-          liTag += `<li class="pagination-item"><button class="pagination-number" type="button">${i}</button></li>`;
-        }
-      }
-  } 
-    ulTag.innerHTML = liTag;
+    }
+  }
+  ulTag.innerHTML = liTag;
   if (totalPages > 1 && totalPages < 7) {
     firstTotalPage.style = 'display: none';
     lastTOtalpage.style = 'display: none';
@@ -59,8 +59,8 @@ export function element(totalPages, page) {
       liTag += `<li class="pagination-item"><button class="pagination-number" type="button">${i}</button></li>`;
     }
   } else {
-    firstTotalPage.style = 'display: block';
-    lastTOtalpage.style = 'display: block';
+    // firstTotalPage.style = 'display: block';
+    // lastTOtalpage.style = 'display: block';
   }
   ulTag.innerHTML = liTag; //add li tag inside ul tag
 }
@@ -84,7 +84,7 @@ async function loadMor(event) {
 }
 async function prewList(event) {
   const filtersParce = JSON.parse(localStorage.getItem('filters'));
-   const totalP = filtersParce.totalPages;
+  const totalP = filtersParce.totalPages;
   filtersParce.page = filtersParce.page - 1;
   localStorage.setItem('filters', JSON.stringify(filtersParce));
   GetCards();
@@ -92,7 +92,7 @@ async function prewList(event) {
 async function nextList(event) {
   const filtersParce = JSON.parse(localStorage.getItem('filters'));
   const totalP = filtersParce.totalPages;
-  filtersParce.page = Number(filtersParce.page)+ 1;
+  filtersParce.page = Number(filtersParce.page) + 1;
   localStorage.setItem('filters', JSON.stringify(filtersParce));
   GetCards();
 }
