@@ -13,6 +13,7 @@ import iconimg from '/img/icon.svg';
 import { element} from './pagination';
 const localValueChange = { keyword: null };
 const localValue = { keyword: null, category: null, page: 1, limit: getLimit() };
+const select = document.querySelector('.filter-categories')
 if (!localStorage.getItem('filters')) {
   localStorage.setItem('filters', JSON.stringify(localValue));
 }
@@ -184,3 +185,23 @@ function OnAddCartShop(evt) {
   
 }
 refs.listCards.addEventListener('click', OnAddCartShop);
+
+select.addEventListener('change', change)
+function change()
+{const filtersValue = refs.filtersInput.value;
+  localValue.keyword = filtersValue;
+  if (filtersValue === '') {
+    localValue.keyword = null;
+  }
+  const filtersCatValue = refs.filtersCategories.value;
+  localValue.category = filtersCatValue;
+  if (filtersCatValue === '') {
+    localValue.category = null;
+  }
+  if (filtersCatValue === 'Show all') {
+    localValue.category = null;
+  }
+
+  localStorage.setItem('filters', JSON.stringify(localValue));
+  GetCards();
+}
