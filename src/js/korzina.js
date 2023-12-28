@@ -1,5 +1,6 @@
 import { getProductById } from './APIFoodBoutique';
 import { postOrders } from './APIFoodBoutique';
+import { onChangeCount } from './headerFunctionCount';
 import iconimg from '/img/icon.svg';
 import basket from '/img/yellowBasket.png';
 /* <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
@@ -223,7 +224,7 @@ async function onCheckout(event) {
   event.preventDefault();
   const cardError = document.querySelector('.error-message')
   const email = document.querySelector('.cart-email-input').value;
-
+  onChangeCount();
   const cartItems = getDataLocalStorage('cart');
   const orderData = createOrderObject(email, cartItems);
 
