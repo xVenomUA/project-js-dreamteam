@@ -10,7 +10,7 @@ import { APIProductSearch, APICategories } from './APIFoodBoutique';
 import { FilterMarkUp } from './FilterMarkUp';
 import { onChangeCount } from './headerFunctionCount';
 import iconimg from '/img/icon.svg';
-import { element, page, totalPage } from './pagination';
+import { element} from './pagination';
 const localValueChange = { keyword: null };
 const localValue = { keyword: null, category: null, page: 1, limit: 6 };
 // відслідковування зміни ширини вікна
@@ -69,10 +69,11 @@ export async function GetCards() {
     );
     localStorage.setItem('totalPage', JSON.stringify(seacrhresult.totalPages));
     const results = seacrhresult.results;
-    totalPageSSS = seacrhresult.totalPages; 
+    totalPageSSS = seacrhresult.totalPages; //загальна кількість сторінок
     console.log(totalPageSSS);
-    console.log(localValue.page);
-    element(totalPageSSS, localValue.page);
+    console.log(localValue.page); // сторінки з локал сторедж 
+    element(totalPageSSS, localValue.page) // рендер пагінації;
+    //записуємо все в локал сторедж
     FilterMarkUp(results);
   } catch (error) {
     console.log(error);
@@ -80,7 +81,7 @@ export async function GetCards() {
 }
 GetCategories();
 GetCards();
-element(totalPage, page);
+
 if (refs.form) {
   refs.form.addEventListener('input', handleFiltersInput);
   refs.form.addEventListener('submit', handleFiltersSubmit);
@@ -113,7 +114,6 @@ async function handleFiltersSubmit(evt) {
   if (filtersCatValue === 'Show all') {
     localValue.category = null;
   }
-
   localValue.page = 1;
   localStorage.setItem('filters', JSON.stringify(localValue));
   GetCards();
@@ -140,7 +140,6 @@ function getLimit() {
     window.innerWidth ||
     document.documentElement.clientWidth ||
     document.body.clientWidth;
-
   if (screenWidth >= 1440) {
     return 9;
   } else if (screenWidth >= 768) {
