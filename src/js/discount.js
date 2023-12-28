@@ -50,7 +50,6 @@ export async function getRenderDiscountCard() {
   }
 }
 
-
 refs.DiscountDiv.addEventListener('click', OnClick);
 async function OnClick(evt) {
   evt.preventDefault();
@@ -73,8 +72,6 @@ async function OnClick(evt) {
 
 async function OnAddCartShop(evt) {
   try {
-    await getRenderDiscountCard();
-
     const { target } = evt;
     const parent = target.closest('.product-icon-cont');
     if (!parent) return;

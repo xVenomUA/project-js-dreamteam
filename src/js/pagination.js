@@ -31,8 +31,6 @@ export function element(totalPages, page) {
   }
 
   if (totalPages > 6) {
-    console.log(totalPages);
-    console.log(page);
       if (page > totalPages - 4) {
         page = totalPages - 4;
       }
