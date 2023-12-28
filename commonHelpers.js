@@ -1,4 +1,4 @@
-import{g as f,i as b}from"./assets/subscription-0e71b84b.js";import"./assets/vendor-611745ce.js";const S="/project-js-dreamteam/assets/yellowBasket-88cc64a6.png",k={FILTERS_KEY:"filters",CART_KEY:"cart"},E=document.querySelector("span#cart-counter"),w=document.querySelector(".js-cart-block"),u=document.querySelector(".cart-list-block"),L=document.querySelector(".cart-delete-btn");L.addEventListener("click",$);function $(){localStorage.removeItem("cart"),d()}function m(t){try{const e=localStorage.getItem(t);return e?JSON.parse(e):[]}catch(e){console.log(e.message)}}async function d(){let t=await m(k.CART_KEY);if(E.textContent=t.length,t.length===0){w.innerHTML=I();return}x()}d();async function x(){const e=m("cart").map(a=>a._id);u.innerHTML="";try{let a=0,i=[],r=[],c=[];for(let s=0;s<e.length;s+=1){const o=await f(e[s]),g=_(o,e[s]);u.innerHTML+=g;const p=JSON.parse(localStorage.getItem("cart"));a+=o.price,i.push(o.price),q.textContent=`${Number(a.toFixed(2))}`,C(".cart-close").then(l=>{c.push(p[s]._id),localStorage.setItem("cart1",JSON.stringify(r)),l.forEach(y=>{y.addEventListener("click",v=>{const h=v.currentTarget.id;c=c.filter(n=>n!==h),r=[];for(let n=0;n<c.length;n+=1)r.push({_id:c[n],quantity:1});localStorage.setItem("cart",JSON.stringify(r)),d()})})}).catch(l=>{console.error(l.message)})}}catch(a){console.log(a)}}function C(t){return new Promise((e,a)=>{const i=document.querySelectorAll(t);if(i.length>0)e(i);else{const r=new MutationObserver(()=>{const c=document.querySelectorAll(t);c.length>0&&(r.disconnect(),e(c))});r.observe(document.documentElement,{childList:!0,subtree:!0})}})}document.addEventListener("DOMContentLoaded",function(){document.getElementById("cart"),window.addEventListener("scroll",function(){})});function _(t){return t.category.includes("_")&&(t.category=t.category.replace(/_/g," ")),`
+import{g as k,i as S,p as E}from"./assets/subscription-ea96255d.js";import"./assets/vendor-611745ce.js";const L="/project-js-dreamteam/assets/yellowBasket-88cc64a6.png",q={FILTERS_KEY:"filters",CART_KEY:"cart"},w=document.querySelector("span#cart-counter"),C=document.querySelector(".js-cart-block"),g=document.querySelector(".cart-list-block"),I=document.querySelector(".cart-delete-btn"),$=document.querySelector(".cart-form"),u=document.querySelector(".modal-backdrop-two");I.addEventListener("click",x);function x(){localStorage.removeItem("cart"),l()}function p(t){try{const e=localStorage.getItem(t);return e?JSON.parse(e):[]}catch(e){console.log(e.message)}}async function l(){let t=await p(q.CART_KEY);if(w.textContent=t.length,t.length===0){C.innerHTML=B();return}_()}l();async function _(){const e=p("cart").map(c=>c._id);g.innerHTML="";try{let c=0,s=[],r=[],a=[];for(let o=0;o<e.length;o+=1){const i=await k(e[o]),y=O(i,e[o]);g.innerHTML+=y;const v=JSON.parse(localStorage.getItem("cart"));c+=i.price,s.push(i.price),A.textContent=`${Number(c.toFixed(2))}`,M(".cart-close").then(d=>{a.push(v[o]._id),localStorage.setItem("cart1",JSON.stringify(r)),d.forEach(f=>{f.addEventListener("click",h=>{const b=h.currentTarget.id;a=a.filter(n=>n!==b),r=[];for(let n=0;n<a.length;n+=1)r.push({_id:a[n],quantity:1});localStorage.setItem("cart",JSON.stringify(r)),l()})})}).catch(d=>{console.error(d.message)})}}catch(c){console.log(c)}}function M(t){return new Promise((e,c)=>{const s=document.querySelectorAll(t);if(s.length>0)e(s);else{const r=new MutationObserver(()=>{const a=document.querySelectorAll(t);a.length>0&&(r.disconnect(),e(a))});r.observe(document.documentElement,{childList:!0,subtree:!0})}})}document.addEventListener("DOMContentLoaded",function(){document.getElementById("cart"),window.addEventListener("scroll",function(){})});function O(t){return t.category.includes("_")&&(t.category=t.category.replace(/_/g," ")),`
         <li class="cart-card-container" data-productlist-id="${t._id}">
           <div class="cart-image-container">
             <img src="${t.img}" alt="${t.name}" class="">
@@ -10,7 +10,7 @@ import{g as f,i as b}from"./assets/subscription-0e71b84b.js";import"./assets/ven
             <p class="cart-prod-name">${t.name}</p>
             <button type="button" id="${t._id}" class="cart-close">
               <svg class="cart-close-icon" width="10.125" height="10.125">
-                <use href="${b}#icon-close"></use>
+                <use href="${S}#icon-close"></use>
               </svg>
             </button>
             </div>
@@ -37,12 +37,12 @@ import{g as f,i as b}from"./assets/subscription-0e71b84b.js";import"./assets/ven
       </div>
       </li>
       <hr class="cart-line">
-    `}function I(){return` 
+    `}function B(){return` 
   <div class="js-cart-block">
   <div class="cart-empty-new">
   <div class="cart-empty-basket">
   <img class="cart-basket-img"
-                src="${S}"
+                src="${L}"
                 alt="yellow basket"
                 loading="lazy"
                 width="132"
@@ -66,5 +66,5 @@ import{g as f,i as b}from"./assets/subscription-0e71b84b.js";import"./assets/ven
               </ul>
             </div>
             </div>
-  `}const q=document.querySelector("span#your-order-total-price");
+  `}const A=document.querySelector("span#your-order-total-price");$.addEventListener("submit",T);async function T(t){t.preventDefault();const e=document.querySelector(".error-message"),c=document.querySelector(".cart-email-input").value,s=p("cart"),r=j(c,s);try{const a=await E(r);m(!0),localStorage.removeItem("cart"),l()}catch{e.style.display="block",setTimeout(()=>e.style.display="none",2e3)}}function j(t,e){return{email:t,products:e.map(c=>({productId:c._id,amount:c.quantity}))}}function m(t=!0){u.classList.toggle("is-hidden-basket",!t),t&&z()}function z(){document.querySelector(".modal-close-btn-basket").addEventListener("click",()=>m(!1)),u.addEventListener("click",e=>{e.target===u&&m(!1)})}
 //# sourceMappingURL=commonHelpers.js.map
