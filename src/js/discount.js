@@ -74,7 +74,7 @@ async function OnClick(evt) {
 async function OnAddCartShop(evt) {
   try {
     const { target } = evt;
-    const parent = target.closest('.product-icon-cont');
+    const parent = target.closest('.discount-icon-cont');
     if (!parent) return;
 
     const useSvg = parent.querySelector('.filt-use');
