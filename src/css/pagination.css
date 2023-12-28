@@ -1,76 +1,68 @@
-.pagination-container{
-    margin-top: 20px;
-}
-
-.pagination-list{
-    margin: 0;
-    padding: 0;
+.pagination ul li{
+    color: #A3A3A3;
+    line-height: 1.25rem;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+  }
+  .pagination-arrow{
     display: flex;
-    list-style: none;
-    justify-content: center;
-}
-
-.pagination-arrow{
-    width: 60px;
-    height: 40px;
-}
-
-.prew-button{
-    margin-left:  15px;
-}
-
-.next-button{
-    margin-right: 15px;
-}
-
-.pagination-number{
-    width: 40px;
-    height: 40px;
-
-    background-color: transparent;
-    color: #FE7031;
-    border: 1px solid #4F4E4E;
-    border-radius: 4px;
-}
-
-.pagination-number:hover,
-.pagination-number:focus{
-    background-color: #FE7031;
-    color: #202025;
-}
-
-.back-btn-color{
-    background-color: green; ;
-    color: #202025;
-}
-
-/* .pagination-item:first-child{
-    margin-right: 198px;
-}
-.pagination-item:last-child{
-    margin-left: 198px;
-} */
-.pagination-item:nth-last-child(n + 2){
-    margin-right: 15px;
-}
-
-.dot-item{
-    width: 40px;
-    height: 40px;
-    padding: 10px 13px;
-
-    background-color: transparent;
-    color: #FE7031;
-    border: 1px solid #4F4E4E;
-    border-radius: 4px;
-}
-
-.pagination-container{
-    display: flex;
-    justify-content: center;
     align-items: center;
-}
-.active{
-    background-color: #FE7031;
-    color: #202025;
-}
+    list-style: none;
+    font-size: 14px;
+    height: 40px;
+    width: 40px;
+    margin: 0 3px;
+    line-height: 45px;
+    border-radius: 20px;
+border-color: #6D8434;}
+
+
+    .pagination-list{
+        display: flex;  
+        flex-wrap: wrap; 
+        align-items: center;
+        flex-direction: row;
+        gap: 8px;
+        
+    }
+    .pagination-number{
+        background-color: transparent;
+        color: #A3A3A3;
+  line-height: 1.25rem;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+  border: none;
+    }
+
+    .first{
+        display: flex;
+        align-items: center;
+    }
+
+    .pagination-number.active{
+    height: 40px;
+    width: 40px;
+    margin: 0 3px;
+    line-height: 45px;
+    border: 1px;
+    border-radius: 20px;
+    padding-left: 12px;
+    text-align: center;
+
+    color: #E8E8E2;
+    background-color: #6D8434;
+    }
+    .pagination{  
+        margin-left: auto;    
+   width: 100%;
+  text-align: center;
+    }
+   
