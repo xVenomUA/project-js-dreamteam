@@ -12,6 +12,7 @@
   border-radius: 50%;
   margin-right: 8px;
 }
+
 .header-li :hover,
 .header-li :focus {
   background-color: #586f1f;
@@ -142,8 +143,5 @@
   }
   .header-cart {
     margin-left: 14px;
-  }
-  .header{
-    height: 100%; 
   }
 }
