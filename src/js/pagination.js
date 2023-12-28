@@ -19,7 +19,7 @@ export function element(totalPages, page) {
   } else {
     paginationFilt.style = 'display: flex';
   }
-  if (page === 1) {
+  if (page == 1) {
     prewBtn.setAttribute('disabled', true);
   } else {
     prewBtn.removeAttribute('disabled');
@@ -29,16 +29,15 @@ export function element(totalPages, page) {
   } else {
     nextBtn.removeAttribute('disabled');
   }
-    if (totalPages > 6) {
-      if (page < 3) {
-        thirdPages = 1;
-        page = 3;
+
+  if (totalPages > 6) {
+    console.log(totalPages);
+    console.log(page);
+      if (page > totalPages - 4) {
+        page = totalPages - 4;
       }
-      if (page > totalPages - 3) {
-        page = totalPages - 3;
-        thirdPages = page - 2;
-      }
-      for (let i = thirdPages; i <= page; i++) {
+      page === 1 ? (page = page + 1) : null;
+      for (let i = page - 1; i <= page + 1; i++) {
         if (i === curentPage) {
           liTag += `<li class="pagination-item"><button class="pagination-number active" type="button">${i}</button></li>`;
         } else {
@@ -78,7 +77,7 @@ async function loadMor(event) {
   ) {
     const page = event.target.textContent;
     const filtersParce = JSON.parse(localStorage.getItem('filters'));
-    filtersParce.page = page;
+    filtersParce.page = parseInt(page);
     localStorage.setItem('filters', JSON.stringify(filtersParce));
     GetCards();
   } else {
