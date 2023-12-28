@@ -16,6 +16,7 @@ function toggleModal(isVisible, isSubscribed = true) {
     modal.classList.toggle('is-hidden', !isVisible);
     modalSub.classList.toggle('is-hidden', !isSubscribed);
     modalUnsub.classList.toggle('is-hidden', isSubscribed);
+    document.body.style.overflow = "hidden";
 }
 
 function showError() {
@@ -32,6 +33,8 @@ async function onSubmit(evt) {
         if (event.target === modal) {
             toggleModal(false);
         }
+        document.body.style.overflow = "scroll";
+
     }
     modal.addEventListener('click', handleClickOutsideModal);
 

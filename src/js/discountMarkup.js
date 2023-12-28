@@ -7,9 +7,10 @@ export function createDiscountCards(product) {
   const card = document.createElement("div")
   card.classList.add("product-card")
   card.dataset.idcarts = product._id
-  card.addEventListener("click", ()=>{
+  card.addEventListener("click", () => {
     ModalMarkUP(product)
     modalWindowId.classList.remove('is-hidden-card')
+    document.body.style.overflow = "hidden";
   })
   card.innerHTML = `
   <div class="product-background">
@@ -36,7 +37,6 @@ export function createDiscountCards(product) {
   </div>
   </div>
   `;
-    return card;
-  }
+  return card;
+}
 
-  

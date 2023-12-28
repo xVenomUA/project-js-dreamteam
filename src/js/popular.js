@@ -12,29 +12,30 @@ import { onChangeCount } from './headerFunctionCount';
 import { createPopularCards } from './popularMarkup';
 import iconimg from '/img/icon.svg';
 
-getRenderPopularCard(); 
+getRenderPopularCard();
 
 
 export async function getRenderPopularCard() {
   try {
-    const response = await getPopularProduct(); 
-    const product = response.data; 
+    const response = await getPopularProduct();
+    const product = response.data;
     createPopularCards(product);
   } catch (error) {
-    
+
   }
-} 
+}
 
 refs.PopularDiv.addEventListener('click', OnClick);
 // ВІДКРИТИ МОДАЛЬНЕ ВІКНО
 async function OnClick(evt) {
   evt.preventDefault();
+  document.body.style.overflow = "hidden";
   const { target } = evt;
   //щоб всередині кнопки також працювало
   const parent = target.closest('.popular-card');
   if (!parent) return;
   const block = target.closest('.popular-icon-cont');
-  if (block)  return;
+  if (block) return;
   const id = parent.dataset.idcarts;
   try {
     const productInfo = await getProductById(id);
@@ -55,7 +56,7 @@ function OnAddCartShop(evt) {
   useSvg.setAttribute('href', `${iconimg}#icon-check`);
   parent.setAttribute('disabled', 'true');
   const BtnIconBack = parent;
-  BtnIconBack.classList.add('popular-icon-back');  
+  BtnIconBack.classList.add('popular-icon-back');
   const id = parent.dataset.idcarts;
   const cart = localStorage.getItem('cart');
   const parseCart = JSON.parse(cart);
@@ -77,6 +78,7 @@ function OnAddCartShop(evt) {
     localStorage.setItem('cart', JSON.stringify(cartList));
     onChangeCount();
   }
+  document.body.style.overflow = "scroll";
 }
 refs.PopularDiv.addEventListener('click', OnAddCartShop);
 
