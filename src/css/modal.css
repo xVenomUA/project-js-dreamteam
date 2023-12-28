@@ -101,6 +101,7 @@ body::-webkit-scrollbar-thumb {
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
+    height: 25vh;
 }
 
 .span-subscribe-text {

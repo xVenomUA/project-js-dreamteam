@@ -221,7 +221,6 @@ cartForm.addEventListener('submit', onCheckout)
 
 async function onCheckout(event) {
   event.preventDefault();
-
   const cardError = document.querySelector('.error-message')
   const email = document.querySelector('.cart-email-input').value;
 
@@ -232,11 +231,12 @@ async function onCheckout(event) {
     const response = await postOrders(orderData);
 
     toggleModal(true);
+    document.body.style.overflow = "hidden";
     localStorage.removeItem('cart');
     cardUse();
   } catch (error) {
-    cardError.style.display='block'
-    setTimeout(() => cardError.style.display='none', 2000);
+    cardError.style.display = 'block'
+    setTimeout(() => cardError.style.display = 'none', 2000);
   }
 };
 
@@ -255,6 +255,7 @@ function toggleModal(show = true) {
   if (show) {
     setupModalCloseEvents();
   }
+  document.body.style.overflow = "scroll";
 }
 
 function setupModalCloseEvents() {
@@ -265,4 +266,5 @@ function setupModalCloseEvents() {
       toggleModal(false);
     }
   });
+
 }
