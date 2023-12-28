@@ -1,4 +1,5 @@
 import { getProductById } from './APIFoodBoutique';
+import { postOrders } from './APIFoodBoutique';
 import iconimg from '/img/icon.svg';
 import basket from '/img/yellowBasket.png';
 /* <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
@@ -15,6 +16,8 @@ const cardCounter = document.querySelector('span#cart-counter');
 const cartJsBlock = document.querySelector('.js-cart-block');
 const cartListBlock = document.querySelector('.cart-list-block');
 const cartDeleteBtn = document.querySelector('.cart-delete-btn');
+const cartForm = document.querySelector('.cart-form')
+const modalBasket = document.querySelector('.modal-backdrop-two');
 
 cartDeleteBtn.addEventListener('click', onClick);
 
@@ -213,3 +216,53 @@ function createMarkupCartEmpty() {
 const spanYourOrderPrice = document.querySelector(
   'span#your-order-total-price'
 );
+
+cartForm.addEventListener('submit', onCheckout)
+
+async function onCheckout(event) {
+  event.preventDefault();
+
+  const cardError = document.querySelector('.error-message')
+  const email = document.querySelector('.cart-email-input').value;
+
+  const cartItems = getDataLocalStorage('cart');
+  const orderData = createOrderObject(email, cartItems);
+
+  try {
+    const response = await postOrders(orderData);
+
+    toggleModal(true);
+    localStorage.removeItem('cart');
+    cardUse();
+  } catch (error) {
+    cardError.style.display='block'
+    setTimeout(() => cardError.style.display='none', 2000);
+  }
+};
+
+function createOrderObject(email, cartItems) {
+  return {
+    email: email,
+    products: cartItems.map(item => ({
+      productId: item._id,
+      amount: item.quantity
+    }))
+  };
+}
+
+function toggleModal(show = true) {
+  modalBasket.classList.toggle('is-hidden-basket', !show);
+  if (show) {
+    setupModalCloseEvents();
+  }
+}
+
+function setupModalCloseEvents() {
+  const closeModalBtn = document.querySelector('.modal-close-btn-basket');
+  closeModalBtn.addEventListener('click', () => toggleModal(false));
+  modalBasket.addEventListener('click', event => {
+    if (event.target === modalBasket) {
+      toggleModal(false);
+    }
+  });
+}
