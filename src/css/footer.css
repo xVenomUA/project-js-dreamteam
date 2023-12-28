@@ -13,6 +13,9 @@ footer{
     background-color: var(--color-link);
     margin: 0;
 }
+.footer{
+    height: 100%;
+}
 .footer-container{
     position: relative;
 }
