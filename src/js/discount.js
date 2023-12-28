@@ -70,34 +70,66 @@ async function OnClick(evt) {
   }
 }
 
-function OnAddCartShop(evt) {
-  GetCards();
-  const { target } = evt;
-  const parent = target.closest('.discount-icon-cont');
-  if (!parent) return;
-  const useSvg = parent.querySelector('.filt-use');
-  useSvg.setAttribute('href', `${iconimg}#icon-check`);
-  parent.setAttribute('disabled', 'true');
-  const id = parent.dataset.idcarts;
-  const cart = localStorage.getItem('cart');
-  const parseCart = JSON.parse(cart);
-  if (parseCart) {
+
+async function OnAddCartShop(evt) {
+  try {
+    await getRenderDiscountCard();
+
+    const { target } = evt;
+    const parent = target.closest('.product-icon-cont');
+    if (!parent) return;
+
+    const useSvg = parent.querySelector('.filt-use');
+    useSvg.setAttribute('href', `${iconimg}#icon-check`);
+    parent.setAttribute('disabled', 'true');
+
+    const id = parent.dataset.idcarts;
+    const cart = localStorage.getItem('cart');
+    const parseCart = JSON.parse(cart) || [];
+
     const findProduct = parseCart.find(product => product._id === id);
     if (findProduct) {
       findProduct.quantity += 1;
-      localStorage.setItem('cart', JSON.stringify(parseCart));
-      return;
+    } else {
+      parseCart.push({ _id: id, quantity: 1 });
+      onChangeCount();
     }
-    parseCart.push({ _id: id, quantity: 1 });
+
     localStorage.setItem('cart', JSON.stringify(parseCart));
-    onChangeCount();
-    return;
-  }
-  if (!parseCart) {
-    const cartList = [];
-    cartList.push({ _id: id, quantity: 1 });
-    localStorage.setItem('cart', JSON.stringify(cartList));
-    onChangeCount();
+  } catch (error) {
+    
   }
 }
-refs.DiscountDiv.addEventListener('click', OnAddCartShop);
+  refs.DiscountDiv.addEventListener('click', OnAddCartShop);
+
+// function OnAddCartShop(evt) {
+//   GetCards();
+//   const { target } = evt;
+//   const parent = target.closest('.discount-icon-cont');
+//   if (!parent) return;
+//   const useSvg = parent.querySelector('.filt-use');
+//   useSvg.setAttribute('href', `${iconimg}#icon-check`);
+//   parent.setAttribute('disabled', 'true');
+//   const id = parent.dataset.idcarts;
+//   const cart = localStorage.getItem('cart');
+//   const parseCart = JSON.parse(cart);
+//   if (parseCart) {
+//     const findProduct = parseCart.find(product => product._id === id);
+//     if (findProduct) {
+//       findProduct.quantity += 1;
+//       localStorage.setItem('cart', JSON.stringify(parseCart));
+//       return;
+//     }
+//     parseCart.push({ _id: id, quantity: 1 });
+//     localStorage.setItem('cart', JSON.stringify(parseCart));
+//     onChangeCount();
+//     return;
+//   }
+//   if (!parseCart) {
+//     const cartList = [];
+//     cartList.push({ _id: id, quantity: 1 });
+//     localStorage.setItem('cart', JSON.stringify(cartList));
+//     onChangeCount();
+//   }
+// }
+// refs.DiscountDiv.addEventListener('click', OnAddCartShop);
