@@ -34,7 +34,7 @@
   padding-right: 30px;
 }
 .filter {
-  padding-bottom: 180px;
+  padding-bottom: 80px;
 }
 
 .filter-selec {
@@ -244,6 +244,9 @@ img .filt-div-img {
     align-items: flex-start;
     gap: 4px;
   }
+  .filter {
+  padding-bottom: 100px;
+}
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -257,6 +260,9 @@ img .filt-div-img {
     padding-top: 160px;
     padding-bottom: 0px;
   }
+  .filter {
+  padding-bottom: 60px;
+}
   .filt-text-no {
     font-size: 20px;
   }
