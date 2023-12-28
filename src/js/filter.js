@@ -190,6 +190,7 @@ function change()
   
   const filtersCatValue = refs.filtersCategories.value;
   localValue.category = filtersCatValue;
+  localValue.page = 1;
   if (filtersCatValue === '') {
     localValue.category = null;
   }
