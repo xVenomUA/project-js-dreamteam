@@ -13,7 +13,9 @@ import iconimg from '/img/icon.svg';
 import { element} from './pagination';
 const localValueChange = { keyword: null };
 const localValue = { keyword: null, category: null, page: 1, limit: getLimit() };
-localStorage.setItem('filters', JSON.stringify(localValue));
+if (!localStorage.getItem('filters')) {
+  localStorage.setItem('filters', JSON.stringify(localValue));
+}
 // відслідковування зміни ширини вікна
 window.addEventListener('resize', throttle(GetCards, 2500));
 let totalPageSSS = 0; 
