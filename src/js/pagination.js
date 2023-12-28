@@ -38,7 +38,7 @@ export function element(totalPages, page) {
       }
       page === 1 ? (page = page + 1) : null;
       for (let i = page - 1; i <= page + 1; i++) {
-        if (i === curentPage) {
+        if (i == curentPage) {
           liTag += `<li class="pagination-item"><button class="pagination-number active" type="button">${i}</button></li>`;
         } else {
           liTag += `<li class="pagination-item"><button class="pagination-number" type="button">${i}</button></li>`;
@@ -46,7 +46,7 @@ export function element(totalPages, page) {
       }
       liTag += `<li class="pagination-item dot-item"><span>...</span></li>`;
       for (let i = thirdPagesAnd; i <= totalPages; i++) {
-        if (i === curentPage) {
+        if (i == curentPage) {
           liTag += `<li class="pagination-item"><button class="pagination-number active" type="button">${i}</button></li>`;
         } else {
           liTag += `<li class="pagination-item"><button class="pagination-number" type="button">${i}</button></li>`;
