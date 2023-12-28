@@ -74,8 +74,6 @@ export async function GetCards() {
     localStorage.setItem('totalPage', JSON.stringify(seacrhresult.totalPages));
     const results = seacrhresult.results;
     totalPageSSS = seacrhresult.totalPages; //загальна кількість сторінок
-    console.log(totalPageSSS);
-    console.log(localValue.page); // сторінки з локал сторедж 
     element(totalPageSSS, localValue.page) // рендер пагінації;
     //записуємо все в локал сторедж
     FilterMarkUp(results);
@@ -188,11 +186,8 @@ refs.listCards.addEventListener('click', OnAddCartShop);
 
 select.addEventListener('change', change)
 function change()
-{const filtersValue = refs.filtersInput.value;
-  localValue.keyword = filtersValue;
-  if (filtersValue === '') {
-    localValue.keyword = null;
-  }
+{
+  
   const filtersCatValue = refs.filtersCategories.value;
   localValue.category = filtersCatValue;
   if (filtersCatValue === '') {
