@@ -26,12 +26,14 @@ async function OnClick(evt) {
     } catch (error) {
         console.log(error);
     }
+    document.body.style.overflow = "hidden";
 }
 
 closeModalBtn.addEventListener('click', OnCloseModal);
 export function OnCloseModal() {
     refs.modalWindowId.classList.add('is-hidden-card');
-    
+    document.body.style.overflow = "scroll";
+
 }
 
 //ДЛЯ КНОПКИ ДОДАТИ В КОШИК
@@ -47,18 +49,18 @@ function OnAddCart(evt) {
     OnCloseModal();
     const cart = localStorage.getItem('cart');
     const parseCart = JSON.parse(cart);
-    if (dataCheck === 'false') { 
+    if (dataCheck === 'false') {
         if (parseCart) {
-          const findProduct = parseCart.find(product => product._id === id);
-          if (findProduct) {
-            findProduct.quantity += 1;
+            const findProduct = parseCart.find(product => product._id === id);
+            if (findProduct) {
+                findProduct.quantity += 1;
+                localStorage.setItem('cart', JSON.stringify(parseCart));
+                return;
+            }
+            parseCart.push({ _id: id, quantity: 1 });
             localStorage.setItem('cart', JSON.stringify(parseCart));
+            onChangeCount();
             return;
-          }
-          parseCart.push({ _id: id, quantity: 1 });
-          localStorage.setItem('cart', JSON.stringify(parseCart));
-          onChangeCount();
-          return;
         }
         const cartList = [];
         cartList.push({ _id: id, quantity: 1 });
@@ -68,9 +70,9 @@ function OnAddCart(evt) {
         if (parseCart) {
             const findProduct = parseCart.find(product => product._id === id);
             if (findProduct) {
-                    const cartList = parseCart.filter(product => product._id !== id);
-                    localStorage.setItem('cart', JSON.stringify(cartList));
-                    onChangeCount();
+                const cartList = parseCart.filter(product => product._id !== id);
+                localStorage.setItem('cart', JSON.stringify(cartList));
+                onChangeCount();
                 return;
             }
         }
