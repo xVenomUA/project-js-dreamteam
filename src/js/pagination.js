@@ -58,9 +58,6 @@ export function element(totalPages, page) {
     for (let i = 1; i <= totalPages; i++) {
       liTag += `<li class="pagination-item"><button class="pagination-number" type="button">${i}</button></li>`;
     }
-  } else {
-    firstTotalPage.style = 'display: block';
-    lastTOtalpage.style = 'display: block';
   }
   ulTag.innerHTML = liTag; //add li tag inside ul tag
 }
