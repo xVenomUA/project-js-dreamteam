@@ -68,13 +68,25 @@ export async function GetCards() {
     );
     localStorage.setItem('totalPage', JSON.stringify(seacrhresult.totalPages));
     const results = seacrhresult.results;
+    createPagination(seacrhresult.totalPages, localValue.page);
     FilterMarkUp(results);
+    
   } catch (error) {
     console.log(error);
   }
 }
 
-
+function onClickRender() {
+  const filtersParce = JSON.parse(localStorage.getItem('filters'));
+  if (filtersParce) {
+    localValue.keyword = filtersParce.keyword;
+    localValue.category = filtersParce.category;
+    localValue.page = filtersParce.page;
+    localStorage.setItem('filters', JSON.stringify(localValue));
+    changeForm();
+  }
+  GetCards();
+}
 
 GetCategories();
 GetCards();
