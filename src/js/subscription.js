@@ -10,7 +10,7 @@ const btnToTop = document.querySelector('.footer-btn-to-top');
 const containerFooter = document.querySelector('.footer-container');
 const someModal = document.querySelector('.modal-container')
 
-someModal.classList.add('is-hidden');
+ 
 
 
 function toggleModal(isVisible, isSubscribed = true) {
