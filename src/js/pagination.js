@@ -81,7 +81,8 @@ async function loadMor(event) {
   ) {
     const page = event.target.textContent;
     const filtersParce = JSON.parse(localStorage.getItem('filters'));
-    filtersParce.page = page;
+    filtersParce.page = page
+      console.log("ddd " + parseInt(filtersParce.page));;
     localStorage.setItem('filters', JSON.stringify(filtersParce));
     GetCards();
   } else {
