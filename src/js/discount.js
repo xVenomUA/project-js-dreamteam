@@ -52,13 +52,14 @@ export async function getRenderDiscountCard() {
 
 refs.DiscountDiv.addEventListener('click', OnClick);
 async function OnClick(evt) {
-  evt.preventDefault();
+  evt.preventDefault()
+  document.body.style.overflow = "hidden";
   const { target } = evt;
 
   const parent = target.closest('.product-card');
   if (!parent) return;
   const block = target.closest('.discount-icon-cont');
-  if (block)  return;
+  if (block) return;
   const id = parent.dataset.idcarts;
   try {
     const productInfo = await getProductById(id);
@@ -94,10 +95,11 @@ async function OnAddCartShop(evt) {
 
     localStorage.setItem('cart', JSON.stringify(parseCart));
   } catch (error) {
-    
+
   }
+  document.body.style.overflow = "scroll";
 }
-  refs.DiscountDiv.addEventListener('click', OnAddCartShop);
+refs.DiscountDiv.addEventListener('click', OnAddCartShop);
 
 // function OnAddCartShop(evt) {
 //   GetCards();
