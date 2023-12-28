@@ -12,10 +12,13 @@ const someModal = document.querySelector('.modal-container')
 
 someModal.classList.add('is-hidden');
 
+
 function toggleModal(isVisible, isSubscribed = true) {
     modal.classList.toggle('is-hidden', !isVisible);
     modalSub.classList.toggle('is-hidden', !isSubscribed);
     modalUnsub.classList.toggle('is-hidden', isSubscribed);
+    document.body.style.overflow = "hidden";
+
 }
 
 function showError() {
@@ -23,6 +26,7 @@ function showError() {
     errorMessageDiv.style.display = 'block';
     setTimeout(() => errorMessageDiv.style.display = 'none', 2000);
 }
+
 
 async function onSubmit(evt) {
     evt.preventDefault();
@@ -32,8 +36,10 @@ async function onSubmit(evt) {
         if (event.target === modal) {
             toggleModal(false);
         }
+        document.body.style.overflow = "scroll";
     }
     modal.addEventListener('click', handleClickOutsideModal);
+
 
     try {
         const response = await postSubscription({ email });
@@ -47,7 +53,10 @@ async function onSubmit(evt) {
         loader.classList.add('is-hidden');
         form.reset();
     }
+
+
 }
+
 
 function setupScrollToTopButton() {
     const onObserve = (entries) => {
