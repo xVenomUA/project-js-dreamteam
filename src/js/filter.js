@@ -18,7 +18,7 @@ if (!localStorage.getItem('filters')) {
   localStorage.setItem('filters', JSON.stringify(localValue));
 }
 // відслідковування зміни ширини вікна
-window.addEventListener('resize', throttle(GetCards, 2500));
+window.addEventListener('resize', throttle(GetCards, 1000));
 let totalPageSSS = 0; 
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
