@@ -13,7 +13,7 @@ export function element(totalPages, page) {
     let thirdPagesAnd = totalPages - 2;
     let thirdPages = page - 2;
     let curentPage = page;
-  lastTOtalpage.textContent = totalPages;
+  lastTOtalpage.dataset.total = totalPages;
   if (totalPages === 1) {
     paginationFilt.style = 'display: none';
   } else {
@@ -105,7 +105,7 @@ async function firstPage(event) {
 }
 async function lastPage(event) {
   const filtersParce = JSON.parse(localStorage.getItem('filters'));
-  filtersParce.page = lastTOtalpage.textContent;
+  filtersParce.page = lastTOtalpage.dataset.total;
   localStorage.setItem('filters', JSON.stringify(filtersParce));
   GetCards();
 }
