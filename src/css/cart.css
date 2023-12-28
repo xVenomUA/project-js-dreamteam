@@ -9,6 +9,12 @@
 ~~~~~~~~~~~~~~~~~mobile~~~~~~~~~~~~~~~~ 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.cart-empty-new {
+  margin-top: 105px;
+}
+.cart-basket-img {
+  margin-bottom: 40px;
+}
 .cart-list-block {
   overflow: auto;
   height: 440px;
@@ -387,6 +393,9 @@ line-height: 24px;
   }
   .js-cart-block {
     display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding-bottom: 30px;
   }
   .cart-order-form {
     margin-top: 47px;
@@ -394,5 +403,8 @@ line-height: 24px;
   }
   .cart-info {
     width: 360px
+  }
+  .cart-basket-img {
+    margin-bottom: 40px;
   }
 }
