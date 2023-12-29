@@ -53,8 +53,8 @@ export function element(totalPages, page) {
   } 
     ulTag.innerHTML = liTag;
   if (totalPages > 1 && totalPages < 7) {
-    firstTotalPage.style = 'display: none';
-    lastTOtalpage.style = 'display: none';
+    firstTotalPage.setAttribute('hidden', true);
+    lastTOtalpage.setAttribute('hidden', true);
     for (let i = 1; i <= totalPages; i++) {
         if (i == curentPage) {
           liTag += `<li class="pagination-item"><button class="pagination-number active" type="button">${i}</button></li>`;
@@ -62,6 +62,9 @@ export function element(totalPages, page) {
           liTag += `<li class="pagination-item"><button class="pagination-number" type="button">${i}</button></li>`;
         }
     }
+  } else { 
+    firstTotalPage.removeAttribute('hidden');
+    lastTOtalpage.removeAttribute('hidden');
   }
   ulTag.innerHTML = liTag; //add li tag inside ul tag
 }
