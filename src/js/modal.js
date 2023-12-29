@@ -45,7 +45,6 @@ function OnAddCart(evt) {
     if (!parent) return;
     const id = parent.dataset.idcards;
     const dataCheck = parent.dataset.check;
-    console.log(dataCheck);
     OnCloseModal();
     const cart = localStorage.getItem('cart');
     const parseCart = JSON.parse(cart);
