@@ -56,7 +56,11 @@ export function element(totalPages, page) {
     firstTotalPage.style = 'display: none';
     lastTOtalpage.style = 'display: none';
     for (let i = 1; i <= totalPages; i++) {
-      liTag += `<li class="pagination-item"><button class="pagination-number" type="button">${i}</button></li>`;
+        if (i == curentPage) {
+          liTag += `<li class="pagination-item"><button class="pagination-number active" type="button">${i}</button></li>`;
+        } else {
+          liTag += `<li class="pagination-item"><button class="pagination-number" type="button">${i}</button></li>`;
+        }
     }
   }
   ulTag.innerHTML = liTag; //add li tag inside ul tag
