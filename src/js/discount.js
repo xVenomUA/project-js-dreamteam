@@ -56,7 +56,6 @@ async function OnClick(evt) {
   evt.preventDefault()
   document.body.style.overflow = "hidden";
   const { target } = evt;
-
   const parent = target.closest('.product-card');
   if (!parent) return;
   const block = target.closest('.discount-icon-cont');
@@ -77,7 +76,6 @@ async function OnAddCartShop(evt) {
     const { target } = evt;
     const parent = target.closest('.discount-icon-cont');
     if (!parent) return;
-
     const useSvg = parent.querySelector('.filt-use');
     useSvg.setAttribute('href', `${iconimg}#icon-check`);
     parent.setAttribute('disabled', 'true');
@@ -85,7 +83,7 @@ async function OnAddCartShop(evt) {
     const id = parent.dataset.idcarts;
     const cart = localStorage.getItem('cart');
     const parseCart = JSON.parse(cart) || [];
-
+    onChangeCount();
     const findProduct = parseCart.find(product => product._id === id);
     if (findProduct) {
       findProduct.quantity += 1;
@@ -96,7 +94,7 @@ async function OnAddCartShop(evt) {
     }
 
     localStorage.setItem('cart', JSON.stringify(parseCart));
-    
+    onChangeCount();
   } catch (error) {
 
   }
