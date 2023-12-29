@@ -42,7 +42,8 @@ async function cardUse() {
   cardCounter.textContent = cartArr.length;
 
   if (cartArr.length === 0) {
-    cartJsBlock.innerHTML = createMarkupCartEmpty(); // createMarkup empty cart
+    cartJsBlock.innerHTML = createMarkupCartEmpty();// createMarkup empty cart
+    onChangeCount();
     return;
   }
   renderCards(cartArr);
@@ -234,6 +235,7 @@ async function onCheckout(event) {
     toggleModal(true);
     document.body.style.overflow = "hidden";
     localStorage.removeItem('cart');
+    onChangeCount();
     cardUse();
   } catch (error) {
     cardError.style.display = 'block'
