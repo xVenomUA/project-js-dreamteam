@@ -76,14 +76,9 @@ selectBtn.addEventListener('click', (e) => {
   const spanValue = parent.querySelector('.selected-value').textContent;
   const selectDropdown = document.querySelectorAll('.select-dropdown li label');
   selectDropdown.forEach((el) => {
-    if (el.textContent == spanValue) {
+    if (el.textContent == spanValue || (el.textContent == 'Show all' && spanValue == 'Categories')) {
       el.classList.add('selectedCat');
     } else {
-      el.classList.remove('selectedCat');
-    }
-    if(el.textContent == 'Show all'){
-      el.classList.add('selectedCat');
-    }else{
       el.classList.remove('selectedCat');
     }
   });
@@ -172,6 +167,13 @@ async function handleFiltersSubmit(evt) {
 // функція запису ключового слова з локал сторидж  в INPUT при перезавантаженні сторінки.
 function changeForm() {
   try {
+    const filtersCatValue = document.querySelector('.selected-value');
+    const filtersCatValueParce = JSON.parse(localStorage.getItem('filters'));
+    if(filtersCatValueParce.category !== null){
+      const filtervalue = filtersCatValueParce.category.replace(/_/g, ' ');
+      filtersCatValue.textContent = filtervalue;
+      filtersCatValue.value = filtersCatValueParce.category;
+    }
     const keywordParce = JSON.parse(localStorage.getItem('keyword'));
     if (refs.filtersInput) {
       refs.filtersInput.value = keywordParce.keyword || '';
