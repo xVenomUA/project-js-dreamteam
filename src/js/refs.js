@@ -1,5 +1,5 @@
 export const refs = {
-  categor: document.querySelector('.filter-categories'),
+  categor: document.querySelector('.select-dropdown'),
   filtercard: document.querySelector('.filter-cards'),
   form: document.querySelector('.filter-div-label'),
   filtersInput: document.getElementById('filter-search'),

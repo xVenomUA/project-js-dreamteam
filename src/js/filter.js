@@ -1,21 +1,20 @@
-/* <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
-₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
-    Ондрій + Andrian Pohrebniak + Pasha + Валентин
-₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
-₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ --> */
-
 import throttle from 'lodash.throttle';
 import { refs } from '../js/refs';
 import { APIProductSearch, APICategories } from './APIFoodBoutique';
 import { FilterMarkUp } from './FilterMarkUp';
 import { onChangeCount } from './headerFunctionCount';
 import iconimg from '/img/icon.svg';
-import { element} from './pagination';
+import { element } from './pagination';
 import { getRenderPopularCard } from './popular';
 import { updateAllProductIcons } from './FilterMarkUp';
 const localValueChange = { keyword: null };
-const localValue = { keyword: null, category: null, page: 1, limit: getLimit() };
-const select = document.querySelector('.filter-categories')
+const localValue = {
+  keyword: null,
+  category: null,
+  page: 1,
+  limit: getLimit(),
+};
+const select = document.querySelector('.filter-categories');
 if (!localStorage.getItem('filters')) {
   localStorage.setItem('filters', JSON.stringify(localValue));
 }
@@ -25,7 +24,7 @@ if (!localStorage.getItem('cart')) {
 
 // відслідковування зміни ширини вікна
 window.addEventListener('resize', throttle(GetCards, 1000));
-let totalPageSSS = 0; 
+let totalPageSSS = 0;
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 // ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
 // РЕНДЕР КАТЕГОРІЙ В СЕЛЕКТІ
@@ -42,18 +41,61 @@ async function GetCategories() {
         } else {
           replacedata = data;
         }
-        return `<option value="${data}">${replacedata}</option>`;
+        return `<li role="option">
+        <label value="${data}">${replacedata}</label>
+      </li>`;
       })
       .join('');
     refs.categor.innerHTML += markUpCategories;
-    const option = document.createElement('option');
-    option.value = 'Show all';
-    option.textContent = 'Show all';
-    refs.categor.prepend(option);
+    const elShowall = `<li role="option"><label value="Show all">Show all</label></li>`;
+    refs.categor.insertAdjacentHTML('afterbegin', elShowall);
   } catch (error) {
     console.log(error);
   }
 }
+
+// eeeee
+
+const customSelect = document.querySelector('.custom-select');
+const selectBtn = document.querySelector('.select-button');
+
+const selectedValue = document.querySelector('.selected-value');
+const optionsList = document.querySelector('.select-dropdown');
+
+// add click event to select button
+selectBtn.addEventListener('click', (e) => {
+  // add/remove active class on the container element
+  customSelect.classList.toggle('active');
+  // update the aria-expanded attribute based on the current state
+  selectBtn.setAttribute(
+    'aria-expanded',
+    selectBtn.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
+  );
+
+  const parent = e.target.closest('.select-button');
+  const spanValue = parent.querySelector('.selected-value').textContent;
+  const selectDropdown = document.querySelectorAll('.select-dropdown li label');
+  selectDropdown.forEach((el) => {
+    if (el.textContent == spanValue) {
+      el.classList.add('selectedCat');
+    } else {
+      el.classList.remove('selectedCat');
+    }
+    if(el.textContent == 'Show all'){
+      el.classList.add('selectedCat');
+    }else{
+      el.classList.remove('selectedCat');
+    }
+  });
+});
+
+optionsList.addEventListener('click', e => {
+  if (e.target.tagName === 'LABEL' || e.target.tagName === 'INPUT') {
+    selectedValue.textContent = e.target.textContent;
+    selectedValue.value = e.target.getAttribute('value');
+    customSelect.classList.remove('active');
+  }
+});
 
 // РЕНДЕР КАРТОК В СЕЛЕКТІ з врахуванням вибраних фільтрів
 export async function GetCards() {
@@ -80,7 +122,7 @@ export async function GetCards() {
     localStorage.setItem('totalPage', JSON.stringify(seacrhresult.totalPages));
     const results = seacrhresult.results;
     totalPageSSS = seacrhresult.totalPages; //загальна кількість сторінок
-    element(totalPageSSS, localValue.page) // рендер пагінації;
+    element(totalPageSSS, localValue.page); // рендер пагінації;
     //записуємо все в локал сторедж
     FilterMarkUp(results);
   } catch (error) {
@@ -102,7 +144,6 @@ async function handleFiltersInput() {
   if (filtersValue === '') {
     localValueChange.keyword = null;
   }
-
   localStorage.setItem('keyword', JSON.stringify(localValueChange));
 }
 
@@ -114,7 +155,7 @@ async function handleFiltersSubmit(evt) {
   if (filtersValue === '') {
     localValue.keyword = null;
   }
-  const filtersCatValue = refs.filtersCategories.value;
+  const filtersCatValue = document.querySelector('.selected-value').value;
   localValue.category = filtersCatValue;
   if (filtersCatValue === '') {
     localValue.category = null;
@@ -140,7 +181,6 @@ function changeForm() {
   }
 }
 changeForm();
-
 
 // Функція для визначення ліміту в залежності від розміру екрану
 function getLimit() {
@@ -187,15 +227,11 @@ function OnAddCartShop(evt) {
     localStorage.setItem('cart', JSON.stringify(cartList));
     onChangeCount();
   }
-  
 }
 refs.listCards.addEventListener('click', OnAddCartShop);
 
-select.addEventListener('change', change)
-function change()
-{
-  
-  const filtersCatValue = refs.filtersCategories.value;
+function change() {
+  const filtersCatValue = document.querySelector('.selected-value').value;
   localValue.category = filtersCatValue;
   localValue.page = 1;
   if (filtersCatValue === '') {
@@ -208,3 +244,5 @@ function change()
   localStorage.setItem('filters', JSON.stringify(localValue));
   GetCards();
 }
+const onChange = document.querySelector('.select-dropdown');
+onChange.addEventListener('click', change);

@@ -9,6 +9,9 @@
          MOBILE view       
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.cat-div{ 
+  position: relative;
+}
 .filter-categories {
   padding: 14px 20px;
   background-color: transparent;
@@ -18,25 +21,23 @@
   font-size: 14px;
   line-height: 1.125rem;
   margin-bottom: 12px;
-  display: inline-block;
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
   background-image: url('../img/chevron-down.svg');
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: right 15px center;
 }
-.filter-categories::-ms-expand {
-  display: none;
-}
-.option-show-all {
-  padding-right: 30px;
-}
-.filter {
-  padding-bottom: 80px;
-}
 
+
+.filter-categories-goods{ 
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+  color: #010101;
+  position: absolute;
+  top: 50px;
+
+}
 .filter-selec {
   width: 100%;
   padding: 14px 20px;
@@ -47,9 +48,9 @@
   font-size: 14px;
   line-height: 1.125rem; /* 128.571% */
   margin-bottom: 12px;
-  display: inline-block;
   transition: border cubic-bezier(0.6, -0.28, 0.735, 0.045) 150ms;
 }
+
 .filter-div-label {
   position: relative;
 }
@@ -305,4 +306,140 @@ img .filt-div-img {
     padding: 0;
     margin: 0 40px 0 0;
   }
+}
+
+
+
+
+
+
+
+.custom-select {
+  position: relative;
+  width: 400px;
+  max-width: 100%;
+  font-size: 1.15rem;
+  color: #000;
+  margin-top: 3rem;
+}
+
+.select-button {
+  padding: 14px 20px;
+  background-color: transparent;
+  border-radius: 30px;
+  border: 1px solid rgba(1, 1, 1, 0.3);
+  color: #010101;
+  font-size: 14px;
+  line-height: 1.125rem;
+height: 52px;
+width: 250px;
+  background-image: url('../img/chevron-down.svg');
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  display: flex;
+  align-items: center;
+}
+
+.selected-value {
+  text-align: left;
+}
+
+
+.select-dropdown {
+  position: absolute;
+  list-style: none;
+  width: 250px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background-color: var(--back-color);
+  border: 1px solid #caced1;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  transition: 0.5s ease;
+
+  transform: scaleY(0);
+  opacity: 0;
+  visibility: hidden;
+   
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+}
+
+.select-dropdown:focus-within {
+  box-shadow: 0 10px 25px rgba(83, 83, 83, 0.6);
+}
+
+.select-dropdown li {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  border-radius: 15px 5px;
+  transition: 0.4s;
+}
+
+.select-dropdown li label {
+  width: 100%;
+  padding: 8px 5px;
+  cursor: pointer;
+  display: flex;
+  gap: 1rem;
+  align-items: center; 
+}
+
+.select-dropdown::-webkit-scrollbar {
+  max-height: 10px; 
+  width: 12px;
+
+}
+.select-dropdown::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+.select-dropdown::-webkit-scrollbar-thumb {
+  background: #bbbbb1b9;
+  border-radius: 25px
+}
+
+.select-dropdown input:checked ~ label{
+  border-radius: 15px 5px;
+  background-color: var(--color-link);
+} 
+.select-dropdown label:checked ~ label {
+  background-color: var(--color-link);
+}
+.select-dropdown li:hover { 
+  border-radius: 15px 5px;
+  border: 2px solid var(--color-link);
+
+}
+
+.select-dropdown input:focus ~ label {
+  background-color: #dfdfdf;
+}
+
+.select-dropdown input[type="radio"] {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+}
+
+/* interactivity */
+
+.custom-select.active .select-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: scaleY(1);
+}
+
+.selectedCat{
+  border-radius: 15px 5px;
+  background-color: var(--color-link);
 }
