@@ -8,8 +8,8 @@
     
     <script type="module" crossorigin src="/project-js-dreamteam/commonHelpers2.js"></script>
     <link rel="modulepreload" crossorigin href="/project-js-dreamteam/assets/vendor-611745ce.js">
-    <link rel="modulepreload" crossorigin href="/project-js-dreamteam/assets/subscription-d9763ab2.js">
-    <link rel="stylesheet" href="/project-js-dreamteam/assets/subscription-5841c4c0.css">
+    <link rel="modulepreload" crossorigin href="/project-js-dreamteam/assets/subscription-8d425622.js">
+    <link rel="stylesheet" href="/project-js-dreamteam/assets/subscription-a430528e.css">
     <link rel="stylesheet" href="/project-js-dreamteam/assets/vendor-9918a8f8.css">
   </head>
   <body>
@@ -73,11 +73,7 @@
 
       <div class="div-position-global">
         <div class="div-position-my-post">
-          <!-- ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
-₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
-    Ондрій + Andrian Pohrebniak + Pasha
-₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
-₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴ -->
+          
 
 <section class="filter">
   <div class="container filter-container">
@@ -101,21 +97,21 @@
         </form>
       </div>
       <!-- gg -->
-      <select
-        name="filt-name-select"
-        class="filter-categories filter-selec filter-strilka"
-      >
-        <option value="" selected disabled hidden>Categories</option>
-      </select>
-      <!-- <select class="filter-sort filter-selec filter-strilka">
-        <option value="">A to Z</option>
-        <option value="">Z to A</option>
-        <option value="">Cheap</option>
-        <option value="">Expensive</option>
-        <option value="">Popular</option>
-        <option value="">Not popular</option>
-        <option value="">Show all</option>
-      </select> -->
+<div class="custom-select">
+  <button
+    class="select-button"
+    role="combobox"
+    aria-labelledby="select button"
+    aria-haspopup="listbox"
+    aria-expanded="false"
+    aria-controls="select-dropdown"
+  >
+    <span class="selected-value" value="Show all">Categories</span>
+  </button>
+  <ul class="select-dropdown" role="listbox" id="select-dropdown">
+  </ul>
+</div>
+      <!-- 21424 -->
     </div>
     <div class="filter-cards"></div>
 
